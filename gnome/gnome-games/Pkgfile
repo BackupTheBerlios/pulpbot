@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.2 2004/10/31 20:12:07 yankeegohome Exp $
+# $Id: Pkgfile,v 1.3 2004/12/02 21:40:15 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Gnome games
@@ -6,7 +6,7 @@
 # URL: http://www.gnome.org
 
 name=gnome-games
-version=2.8.1
+version=2.8.2
 release=1
 source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2 \	$name.patch)
 
@@ -16,7 +16,7 @@ build () {
 	export SCROLLKEEPER_CONFIG="$PATH:$PWD"
 	cd $name-$version
 	patch -p0 < ../$name.patch
-	sed -e "/scrollkeeper-update/d" -i */C/Makefile.in
+	sed -e "/scrollkeeper-update/d" -i */help/C/Makefile.in
 	./configure --prefix=/usr \
 		    --localstatedir=/var \
 		    --disable-schemas-install \
