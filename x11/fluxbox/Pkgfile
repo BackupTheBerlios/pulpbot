@@ -4,13 +4,14 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=fluxbox
-version=0.9.10
+version=0.9.11
 release=1
 source=(http://osdn.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
 build() {
     cd $name-$version
-    ./configure --prefix=/usr --disable-nls --enable-xinerama
+    ./configure --prefix=/usr --with-gnu-ld --enable-xinerama \
+    --disable-kde --disable-gnome --disable-nls
     make
-    make install DESTDIR=$PKG
+    make DESTDIR=$PKG install
 }
