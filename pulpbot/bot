@@ -59,6 +59,7 @@ my $DORME=0;
 my $dovesta;
 my $chivuoi;
 my $chiwhois;
+my $chi;
 my $dovewhois;
 my $whoisuser;
 my $whoischannels;
