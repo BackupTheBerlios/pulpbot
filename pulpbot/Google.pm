@@ -1,4 +1,4 @@
-# $Id: Google.pm,v 1.3 2004/08/05 13:45:58 giuseppe Exp $
+# $Id: Google.pm,v 1.4 2004/08/08 18:47:18 giuseppe Exp $
 #========================================================================
 # google:     HTTP GET of a Google query. First n links are displayed.
 #
@@ -36,7 +36,7 @@ sub google {
     my $query = "$_[0]";
     my @result;
     my $el;
-    my $URL = "www.google.it/search?num=100&q=";
+    my $URL = "www.google.it/search?q=";
     my $ua = LWP::UserAgent->new();
     $ua->agent("Mozilla/4.7 [it] (X11; U; Linux 2.2.17 i686)");
     my $req = HTTP::Request->new(GET => "http://".$URL.$query);

@@ -1,5 +1,4 @@
 #!/usr/bin/perl -w
-# REMEMBER TO MODIFY $nick, $admin AND %operatori
 
 use strict;
 use Time::HiRes qw( sleep );
@@ -10,8 +9,8 @@ use XML::Simple;
 use Dizionario qw(cerca);
 use Google qw(google);
 
-
-my $config	=	XMLin($ARGV[0]);
+my $xs		=	new XML::Simple();
+my $config	=	$xs->XMLin($ARGV[0]);
 my $nick	=	$config->{nick};
 my $admin	=	$config->{admin};
 my $nickpasswd	=	$config->{password};
@@ -24,11 +23,30 @@ my $canale;
 do{
     $canale=$config->{canale}->[$i]->{chan};
     $canali="$canali$canale,";
-    #print "$canale ";
     my $password=$config->{canale}->[$i]->{password};
     $operatori{"$password"}="$canale";
     $i++;
 }while($canale ne "");
+
+
+my $megahal;
+my $megatext;
+my $megaignora;
+
+if($config->{megahal})
+{
+    use AI::MegaHAL;
+    $megahal		=	new AI::MegaHAL('Path' => $config->{megahal}->{path}, 
+						'AutoSave' => 1);
+    $megatext		=	$megahal->initial_greeting();
+    $i=0;
+    my $ignora;
+    do{
+	$ignora=$config->{megahal}->{ignora}->[$i];
+	$megaignora="$megaignora $ignora";
+	$i++;
+    }while($ignora ne "");
+}
 
 
 my $SLEEP=0;
@@ -193,7 +211,7 @@ sub irc_kick {
     my ($kernel, $who, $where, $isitme, $reason) = @_[KERNEL, ARG0 .. ARG4];
     #print "Kicked from $where by $who: $reason\n" if $isitme eq $nick;
     $kernel->post('test', 'join', $where);
-    $who=(split /!/, $who)[0];
+    $who=split ("!", $who);
     if($who ne $nick) {
 	if($isitme eq $nick) {
 	    if($kicked{$who}) {
@@ -214,26 +232,26 @@ sub irc_kick {
 
 sub irc_join {
     my ($kernel, $who, $where) = @_[KERNEL, ARG0, ARG1];
-    $who = (split /!/, $who)[0];
+    $who = (split "!", $who)[0];
     if($who eq $nick) {
-	$kernel->post('test', 'privmsg', $where, "Salve a tutti, pezzenti di $where");
+	#$kernel->post('test', 'privmsg', $where, "Salve a tutti, pezzenti di $where");
     } elsif($iskicked{$who}) {
 	$kernel->post('test', 'privmsg', $where, "Sei ancora qui $who?");
 	$iskicked{$who}=0;
     } else {
-	$kernel->post('test', 'privmsg', $where, "Benvenuto in $where, $who");
+	#$kernel->post('test', 'privmsg', $where, "Benvenuto in $where, $who");
     }
 }
 
 sub irc_ctcp_version {
     my($kernel, $who) = @_[KERNEL, ARG0];
-    $who=(split /!/, $who)[0];
+    $who=(split "!", $who)[0];
     $kernel->post('test', 'ctcpreply', $who, "Pulpbot v.0.2");
 }
 
 sub irc_public {
     my ($kernel, $who, $where, $msg) = @_[KERNEL, ARG0 .. ARG2];
-    $who = (split /!/, $who)[0];
+    $who = (split "!", $who)[0];
 
     #print "<$who:@{$where}[0]> $msg\n";
     if($pulpkick) {
@@ -334,6 +352,18 @@ sub irc_public {
 	    }
 	    $nickwhois=$chi;
 	    $kernel->post('test', 'whois', $chi);
+	} elsif($megahal) {
+	    my $megamsg=$msg;
+	    $megamsg =~ s/$nick\W//g;
+	    $megatext = $megahal->do_reply($megamsg);
+	    $kernel->post('test', 'privmsg', $where , "$megatext");
+	}
+    } elsif($megahal) {
+	if(uc($who) ne uc($megaignora)){
+	    $megatext = $megahal->do_reply($msg);
+	}
+	if(uc($msg) =~ uc($nick)){
+	    $kernel->post('test', 'privmsg', $where , "$megatext");
 	}
     }
 }
@@ -364,7 +394,7 @@ sub recita
 sub irc_msg {
     my ($kernel, $who, $where, $msg) = @_[KERNEL, ARG0 .. ARG2];
     my $chi=$who;
-    $who = (split /!/, $who)[0];
+    $who = (split "!", $who)[0];
 
     #print "<$who:@{$where}[0]> $msg\n";
     $swap=0;
