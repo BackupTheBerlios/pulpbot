@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.3 2004/10/20 21:12:37 yankeegohome Exp $
+# $Id: Pkgfile,v 1.4 2004/10/31 23:18:19 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Video editor for linux
@@ -7,13 +7,16 @@
 # (Last 4 dependencies are just recomended)
 
 name=avidemux
-version=2.0.30
+version=2.0.32
 release=1
 
-source=(http://download.berlios.de/$name/$name-$version.tar.gz)
+source=(http://download.berlios.de/$name/$name-$version.tar.gz \
+	http://download.berlios.de/$name/$name\_$version\_mpeg\_ps\_fix.diff)
 
 build () {
-	cd $name-$version
+	cd $name-$version/$name/oplug_mpeg
+	patch -p0 < ../../../$name\_$version\_mpeg\_ps\_fix.diff
+	cd ../..
 	make -f Makefile.dist
 	./configure --prefix=/usr \
 		    --libexec=/usr/lib/$name \
