@@ -1,0 +1,16 @@
+# Description: FlightGear Scenary Designer
+# URL: http://fgsd.sourceforge.net
+# Depends on: fltk libjpeg plib simgear flu gts
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=fgsd
+version=0.2.3a
+release=1
+
+source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+build () {
+    cd $name-0.2.3
+    ./configure --prefix=/usr
+    make
+    make prefix=$PKG/usr install
+}

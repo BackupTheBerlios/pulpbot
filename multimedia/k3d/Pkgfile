@@ -1,0 +1,16 @@
+# Description: free 3d modeling and animation system
+# URL: http://k3d.sourceforge.net
+# Depends on: libsigc++ gtk1 graphviz libtiff plib netpbm freetype imagemagick gts aqsis
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=k3d
+version=0.4.3.0
+release=1
+
+source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tgz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld --with-plib --with-gts
+    make
+    make DESTDIR=$PKG install
+}

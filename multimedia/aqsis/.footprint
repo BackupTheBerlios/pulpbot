@@ -1,0 +1,211 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/aqsis
+-rwxr-xr-x	root/root	usr/bin/aqsl
+-rwxr-xr-x	root/root	usr/bin/aqsltell
+-rwxr-xr-x	root/root	usr/bin/teqser
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/aqsis/
+-rw-r--r--	root/root	usr/include/aqsis/aqsis.h
+-rw-r--r--	root/root	usr/include/aqsis/aqsis_types.h
+-rw-r--r--	root/root	usr/include/aqsis/argparse.h
+-rw-r--r--	root/root	usr/include/aqsis/bitvector.h
+-rw-r--r--	root/root	usr/include/aqsis/color.h
+-rw-r--r--	root/root	usr/include/aqsis/exception.h
+-rw-r--r--	root/root	usr/include/aqsis/file.h
+-rw-r--r--	root/root	usr/include/aqsis/librib.h
+-rw-r--r--	root/root	usr/include/aqsis/librib2ri.h
+-rw-r--r--	root/root	usr/include/aqsis/librib2stream.h
+-rw-r--r--	root/root	usr/include/aqsis/list.h
+-rw-r--r--	root/root	usr/include/aqsis/matrix.h
+-rw-r--r--	root/root	usr/include/aqsis/memorypool.h
+-rw-r--r--	root/root	usr/include/aqsis/parserstate.h
+-rw-r--r--	root/root	usr/include/aqsis/random.h
+-rw-r--r--	root/root	usr/include/aqsis/refcount.h
+-rw-r--r--	root/root	usr/include/aqsis/ri.h
+-rw-r--r--	root/root	usr/include/aqsis/ri.inl
+-rw-r--r--	root/root	usr/include/aqsis/shadeop.h
+-rw-r--r--	root/root	usr/include/aqsis/slx.h
+-rw-r--r--	root/root	usr/include/aqsis/sstring.h
+-rw-r--r--	root/root	usr/include/aqsis/vector2d.h
+-rw-r--r--	root/root	usr/include/aqsis/vector3d.h
+-rw-r--r--	root/root	usr/include/aqsis/vector4d.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/aqsis/
+-rw-r--r--	root/root	usr/lib/aqsis/displays.ini
+-rwxr-xr-x	root/root	usr/lib/aqsis/libbake2tif.la
+lrwxrwxrwx	root/root	usr/lib/aqsis/libbake2tif.so -> libbake2tif.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/aqsis/libbake2tif.so.0 -> libbake2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libbake2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libdisplay.la
+lrwxrwxrwx	root/root	usr/lib/aqsis/libdisplay.so -> libdisplay.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/aqsis/libdisplay.so.0 -> libdisplay.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libdisplay.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libgif2tif.la
+lrwxrwxrwx	root/root	usr/lib/aqsis/libgif2tif.so -> libgif2tif.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/aqsis/libgif2tif.so.0 -> libgif2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libgif2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libjpg2tif.la
+lrwxrwxrwx	root/root	usr/lib/aqsis/libjpg2tif.so -> libjpg2tif.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/aqsis/libjpg2tif.so.0 -> libjpg2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libjpg2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libpcx2tif.la
+lrwxrwxrwx	root/root	usr/lib/aqsis/libpcx2tif.so -> libpcx2tif.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/aqsis/libpcx2tif.so.0 -> libpcx2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libpcx2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libppm2tif.la
+lrwxrwxrwx	root/root	usr/lib/aqsis/libppm2tif.so -> libppm2tif.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/aqsis/libppm2tif.so.0 -> libppm2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libppm2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libtga2tif.la
+lrwxrwxrwx	root/root	usr/lib/aqsis/libtga2tif.so -> libtga2tif.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/aqsis/libtga2tif.so.0 -> libtga2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/aqsis/libtga2tif.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libaqsis.la
+lrwxrwxrwx	root/root	usr/lib/libaqsis.so -> libaqsis.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libaqsis.so.0 -> libaqsis.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libaqsis.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libaqsistypes.la
+lrwxrwxrwx	root/root	usr/lib/libaqsistypes.so -> libaqsistypes.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libaqsistypes.so.0 -> libaqsistypes.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libaqsistypes.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libargparse.la
+lrwxrwxrwx	root/root	usr/lib/libargparse.so -> libargparse.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libargparse.so.0 -> libargparse.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libargparse.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libcodegenvm.la
+lrwxrwxrwx	root/root	usr/lib/libcodegenvm.so -> libcodegenvm.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libcodegenvm.so.0 -> libcodegenvm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libcodegenvm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libddmanager.la
+lrwxrwxrwx	root/root	usr/lib/libddmanager.so -> libddmanager.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libddmanager.so.0 -> libddmanager.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libddmanager.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libraytrace.la
+lrwxrwxrwx	root/root	usr/lib/libraytrace.so -> libraytrace.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libraytrace.so.0 -> libraytrace.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libraytrace.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libri2rib.la
+lrwxrwxrwx	root/root	usr/lib/libri2rib.so -> libri2rib.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libri2rib.so.0 -> libri2rib.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libri2rib.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/librib2.la
+lrwxrwxrwx	root/root	usr/lib/librib2.so -> librib2.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/librib2.so.0 -> librib2.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/librib2.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/librib2ri.la
+lrwxrwxrwx	root/root	usr/lib/librib2ri.so -> librib2ri.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/librib2ri.so.0 -> librib2ri.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/librib2ri.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/librib2stream.la
+lrwxrwxrwx	root/root	usr/lib/librib2stream.so -> librib2stream.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/librib2stream.so.0 -> librib2stream.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/librib2stream.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libshaderexecenv.la
+lrwxrwxrwx	root/root	usr/lib/libshaderexecenv.so -> libshaderexecenv.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libshaderexecenv.so.0 -> libshaderexecenv.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libshaderexecenv.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libshadervm.la
+lrwxrwxrwx	root/root	usr/lib/libshadervm.so -> libshadervm.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libshadervm.so.0 -> libshadervm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libshadervm.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libslparse.la
+lrwxrwxrwx	root/root	usr/lib/libslparse.so -> libslparse.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libslparse.so.0 -> libslparse.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libslparse.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libslpp.la
+lrwxrwxrwx	root/root	usr/lib/libslpp.so -> libslpp.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libslpp.so.0 -> libslpp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libslpp.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libslxargs.la
+lrwxrwxrwx	root/root	usr/lib/libslxargs.so -> libslxargs.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libslxargs.so.0 -> libslxargs.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libslxargs.so.0.0.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/aqsis.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aqsis/
+drwxr-xr-x	root/root	usr/share/aqsis/shaders/
+-rw-r--r--	root/root	usr/share/aqsis/shaders/DPProctext.h
+-rw-r--r--	root/root	usr/share/aqsis/shaders/ambientlight.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/ambientlight.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/background.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/background.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/bake.h
+-rw-r--r--	root/root	usr/share/aqsis/shaders/bluescreen.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/bluescreen.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/borg_metal.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/borg_metal.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/brickbump.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/brickbump.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/bumpy.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/bumpy.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/cellnoisetest.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/cellnoisetest.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/constant.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/constant.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/curvetube.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/curvetube.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/debug.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/debug.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/dented.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/dented.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/depthcue.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/depthcue.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/distantlight.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/distantlight.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/dpbluemarble.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/dpbluemarble.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/expensive.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/expensive.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/exposure.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/exposure.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/face_plastic.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/face_plastic.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/fakesky.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/fakesky.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/fog.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/fog.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/gradient.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/gradient.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/iramp.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/iramp.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/matte.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/matte.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/metal.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/metal.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/noises.h
+-rw-r--r--	root/root	usr/share/aqsis/shaders/paintedplastic.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/paintedplastic.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/patterns.h
+-rw-r--r--	root/root	usr/share/aqsis/shaders/plastic.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/plastic.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/pointlight.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/pointlight.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/randgrid.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/randgrid.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/shadowdistant.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/shadowdistant.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/shadowpoint.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/shadowpoint.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/shadowspot.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/shadowspot.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/shinymetal.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/shinymetal.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/show_N.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/show_N.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/show_st.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/show_st.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/showuser.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/showuser.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/spacetest.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/spacetest.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/spotlight.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/spotlight.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/sticky_texture.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/sticky_texture.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/uvtest.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/uvtest.slx
+-rw-r--r--	root/root	usr/share/aqsis/shaders/wavy.sl
+-rw-r--r--	root/root	usr/share/aqsis/shaders/wavy.slx

@@ -1,0 +1,17 @@
+# Description: automated tools for 3D world modeling and mapping
+# URL: http://terragear.org/
+# Depends on: libglut gts plib simgear 
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=terragear
+version=0.9.5
+release=1
+
+source=(ftp://ftp.terragear.org/pub/$name/Source/TerraGear-$version.tar.gz)
+build () {
+    cd TerraGear-$version
+    ./configure --prefix=/usr --with-threads --with-plib=/usr/include/plib \
+    --with-simgear=/usr/include/simgear --disable-nls
+    make
+    make DESTDIR=$PKG install
+}

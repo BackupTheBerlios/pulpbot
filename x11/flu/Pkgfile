@@ -1,0 +1,16 @@
+# Description: fltk utility widgets
+# URL: http://www.fltk.org/
+# Depends on: libglut fltk
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=flu
+version=2.13
+release=1
+
+source=(http://www.osc.edu/~jbryan/FLU/FLU_$version.tar.gz)
+build () {
+    cd FLU_$version
+    ./configure --prefix=$PKG/usr --L=/usr/X11R6/lib 
+    make
+    make prefix=/usr install
+}

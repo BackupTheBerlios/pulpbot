@@ -1,0 +1,16 @@
+# Description: free RenderMan compatible OpenSource REYES renderer
+# URL: http://www.aqsis.com/
+# Depends on: libtiff zlib libjpeg libxslt fltk
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=aqsis
+version=0.9.2
+release=1
+source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld
+    make
+    make DESTDIR=$PKG install
+}
