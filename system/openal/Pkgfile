@@ -1,0 +1,23 @@
+# Description: OpenAL is a cross-platform 3D audio API
+# URL: http://www.openal.org/
+# Dependencies: cvs
+# Packager: acrux
+
+name=openal
+version=0.0.7
+release=1
+source=()
+
+build() {
+	cvs -d ':pserver:guest:guest@opensource.creative.com:/usr/local/cvs-repository' login
+	cvs -z3 -d ':pserver:guest:guest@opensource.creative.com:/usr/local/cvs-repository' co -P openal
+	cd $name/linux
+	./autogen.sh
+	./configure --prefix=/usr --exec-prefix=/usr \
+	--enable-optimization --enable-alsa
+	make
+	make DESTDIR=$PKG/usr/ install
+	cd $PKG/usr/lib ; rm libopenal.so.0 ; rm libopenal.so
+	ln -s libopenal.so.0.0.7 libopenal.so.0
+	ln -s libopenal.so.0.0.7 libopenal.so
+}
