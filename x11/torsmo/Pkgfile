@@ -1,7 +1,10 @@
-# Description: simple system monitor
+# Description: simple system monitor (with SETI@home patch by aon)
 # URL: http://torsmo.sourceforge.net/
 # Depends on: x11
 # Maintainer: acrux <acrux@crux-it.org>
+
+# Thnx to Antti for the SETI@home patch
+# http://ecx.no-ip.org/dev/torsmo-setiathome/  
 
 name=torsmo
 version=0.17
