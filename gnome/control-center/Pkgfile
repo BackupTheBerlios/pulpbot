@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:38 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/31 12:02:26 slash Exp $
 # Description: A collection of core GNOME configuration utilities
 # URL: http://www.gnome.org/softwaremap/projects/control-center/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,9 +6,9 @@
 # Depends on: libxklavier,metacity,nautilus,xscreensaver
 
 name=control-center
-version=2.8.0
+version=2.8.1
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.1/sources/$name-$version.tar.bz2)
 
 build() {
     cd $name-$version
