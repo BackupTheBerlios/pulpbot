@@ -1,0 +1,25 @@
+# $Id: Pkgfile,v 1.1 2004/12/13 12:49:48 slash Exp $
+# Packager: Coviello Giuseppe <slash@crux-it.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Description: Python plugin for xchat
+# URL: http://www.xchat.org
+# Depends on: xchat, python
+
+name=xchat-python-plugin
+version=2.4.1
+release=1
+source=(http://www.xchat.org/files/source/2.4/xchat-$version.tar.bz2)
+
+build() {
+    cd xchat-$version
+    ./configure --prefix=/usr \
+	--disable-perl \
+	--disable-gnome \
+	--disable-textfe \
+	--enable-python \
+	--disable-tcl \
+	--disable-nls
+    cd plugins/python
+    make
+    make DESTDIR=$PKG install
+}
