@@ -1,5 +1,5 @@
 #!/bin/sh
 
 GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
-	gconftppl-2 --makefile-install-rule \
+	gconftool-2 --makefile-install-rule \
 	/usr/etc/gconf/schemas/vino-server.schemas
