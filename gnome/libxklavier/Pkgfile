@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:04 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/04 23:45:54 slash Exp $
 # Description: utility library for X keyboard-related projects
 # URL: http://freedesktop.org/Software/LibXklavier
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,9 +6,9 @@
 # Depends on: x11
 
 name=libxklavier
-version=1.02
+version=1.04
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.gz)
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/$version/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
