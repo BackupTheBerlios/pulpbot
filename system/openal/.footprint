@@ -7,10 +7,8 @@ drwxr-xr-x	root/root	usr/include/AL/
 -r--r--r--	root/root	usr/include/AL/alext.h
 -r--r--r--	root/root	usr/include/AL/alexttypes.h
 -r--r--r--	root/root	usr/include/AL/altypes.h
--r--r--r--	root/root	usr/include/AL/alu.h
 -r--r--r--	root/root	usr/include/AL/alut.h
 -r--r--r--	root/root	usr/include/AL/aluttypes.h
--r--r--r--	root/root	usr/include/AL/alutypes.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libopenal.a
 lrwxrwxrwx	root/root	usr/lib/libopenal.so -> libopenal.so.0.0.7
