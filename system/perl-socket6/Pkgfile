@@ -1,0 +1,20 @@
+# $Id: Pkgfile,v 1.1 2004/10/24 17:26:21 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: IPv6 Lib for perl
+# Depends on: perl
+# URL: http://search.cpan.org/~umemoto/Socket6-0.17/
+
+name=perl-socket6
+version=0.17
+release=1
+
+source=(http://search.cpan.org/CPAN/authors/id/U/UM/UMEMOTO/Socket6-$version.tar.gz)
+
+build () {
+	cd Socket6-$version
+	perl Makefile.PL prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/lib/perl5/5.8.4/
+}
