@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/10/22 16:42:12 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/11/16 22:26:58 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: SNES emulator
@@ -9,7 +9,7 @@ name=zsnes
 version=1.36
 release=1
 
-source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/zsnes136src.tar.gz \
+source=(http://dl.sourceforge.net/sourceforge/$name/zsnes136src.tar.gz \
 	zsnes.patch) 
 build () {
         cd $name-$version/src
