@@ -1,0 +1,20 @@
+# $Id: Pkgfile,v 1.1 2004/10/24 21:24:40 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Tk interface for perl
+# URL: http://search.cpan.org/~ni-s/Tk-804.027/
+# Depends on: perl
+
+name=perl-tk
+version=804.027
+release=1
+
+source=(http://search.cpan.org/CPAN/authors/id/N/NI/NI-S/Tk-$version.tar.gz)
+
+build () {
+	cd Tk-$version
+	perl Makefile.PL prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/lib/perl5/5.8.4
+}
