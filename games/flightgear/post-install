@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "alias fgfs='fgfs --fg-root=/opt/FlightGear'" >> /etc/profile
+
+# End of file

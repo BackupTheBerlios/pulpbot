@@ -5,7 +5,7 @@
 
 name=flightgear
 version=0.9.6
-release=1
+release=2
 
 source=(ftp://ftp.de.flightgear.org/pub/fgfs/Source/FlightGear-$version.tar.gz)
 build () {
@@ -15,6 +15,8 @@ build () {
     make
     make DESTDIR=$PKG install
     mkdir -p $PKG/opt/bin
-    cd $PKG/opt/bin ; echo -e '#!/bin/sh \ncd /opt/FlightGear/bin ; ./fgfs --fg-root=/opt/FlightGear' > fgfs
-    chmod +x $PKG/opt/bin/fgfs
+    cd $PKG/opt/bin ; ln -s ../FlightGear/bin/fgfs fgfs 
+
+# this is the post-install line    
+#    echo "alias fgfs='fgfs --fg-root=/opt/Flightgear'" >> /etc/profile
 }

@@ -20,4 +20,4 @@ drwxr-xr-x	root/root	opt/FlightGear/man/man1/
 drwxr-xr-x	root/root	opt/FlightGear/sbin/
 -rwxr-xr-x	root/root	opt/FlightGear/sbin/js_server
 drwxr-xr-x	root/root	opt/bin/
--rwxr-xr-x	root/root	opt/bin/fgfs
+lrwxrwxrwx	root/root	opt/bin/fgfs -> ../FlightGear/bin/fgfs

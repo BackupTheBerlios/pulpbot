@@ -5,10 +5,21 @@ you need to install in this order:
 plib-1.8.3
 openal-0.0.7 (formerly from cvs)
 simgear-0.3.7
-flightgear-0.9.6
+flightgear-0.9.6 & post-install
 fgfs-base-0.9.6
 
 plz, read carefully every ports Pkgfile
+
+note1:
+this sw "eats" a big amount of disk space and so
+i've decided to install it in /opt
+
+note2:
+in the flightgear port there is a post-install line
+that, obviuosly, cannot be removed automatically 
+when you'll do a 'pkgrm flightgear'
+
+
 ____
 Acrux @ Progetto Crux Italia
 ----------------
