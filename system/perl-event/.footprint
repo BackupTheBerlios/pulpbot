@@ -4,14 +4,26 @@ drwxr-xr-x	root/root	usr/lib/perl5/
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event.pod
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/
--r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/Lib.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/EventAPI.h
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/MakeMaker.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/Watcher.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/group.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/idle.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/io.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/signal.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/timer.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/type.pm
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/typemap
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/var.pm
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/
 drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/
-drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Lib/
--rw-r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Lib/.packlist
--r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Lib/Lib.bs (EMPTY)
--r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Lib/Lib.so
+-rw-r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/.packlist
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Event.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Event.so
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man3/
--r--r--r--	root/root	usr/man/man3/Event::Lib.3pm.gz
+-r--r--r--	root/root	usr/man/man3/Event.3pm.gz
+-r--r--r--	root/root	usr/man/man3/Event::MakeMaker.3pm.gz
