@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.3 2004/11/12 12:34:26 acrux Exp $
+# $Id: Pkgfile,v 1.4 2004/11/21 01:13:54 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Perl bindings for Gtk+ 2
@@ -8,7 +8,7 @@
 name=gtk2-perl
 version=1.061
 release=1
-source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/Gtk2-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/$name/Gtk2-$version.tar.gz)
 
 build () {
 	cd Gtk2-$version
