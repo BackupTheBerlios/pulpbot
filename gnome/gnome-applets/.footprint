@@ -395,6 +395,12 @@ drwxr-xr-x	root/root	usr/share/gswitchit/
 -rw-r--r--	root/root	usr/share/gswitchit/gswitchit-properties.glade
 drwxr-xr-x	root/root	usr/share/gweather/
 -rw-r--r--	root/root	usr/share/gweather/Locations.xml
+drwxr-xr-x	root/root	usr/share/icons/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/
+drwxr-xr-x	root/root	usr/share/icons/hicolor/48x48/apps/
+-rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/gswitchit-applet.png
+-rw-r--r--	root/root	usr/share/icons/hicolor/48x48/apps/gswitchit-properties-capplet.png
 drwxr-xr-x	root/root	usr/share/omf/
 drwxr-xr-x	root/root	usr/share/omf/gnome-applets/
 -rw-r--r--	root/root	usr/share/omf/gnome-applets/accessx-status-C.omf
@@ -538,8 +544,6 @@ drwxr-xr-x	root/root	usr/share/pixmaps/gkb/
 -rw-r--r--	root/root	usr/share/pixmaps/gnome-eyes.png
 -rw-r--r--	root/root	usr/share/pixmaps/gnome-mini-commander.png
 -rw-r--r--	root/root	usr/share/pixmaps/gnome-mixer-applet.png
--rw-r--r--	root/root	usr/share/pixmaps/gswitchit-applet.png
--rw-r--r--	root/root	usr/share/pixmaps/gswitchit-properties-capplet.png
 drwxr-xr-x	root/root	usr/share/pixmaps/mailcheck/
 -rw-r--r--	root/root	usr/share/pixmaps/mailcheck/eclouds.png
 -rw-r--r--	root/root	usr/share/pixmaps/mailcheck/email-e.png
