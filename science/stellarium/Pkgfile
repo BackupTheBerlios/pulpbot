@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=stellarium
-version=0.6.1
+version=0.6.2
 release=1
 source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
