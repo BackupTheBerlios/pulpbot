@@ -5,11 +5,13 @@
 
 name=ilenia
 version=1.0
-release=1
+release=2
 source=(http://www.crux-it.org/evolution/src/$name-$version.tar.gz \
     crux.cvsup.in \
     crux-it.cvsup.in \
-    clc.cvsup.in)
+    clc.cvsup.in \
+    .footprint.evolution \
+    .footprint.noevolution)
 
 build () {
     cd $name-$version
@@ -21,8 +23,13 @@ build () {
     cat ../crux.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/crux.cvsup
     cat ../crux-it.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/crux-it.cvsup
     cat ../clc.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/clc.cvsup
-    cd $PKG/usr/bin
-    ln -s ilenia ports
-    cd $PKG/usr/man/man8
-    ln -s ilenia.8.gz ports.8.gz
+    if [ "`crux | tail -n 1 | grep Evolution`" != "" ]; then
+	mv $SRC/.footprint.evolution $SRC/../../.footprint
+	cd $PKG/usr/bin
+	ln -s ilenia ports
+	cd $PKG/usr/man/man8
+	ln -s ilenia.8.gz ports.8.gz
+    else
+	mv $SRC/.footprint.noevolution $SRC/../../.footprint
+    fi
 }
