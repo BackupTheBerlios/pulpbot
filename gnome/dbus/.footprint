@@ -17,6 +17,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/dbus-1.0/
 drwxr-xr-x	root/root	usr/include/dbus-1.0/dbus/
+-rw-r--r--	root/root	usr/include/dbus-1.0/dbus/connection.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-address.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-bus.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-connection.h
@@ -29,11 +30,14 @@ drwxr-xr-x	root/root	usr/include/dbus-1.0/dbus/
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-message.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-pending-call.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-protocol.h
+-rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-qt.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-server.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-shared.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-threads.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus-types.h
 -rw-r--r--	root/root	usr/include/dbus-1.0/dbus/dbus.h
+-rw-r--r--	root/root	usr/include/dbus-1.0/dbus/message.h
+-rw-r--r--	root/root	usr/include/dbus-1.0/dbus/server.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/dbus-1.0/
 drwxr-xr-x	root/root	usr/lib/dbus-1.0/include/
@@ -50,18 +54,14 @@ lrwxrwxrwx	root/root	usr/lib/libdbus-1.so.0 -> libdbus-1.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libdbus-glib-1.so -> libdbus-glib-1.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libdbus-glib-1.so.0 -> libdbus-glib-1.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libdbus-glib-1.so.0.0.0
-drwxr-xr-x	root/root	usr/lib/mono/
-drwxr-xr-x	root/root	usr/lib/mono/dbus-sharp/
-lrwxrwxrwx	root/root	usr/lib/mono/dbus-sharp/dbus-sharp.dll -> /usr/lib/mono/gac/dbus-sharp/0.22.0.0__9eef2692033670f5/dbus-sharp.dll
-drwxr-xr-x	root/root	usr/lib/mono/gac/
-drwxr-xr-x	root/root	usr/lib/mono/gac/dbus-sharp/
-drwxr-xr-x	root/root	usr/lib/mono/gac/dbus-sharp/0.22.0.0__9eef2692033670f5/
--rwxr-xr-x	root/root	usr/lib/mono/gac/dbus-sharp/0.22.0.0__9eef2692033670f5/dbus-sharp.dll
--rw-r--r--	root/root	usr/lib/mono/gac/dbus-sharp/0.22.0.0__9eef2692033670f5/dbus-sharp.dll.config
+-rw-r--r--	root/root	usr/lib/libdbus-qt-1.a
+-rwxr-xr-x	root/root	usr/lib/libdbus-qt-1.la
+lrwxrwxrwx	root/root	usr/lib/libdbus-qt-1.so -> libdbus-qt-1.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libdbus-qt-1.so.1 -> libdbus-qt-1.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libdbus-qt-1.so.1.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/dbus-1.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/dbus-glib-1.pc
--rw-r--r--	root/root	usr/lib/pkgconfig/dbus-sharp.pc
 drwxr-xr-x	root/root	usr/lib/python2.3/
 drwxr-xr-x	root/root	usr/lib/python2.3/site-packages/
 -rw-r--r--	root/root	usr/lib/python2.3/site-packages/dbus.py
