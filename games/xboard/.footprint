@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rw-r--r--	root/root	usr/bin/cmail
+-rw-r--r--	root/root	usr/bin/xboard
+-rw-r--r--	root/root	usr/bin/zic2xpm
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man6/
+-rw-r--r--	root/root	usr/man/man6/xboard.6.gz
+-rw-r--r--	root/root	usr/man/man6/zic2xpm.6.gz

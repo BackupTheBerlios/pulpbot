@@ -1,0 +1,21 @@
+# Description: xboard is a chess interface for gnuchess and crafty engines
+# URL: http://www.tim-mann.org/xboard.html
+# Dependencies: x11 gnuchess
+# Packager: acrux
+
+name=xboard
+version=4.2.7
+release=1
+source=(http://mirrors.kernel.org/gnu/xboard/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    mkdir -p $PKG/usr/bin ; mkdir -p $PKG/usr/man/man6
+    cp xboard $PKG/usr/bin/ ; cp cmail $PKG/usr/bin/
+    cp zic2xpm $PKG/usr/bin/ 
+    chmod 644 $PKG/usr/bin/*
+    gzip -c zic2xpm.man > $PKG/usr/man/man6/zic2xpm.6.gz
+    gzip -c xboard.man > $PKG/usr/man/man6/xboard.6.gz
+}
