@@ -1,12 +1,13 @@
-##
-## xmms-jack
-##
+# Description: jack output plugin for xmms player 
+# Packager: Alberto Venturini <aventurini@gmail.com>
+# Maintainer: Alberto Venturini <aventurini@gmail.com>
+# URL: http://xmms-jack.sourceforge.net/
+# Depends on: xmms jack
 
 name=xmms-jack
 version=0.11
-release=a1
+release=1
 source=(http://dl.sourceforge.net/sourceforge/xmms-jack/$name-$version.tar.gz)
-depends=('xmms' 'jack')
 
 build() {
 	cd $name
