@@ -1,7 +1,7 @@
 # Description: wm based on blackbox
 # URL: http://fluxbox.org 
 # Depends on: x11
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=fluxbox
 version=0.9.10

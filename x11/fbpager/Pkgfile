@@ -1,7 +1,7 @@
 # Description: fluxbox pager
 # URL: http://fluxbox.sourceforge.net/fbpager/
 # Depends on: fluxbox
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=fbpager
 version=0.1.4

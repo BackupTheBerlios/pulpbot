@@ -1,7 +1,7 @@
 # Description: amazing 3d OpenGL pager
 # URL: http://desk3d.sourceforge.net/
 # Depends on: x11 imlib2
-# Packager: warez acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=3ddesktop
 version=0.2.7

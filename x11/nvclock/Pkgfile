@@ -1,7 +1,7 @@
 # Description: small utility to overclock NVIDIA based video cards
 # URL: http://www.linuxhardware.org/nvclock/
 # Depends on: gtk
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=nvclock
 version=0.7

@@ -1,7 +1,7 @@
 # Description: a cute little eye-candy calendar for desktop 
 # URL: http://www.pycage.de/software_gdeskcal.html
 # Depends on: python gtk pygtk
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=gdeskcal
 version=0.57.1

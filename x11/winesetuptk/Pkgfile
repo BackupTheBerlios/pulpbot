@@ -1,7 +1,7 @@
 # Description: Graphical wine setup tool 
 # URL: http://www.winehq.com/
 # Depends on: x11 tcl tk wine
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=winesetuptk
 version=0.73
