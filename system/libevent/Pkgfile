@@ -1,11 +1,12 @@
-# $Id: Pkgfile,v 1.1 2004/10/24 18:13:48 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/12/13 15:37:43 yankeegohome Exp $
 # Description: event notification library
 # URL: http://www.monkey.org/~provos/libevent/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Depends on:
 
 name=libevent
-version=0.9
+version=1.0
 release=1
 source=(http://www.monkey.org/~provos/$name-$version.tar.gz)
 
