@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:40 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/17 12:43:10 yankeegohome Exp $
 # Packager: Robert McMeekin <rrm3@rrm3.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: XSL stylesheets for the DocBook DTD and its derivatives
@@ -6,7 +6,7 @@
 # Depends on: docbook-xml-entities,libxslt
 
 name=docbook-xsl
-version=1.66.1
+version=1.67.0
 release=1
 source=(http://dl.sourceforge.net/sourceforge/docbook/$name-$version.tar.gz)
 
