@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.2 2004/11/05 22:56:37 yankeegohome Exp $
+# $Id: Pkgfile,v 1.3 2004/12/11 01:14:51 slash Exp $
 # Description: GNOME On-Screen Keyboard
 # URL: http://www.gok.ca/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,7 +6,7 @@
 # Depends on: at-spi,libgnomeui,libwnck
 
 name=gok
-version=0.11.16
+version=0.11.17
 release=1
 source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/0.11/$name-$version.tar.bz2 
         $name.patch)
@@ -23,4 +23,5 @@ build() {
     test -f help/$name/C/$name-C.omf.out || cp help/$name/C/$name-C.omf{,.out}
     export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
     make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/gtk-doc
 }

@@ -1,7 +1,7 @@
-diff -ruN gok-0.10.2.orig/configure gok-0.10.2/configure
---- gok-0.10.2.orig/configure	2004-04-20 09:13:48.097451976 -0400
-+++ gok-0.10.2/configure	2004-04-20 09:13:48.453397864 -0400
-@@ -19597,7 +19597,7 @@
+diff -ruN gok-0.11.17/configure gok-0.11.17-patch/configure
+--- gok-0.11.17/configure	2004-12-07 19:06:23.000000000 +0100
++++ gok-0.11.17-patch/configure	2004-12-11 01:44:10.000000000 +0100
+@@ -20052,7 +20052,7 @@
  
      fi
    fi
@@ -10,7 +10,7 @@ diff -ruN gok-0.10.2.orig/configure gok-0.10.2/configure
  
  
      gt_cv_have_gettext=no
-@@ -20654,7 +20654,7 @@
+@@ -21109,7 +21109,7 @@
      if test "$gt_cv_have_gettext" = "yes" ; then
  
  cat >>confdefs.h <<\_ACEOF
@@ -19,45 +19,29 @@ diff -ruN gok-0.10.2.orig/configure gok-0.10.2/configure
  _ACEOF
  
      fi
-diff -ruN gok-0.10.2.orig/help/gok/C/Makefile.in gok-0.10.2/help/gok/C/Makefile.in
---- gok-0.10.2.orig/help/gok/C/Makefile.in	2004-04-20 09:13:48.084453952 -0400
-+++ gok-0.10.2/help/gok/C/Makefile.in	2004-04-20 09:13:48.497391176 -0400
-@@ -55,7 +55,6 @@
- # generally called from the makefiles for particular formats of documentation.
- #
- # Note that you must configure your package with --localstatedir=/var
--# so that the scrollkeeper-update command below will update the database
- # in the standard scrollkeeper directory.
- #
- # If it is impossible to configure with --localstatedir=/var, then
-@@ -456,7 +455,6 @@
+diff -ruN gok-0.11.17/help/gok/C/Makefile.in gok-0.11.17-patch/help/gok/C/Makefile.in
+--- gok-0.11.17/help/gok/C/Makefile.in	2004-12-07 19:06:27.000000000 +0100
++++ gok-0.11.17-patch/help/gok/C/Makefile.in	2004-12-11 01:46:48.000000000 +0100
+@@ -461,7 +461,6 @@
  	for file in $(omffile); do \
  		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
  	done
--	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(DESTDIR)$(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
  
  uninstall-local-omf:
  	-for file in $(srcdir)/*.omf; do \
-@@ -464,7 +462,6 @@
- 		rm -f $(omf_dest_dir)/$$basefile; \
+@@ -469,7 +468,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
  	done
- 	-rmdir $(omf_dest_dir)
--	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(DESTDIR)$(scrollkeeper_localstate_dir)
  
  clean-local-omf:
  	-for file in $(omffile); do \
-diff -ruN gok-0.10.2.orig/omf-install/Makefile.in gok-0.10.2/omf-install/Makefile.in
---- gok-0.10.2.orig/omf-install/Makefile.in	2004-04-20 09:13:48.089453192 -0400
-+++ gok-0.10.2/omf-install/Makefile.in	2004-04-20 09:13:48.505389960 -0400
-@@ -21,7 +21,6 @@
- # No other modifications should be necessary.
- #
- # Note that you must configure your package with --localstatedir=/var/lib
--# so that the scrollkeeper-update command below will update the database
- # in the standard scrollkeeper directory.
- #
- # If it is impossible to configure with --localstatedir=/var/lib, then
-@@ -375,7 +374,6 @@
+diff -ruN gok-0.11.17/omf-install/Makefile.in gok-0.11.17-patch/omf-install/Makefile.in
+--- gok-0.11.17/omf-install/Makefile.in	2004-12-07 19:06:27.000000000 +0100
++++ gok-0.11.17-patch/omf-install/Makefile.in	2004-12-11 01:47:36.000000000 +0100
+@@ -378,7 +378,6 @@
  	-for file in $(srcdir)/*.omf; do \
  		$(INSTALL_DATA) $(srcdir)/$$file $(DESTDIR)$(omf_dest_dir); \
  	done
@@ -65,7 +49,7 @@ diff -ruN gok-0.10.2.orig/omf-install/Makefile.in gok-0.10.2/omf-install/Makefil
  
  uninstall-local:
  	-for file in $(srcdir)/*.omf; do \
-@@ -383,7 +381,6 @@
+@@ -386,7 +385,6 @@
  		rm -f $(omf_dest_dir)/$$basefile; \
          done
  	-rmdir $(omf_dest_dir)
