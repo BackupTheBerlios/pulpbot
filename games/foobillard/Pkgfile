@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:54:10 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/11 12:16:30 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Mainteiner: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: An openGL based billard game
@@ -6,7 +6,7 @@
 # Depends on:
 
 name=foobillard
-version=2.9
+version=3.0a
 release=1
 source=(http://foobillard.sunsite.dk/dnl/$name-$version.tar.gz)
 build () {
