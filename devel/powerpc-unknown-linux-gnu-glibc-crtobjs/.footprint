@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/powerpc-unknown-linux-gnu/
+drwxr-xr-x	root/root	usr/powerpc-unknown-linux-gnu/lib/
+-rw-r--r--	root/root	usr/powerpc-unknown-linux-gnu/lib/crt1.o
+-rw-r--r--	root/root	usr/powerpc-unknown-linux-gnu/lib/crti.o
+-rw-r--r--	root/root	usr/powerpc-unknown-linux-gnu/lib/crtn.o
+drwxr-xr-x	root/root	usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/
+drwxr-xr-x	root/root	usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/
+-rw-r--r--	root/root	usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/crt1.o
+-rw-r--r--	root/root	usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/crti.o
+-rw-r--r--	root/root	usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/crtn.o

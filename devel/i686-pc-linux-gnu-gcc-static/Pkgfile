@@ -1,0 +1,54 @@
+# $Id: Pkgfile,v 1.1 2004/10/09 10:15:23 ncrfgs Exp $
+# Description: i686-pc-linux-gnu-gcc-static
+# URL:
+# Maintainer: Fergus Incoronato <ncrfgs@tin.it>
+# Packager: Fergus Incoronato <ncrfgs@tin.it>
+# Depends on: i686-pc-linux-gnu-glibc-hdrs
+
+name=i686-pc-linux-gnu-gcc-static
+version=3.3.3
+release=1
+source=(ftp://sources.redhat.com/pub/gcc/releases/gcc-$version/gcc-$version.tar.bz2 \
+	gcc-$version.patch)
+
+build() {
+	patch -d gcc-$version -p1 < gcc-$version.patch
+
+	export LDFLAGS="-s"
+	export PATH=/usr/i686-pc-linux-gnu/bin:/usr/i686-pc-linux-gnu/sbin:$PATH
+
+	for hfile in gcc-$version/gcc/config/i386/{linux.h,linux64.h}; do
+		sed -i -e "s@\(/lib\|/lib64\)\(/ld\(\|64\)\.so\.1\|/ld-linux\(\|-ia64\|-x86-64\)\.so\.2\)@/usr/i686-pc-linux-gnu&@g" $hfile
+
+
+
+		echo "
+#undef STARTFILE_PREFIX_SPEC
+#define STARTFILE_PREFIX_SPEC \"/usr/i686-pc-linux-gnu/lib/\"" >> $hfile
+	done
+
+	sed -i "s@\(^CROSS_SYSTEM_HEADER_DIR =\).*@\1 /usr/i686-pc-linux-gnu/include@g" gcc-$version/gcc/Makefile.in
+
+
+	mkdir -p build
+	cd build
+
+	CFLAGS="-O2 -pipe" \
+	../gcc-$version/configure --prefix=/usr/i686-pc-linux-gnu \
+		--target=i686-pc-linux-gnu \
+		--enable-multilib=no \
+		--with-local-prefix=/usr/i686-pc-linux-gnu \
+		--enable-languages=c \
+		--disable-nls \
+		--disable-shared
+
+	make BOOT_CFLAGS="-O2 -pipe" STAGE1_CFLAGS="-O -pipe" all-gcc
+
+	make DESTDIR=$PKG install-gcc
+
+	rm -rf $PKG/usr/i686-pc-linux-gnu/i686-pc-linux-gnu \
+		$PKG/usr/i686-pc-linux-gnu/include \
+		$PKG/usr/i686-pc-linux-gnu/info \
+		$PKG/usr/i686-pc-linux-gnu/lib/gcc-lib/*/$version/install-tools \
+		$PKG/usr/i686-pc-linux-gnu/lib/gcc-lib/*/$version/include/README
+}

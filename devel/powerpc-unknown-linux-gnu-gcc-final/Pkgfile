@@ -1,0 +1,59 @@
+# $Id: Pkgfile,v 1.1 2004/10/09 10:15:23 ncrfgs Exp $
+# Description: powerpc-unknown-linux-gnu-gcc-final
+# URL:
+# Maintainer: Fergus Incoronato <ncrfgs@tin.it>
+# Packager: Fergus Incoronato <ncrfgs@tin.it>
+# Depends on: powerpc-unknown-linux-gnu-glibc-full
+
+name=powerpc-unknown-linux-gnu-gcc-final
+version=3.3.3-hammer
+release=1
+source=(http://cruxppc.sunsite.dk/downloads/gnu/gcc-$version-20040515.tar.bz2 \
+        gcc-$version.patch)
+
+build() {
+	patch -d gcc-$version-20040515 -p1 < gcc-$version.patch
+
+	unset CXXFLAGS
+
+	export LDFLAGS="-s"
+	export PATH=/usr/powerpc-unknown-linux-gnu/bin:/usr/powerpc-unknown-linux-gnu/sbin:$PATH
+
+	for hfile in gcc-$version-20040515/gcc/config/rs6000/{linux.h,linux64.h,sysv4.h}; do
+		sed -i -e "s@\(/lib\|/lib64\)\(/ld\(\|64\)\.so\.1\|/ld-linux\(\|-ia64\|-x86-64\)\.so\.2\)@/usr/powerpc-unknown-linux-gnu&@g" $hfile
+	done
+
+	for hfile in gcc-$version-20040515/gcc/config/rs6000/{linux.h,linux64.h}; do
+		echo "
+#undef STARTFILE_PREFIX_SPEC
+#define STARTFILE_PREFIX_SPEC \"/usr/powerpc-unknown-linux-gnu/lib/\"" >> $hfile
+	done
+
+	sed -i "s@\(^CROSS_SYSTEM_HEADER_DIR =\).*@\1 /usr/powerpc-unknown-linux-gnu/include@g" gcc-$version-20040515/gcc/Makefile.in
+
+	mkdir -p build
+	cd build
+
+	CFLAGS="-O2 -pipe" \
+	../gcc-$version-20040515/configure --prefix=/usr/powerpc-unknown-linux-gnu \
+		--target=powerpc-unknown-linux-gnu \
+		--enable-multilib=no \
+		--with-local-prefix=/usr/powerpc-unknown-linux-gnu \
+		--enable-languages=c,c++ \
+		--enable-__cxa_atexit \
+		--enable-c99 \
+		--enable-long-long \
+		--enable-threads=posix \
+		--disable-nls \
+		--enable-shared
+
+	make BOOT_CFLAGS="-O2 -pipe" STAGE1_CFLAGS="-O2 -pipe" all
+
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/powerpc-unknown-linux-gnu/info \
+		$PKG/usr/powerpc-unknown-linux-gnu/lib/libiberty.a \
+		$PKG/usr/powerpc-unknown-linux-gnu/lib/gcc-lib/*/$version/install-tools \
+		$PKG/usr/powerpc-unknown-linux-gnu/lib/gcc-lib/*/$version/include/README
+	sed -i "s|-L$SRC[^ ]* ||g" $PKG/usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/{libstdc++.la,libsupc++.la}
+}

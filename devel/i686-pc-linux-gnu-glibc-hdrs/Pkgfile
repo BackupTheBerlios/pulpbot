@@ -1,0 +1,44 @@
+# $Id: Pkgfile,v 1.1 2004/10/09 10:15:23 ncrfgs Exp $
+# Description: i686-pc-linux-gnu-glibc-hdrs
+# URL:
+# Maintainer: Fergus Incoronato <ncrfgs@tin.it>
+# Packager: Fergus Incoronato <ncrfgs@tin.it>
+# Depends on: i686-pc-linux-gnu-binutils
+
+name=i686-pc-linux-gnu-glibc-hdrs
+version=2.3.3
+release=1
+source=(http://www.fukt.bth.se/~per/crux/files/gnu/glibc-$version-20040410.tar.bz2 \
+	glibc-$version.patch)
+
+build() {
+	patch -d glibc-$version-20040410 -p1 < glibc-$version.patch
+
+	export LDFLAGS="-s"
+	export PATH=/usr/i686-pc-linux-gnu/bin:/usr/i686-pc-linux-gnu/sbin:$PATH
+
+
+
+	mkdir -p build
+	cd build
+
+	CC=gcc \
+	../glibc-$version-20040410/configure --prefix=/usr/i686-pc-linux-gnu \
+		--host=i686-pc-linux-gnu \
+		--build=powerpc-unknown-linux-gnu \
+		--without-cvs \
+		--disable-sanity-checks \
+		--enable-kernel=2.6.0 \
+		--with-headers=/usr/i686-pc-linux-gnu/include \
+		--with-binutils=/usr/i686-pc-linux-gnu/i686-pc-linux-gnu/bin \
+		--cache-file=config.cache
+
+	PATH=/usr/i686-pc-linux-gnu/i686-pc-linux-gnu/bin:$PATH \
+	make install_root=$PKG install-headers
+
+	cp bits/stdio_lim.h $PKG/usr/i686-pc-linux-gnu/include/bits
+	touch $PKG/usr/i686-pc-linux-gnu/include/gnu/stubs.h
+
+	cp ../glibc-$version-20040410/nptl/sysdeps/pthread/pthread.h $PKG/usr/i686-pc-linux-gnu/include/
+	cp ../glibc-$version-20040410/nptl/sysdeps/unix/sysv/linux/i386/bits/pthreadtypes.h $PKG/usr/i686-pc-linux-gnu/include/bits/
+}

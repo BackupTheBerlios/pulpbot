@@ -1,0 +1,42 @@
+# $Id: Pkgfile,v 1.1 2004/10/09 10:15:24 ncrfgs Exp $
+# Description: powerpc-unknown-linux-gnu-kern-hdrs
+# URL:
+# Maintainer: Fergus Incoronato <ncrfgs@tin.it>
+# Packager: Fergus Incoronato <ncrfgs@tin.it>
+# Depends on:
+
+name=powerpc-unknown-linux-gnu-kern-hdrs
+version=2.6.5
+release=1
+source=(http://www.kernel.org/pub/linux/kernel/v2.6/linux-$version.tar.bz2)
+
+build() {
+	export LDFLAGS="-s"
+	export PATH=/usr/powerpc-unknown-linux-gnu/bin:/usr/powerpc-unknown-linux-gnu/sbin:$PATH
+
+	ln -s linux-$version linux
+
+	cd linux
+
+	ARCH=ppc \
+	CROSS_COMPILE=powerpc-unknown-linux-gnu- \
+	make mrproper
+
+	cp arch/ppc/defconfig .config
+	yes "" | make ARCH=ppc CROSS_COMPILE=powerpc-unknown-linux-gnu- oldconfig
+                                                                                
+	make ARCH=ppc CROSS_COMPILE=powerpc-unknown-linux-gnu- include/linux/version.h
+	make ARCH=ppc CROSS_COMPILE=powerpc-unknown-linux-gnu- include/asm
+
+	mkdir -p $PKG/usr/powerpc-unknown-linux-gnu/include/asm
+	cp include/asm/* $PKG/usr/powerpc-unknown-linux-gnu/include/asm
+
+	cp -R include/asm-generic $PKG/usr/powerpc-unknown-linux-gnu/include
+	cp -R include/linux $PKG/usr/powerpc-unknown-linux-gnu/include
+
+	sed -e '/^struct __sysctl_args/i\
+#ifndef __user\
+#define __user\
+#endif\
+' include/linux/sysctl.h > $PKG/usr/powerpc-unknown-linux-gnu/include/linux/sysctl.h
+}

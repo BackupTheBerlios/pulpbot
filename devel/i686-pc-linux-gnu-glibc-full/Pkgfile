@@ -1,0 +1,53 @@
+# $Id: Pkgfile,v 1.1 2004/10/09 10:15:23 ncrfgs Exp $
+# Description: i686-pc-linux-gnu-glibc-full
+# URL:
+# Maintainer: Fergus Incoronato <ncrfgs@tin.it>
+# Packager: Fergus Incoronato <ncrfgs@tin.it>
+# Depends on: i686-pc-linux-gnu-gcc-shared
+
+name=i686-pc-linux-gnu-glibc-full
+version=2.3.3
+release=1
+source=(http://www.fukt.bth.se/~per/crux/files/gnu/glibc-$version-20040410.tar.bz2 \
+        glibc-$version.patch)
+
+build() {
+	patch -d glibc-$version-20040410 -p1 < glibc-$version.patch
+
+	export LDFLAGS="-s"
+	export PATH=/usr/i686-pc-linux-gnu/bin:/usr/i686-pc-linux-gnu/sbin:$PATH
+
+	rm -rf glibc-$version-20040410/linuxthreads*
+
+	mkdir -p build
+	cd build
+
+	echo "libc_cv_forced_unwind=yes" > config.cache
+	echo "libc_cv_c_cleanup=yes" >> config.cache
+
+	BUILD_CC=gcc \
+	BUILD_CFLAGS="-O2 -pipe" \
+	CFLAGS="-O2 -pipe" \
+	CC="i686-pc-linux-gnu-gcc" \
+	AR="i686-pc-linux-gnu-ar" \
+	RANLIB="i686-pc-linux-gnu-ranlib" \
+	../glibc-$version-20040410/configure --prefix=/usr/i686-pc-linux-gnu \
+		--host=i686-pc-linux-gnu \
+		--build=powerpc-unknown-linux-gnu \
+		--without-cvs \
+		--disable-profile \
+		--enable-add-ons \
+		--with-headers=/usr/i686-pc-linux-gnu/include \
+		--with-tls \
+		--enable-kernel=2.6.0 \
+		--with-__thread \
+		--cache-file=config.cache \
+		--with-binutils=/usr/i686-pc-linux-gnu/bin \
+		--without-gd
+
+	make SHELL="bash"
+
+	make install_root=$PKG install
+
+	rm -rf $PKG/usr/i686-pc-linux-gnu/share/locale
+}

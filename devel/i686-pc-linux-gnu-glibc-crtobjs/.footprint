@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/i686-pc-linux-gnu/
+drwxr-xr-x	root/root	usr/i686-pc-linux-gnu/i686-pc-linux-gnu/
+drwxr-xr-x	root/root	usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/
+-rw-r--r--	root/root	usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/crt1.o
+-rw-r--r--	root/root	usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/crti.o
+-rw-r--r--	root/root	usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/crtn.o
+drwxr-xr-x	root/root	usr/i686-pc-linux-gnu/lib/
+-rw-r--r--	root/root	usr/i686-pc-linux-gnu/lib/crt1.o
+-rw-r--r--	root/root	usr/i686-pc-linux-gnu/lib/crti.o
+-rw-r--r--	root/root	usr/i686-pc-linux-gnu/lib/crtn.o

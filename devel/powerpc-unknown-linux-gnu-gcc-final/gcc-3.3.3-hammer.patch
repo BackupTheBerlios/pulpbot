@@ -1,0 +1,21 @@
+--- gcc-3.3.3-hammer-20040515/gcc/Makefile.in.orig	2004-05-15 12:43:37.017669912 +0200
++++ gcc-3.3.3-hammer-20040515/gcc/Makefile.in	2004-05-15 12:44:17.682487920 +0200
+@@ -2432,7 +2432,6 @@
+ 	(TARGET_MACHINE='$(target)'; srcdir=`cd $(srcdir); ${PWD_COMMAND}`; \
+ 	SHELL='$(SHELL)' ;\
+ 	export TARGET_MACHINE srcdir SHELL ; \
+-	$(SHELL) ./fixinc.sh `${PWD_COMMAND}`/include $(SYSTEM_HEADER_DIR) $(OTHER_FIXINCLUDES_DIRS); \
+ 	rm -f include/syslimits.h; \
+ 	if [ -f include/limits.h ]; then \
+ 	  mv include/limits.h include/syslimits.h; \
+--- gcc-3.3.3-hammer-20040515/gcc/version.c.orig	2004-05-15 12:43:42.767795760 +0200
++++ gcc-3.3.3-hammer-20040515/gcc/version.c	2004-05-15 12:43:57.107615776 +0200
+@@ -6,7 +6,7 @@
+    please modify this string to indicate that, e.g. by putting your
+    organization's name in parentheses at the end of the string.  */
+ 
+-const char version_string[] = "3.3.3-hammer";
++const char version_string[] = "3.3.3-hammer (CRUX PPC)";
+ 
+ /* This is the location of the online document giving instructions for
+    reporting bugs.  If you distribute a modified version of GCC,

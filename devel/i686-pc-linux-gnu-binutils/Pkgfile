@@ -1,0 +1,38 @@
+# $Id: Pkgfile,v 1.1 2004/10/09 10:15:22 ncrfgs Exp $
+# Description: i686-pc-linux-gnu-binutils
+# URL:
+# Maintainer: Fergus Incoronato <ncrfgs@tin.it>
+# Packager: Fergus Incoronato <ncrfgs@tin.it>
+# Depends on: i686-pc-linux-gnu-kern-hdrs
+
+name=i686-pc-linux-gnu-binutils
+version=2.15.90.0.3
+release=1
+source=(ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-$version.tar.bz2)
+
+build() {
+	export LDFLAGS="-s"
+	export PATH=/usr/i686-pc-linux-gnu/bin:/usr/i686-pc-linux-gnu/sbin:$PATH
+
+	mkdir build
+	cd build
+
+	../binutils-$version/configure --prefix=/usr/i686-pc-linux-gnu \
+		--target=i686-pc-linux-gnu \
+		--disable-nls \
+		--enable-shared \
+		--enable-64-bit-bfd \
+		--with-lib-path=/usr/i686-pc-linux-gnu/lib
+	make configure-host
+
+	make headers -C bfd
+	make
+
+	make prefix=$PKG/usr/i686-pc-linux-gnu install
+
+	mkdir $PKG/usr/i686-pc-linux-gnu/include
+	cp -p ../binutils-$version/include/libiberty.h $PKG/usr/i686-pc-linux-gnu/include/libiberty.h
+
+	rm -rf $PKG/usr/i686-pc-linux-gnu/info
+	sed -i "s|-L$SRC[^ ]* ||g" $PKG/usr/i686-pc-linux-gnu/powerpc-unknown-linux-gnu/i686-pc-linux-gnu/lib/libbfd.la
+}

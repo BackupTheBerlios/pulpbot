@@ -1,0 +1,38 @@
+# $Id: Pkgfile,v 1.1 2004/10/09 10:15:23 ncrfgs Exp $
+# Description: powerpc-unknown-linux-gnu-binutils
+# URL:
+# Maintainer: Fergus Incoronato <ncrfgs@tin.it>
+# Packager: Fergus Incoronato <ncrfgs@tin.it>
+# Depends on: powerpc-unknown-linux-gnu-kern-hrds
+
+name=powerpc-unknown-linux-gnu-binutils
+version=2.15.90.0.3
+release=1
+source=(ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-$version.tar.bz2)
+
+build() {
+	export LDFLAGS="-s"
+	export PATH=/usr/powerpc-unknown-linux-gnu/bin:/usr/powerpc-unknown-linux-gnu/sbin:$PATH
+
+	mkdir build
+	cd build
+
+	../binutils-$version/configure --prefix=/usr/powerpc-unknown-linux-gnu \
+		--target=powerpc-unknown-linux-gnu \
+		--disable-nls \
+		--enable-shared \
+		--enable-64-bit-bfd \
+		--with-lib-path=/usr/powerpc-unknown-linux-gnu/lib
+	make configure-host
+
+	make headers -C bfd
+	make
+
+	make prefix=$PKG/usr/powerpc-unknown-linux-gnu install
+
+	mkdir $PKG/usr/powerpc-unknown-linux-gnu/include
+	cp -p ../binutils-$version/include/libiberty.h $PKG/usr/powerpc-unknown-linux-gnu/include/libiberty.h
+
+	rm -rf $PKG/usr/powerpc-unknown-linux-gnu/info
+	sed -i "s|-L$SRC[^ ]* ||g" $PKG/usr/powerpc-unknown-linux-gnu/i686-pc-linux-gnu/powerpc-unknown-linux-gnu/lib/libbfd.la
+}

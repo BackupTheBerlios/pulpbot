@@ -1,0 +1,11 @@
+^usr/powerpc-unknown-linux-gnu/lib/libc\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libc_nonshared\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libm\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libdl\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libcrypt\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libpthread\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libresolv\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libanl\.a$
+^usr/powerpc-unknown-linux-gnu/lib/librt\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libnsl\.a$
+^usr/powerpc-unknown-linux-gnu/lib/libutil\.a$

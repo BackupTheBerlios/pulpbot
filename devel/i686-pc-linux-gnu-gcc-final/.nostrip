@@ -1,0 +1,7 @@
+^usr/i686-pc-linux-gnu/lib/gcc-lib/i686-pc-linux-gnu/3\.3\.3/libgcc\.a$
+^usr/i686-pc-linux-gnu/lib/gcc-lib/i686-pc-linux-gnu/3\.3\.3/libgcc_eh\.a$
+^usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/libgcc_s\.so\.1$
+^usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/libsupc++\.a$
+^usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/libstdc++\.so\.5\.0\.5$
+^usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/libiberty\.a$
+^usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib/libstdc++\.a$

@@ -1,0 +1,51 @@
+# $Id: Pkgfile,v 1.1 2004/10/09 10:15:23 ncrfgs Exp $
+# Description: i686-pc-linux-gnu-glibc-crtobjs
+# URL:
+# Maintainer: Fergus Incoronato <ncrfgs@tin.it>
+# Packager: Fergus Incoronato <ncrfgs@tin.it>
+# Depends on: i686-pc-linux-gnu-gcc-static
+
+name=i686-pc-linux-gnu-glibc-crtobjs
+version=2.3.3
+release=1
+source=(http://www.fukt.bth.se/~per/crux/files/gnu/glibc-$version-20040410.tar.bz2 \
+	glibc-$version.patch)
+
+build() {
+	patch -d glibc-$version-20040410 -p1 < glibc-$version.patch
+
+	export LDFLAGS="-s"
+	export PATH=/usr/i686-pc-linux-gnu/bin:/usr/i686-pc-linux-gnu/sbin:$PATH
+
+	mkdir -p build
+	cd build
+
+	echo "libc_cv_forced_unwind=yes" > config.cache
+	echo "libc_cv_c_cleanup=yes" >> config.cache
+
+	BUILD_CC=gcc \
+	BUILD_CFLAGS="-O2 -pipe" \
+	CFLAGS="-O2 -pipe" \
+	CC="i686-pc-linux-gnu-gcc" \
+	AR="i686-pc-linux-gnu-ar" \
+	RANLIB="i686-pc-linux-gnu-ranlib" \
+	../glibc-$version-20040410/configure --prefix=/usr/i686-pc-linux-gnu \
+		--host=i686-pc-linux-gnu \
+		--build=powerpc-unknown-linux-gnu \
+		--without-cvs \
+		--disable-profile \
+		--enable-add-ons=nptl \
+		--with-tls \
+		--enable-kernel=2.6.0 \
+		--with-__thread \
+		--cache-file=config.cache \
+		--with-headers=/usr/i686-pc-linux-gnu/include \
+		--with-binutils=/usr/i686-pc-linux-gnu/bin
+
+	make csu/subdir_lib
+
+	mkdir -p $PKG/usr/i686-pc-linux-gnu/lib
+	cp -fp csu/crt[1in].o $PKG/usr/i686-pc-linux-gnu/lib
+	mkdir -p $PKG/usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib
+	cp -fp csu/crt[1in].o $PKG/usr/i686-pc-linux-gnu/i686-pc-linux-gnu/lib
+}

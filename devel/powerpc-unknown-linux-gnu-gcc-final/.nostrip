@@ -1,0 +1,7 @@
+^usr/powerpc-unknown-linux-gnu/lib/gcc-lib/powerpc-unknown-linux-gnu/3\.3\.3-hammer/libgcc\.a$
+^usr/powerpc-unknown-linux-gnu/lib/gcc-lib/powerpc-unknown-linux-gnu/3\.3\.3-hammer/libgcc_eh\.a$
+^usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/libgcc_s\.so\.1$
+^usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/libsupc++\.a$
+^usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/libstdc++\.so\.5\.0\.5$
+^usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/libiberty\.a$
+^usr/powerpc-unknown-linux-gnu/powerpc-unknown-linux-gnu/lib/libstdc++\.a$

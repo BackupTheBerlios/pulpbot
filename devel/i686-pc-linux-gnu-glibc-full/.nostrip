@@ -1,0 +1,11 @@
+^usr/i686-pc-linux-gnu/lib/libc\.a$
+^usr/i686-pc-linux-gnu/lib/libc_nonshared\.a$
+^usr/i686-pc-linux-gnu/lib/libm\.a$
+^usr/i686-pc-linux-gnu/lib/libdl\.a$
+^usr/i686-pc-linux-gnu/lib/libcrypt\.a$
+^usr/i686-pc-linux-gnu/lib/libpthread\.a$
+^usr/i686-pc-linux-gnu/lib/libresolv\.a$
+^usr/i686-pc-linux-gnu/lib/libanl\.a$
+^usr/i686-pc-linux-gnu/lib/librt\.a$
+^usr/i686-pc-linux-gnu/lib/libnsl\.a$
+^usr/i686-pc-linux-gnu/lib/libutil\.a$
