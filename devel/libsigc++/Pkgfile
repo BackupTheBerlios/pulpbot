@@ -1,0 +1,17 @@
+Description: A callback framework for C++
+# URL: http://libsigc.sourceforge.net
+# Depends on: perl
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=libsigc++
+version=2.0.6
+release=1
+source=(http://belnet.dl.sourceforge.net/sourceforge/libsigc/$name-$version.tar.bz2) 
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/
+}

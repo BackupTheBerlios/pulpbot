@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/qhull/
+-rw-r--r--	root/root	usr/include/qhull/geom.h
+-rw-r--r--	root/root	usr/include/qhull/io.h
+-rw-r--r--	root/root	usr/include/qhull/mem.h
+-rw-r--r--	root/root	usr/include/qhull/merge.h
+-rw-r--r--	root/root	usr/include/qhull/poly.h
+-rw-r--r--	root/root	usr/include/qhull/qhull.h
+-rw-r--r--	root/root	usr/include/qhull/qhull_a.h
+-rw-r--r--	root/root	usr/include/qhull/qset.h
+-rw-r--r--	root/root	usr/include/qhull/stat.h
+-rw-r--r--	root/root	usr/include/qhull/user.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libqhull.so

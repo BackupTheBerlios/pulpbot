@@ -1,0 +1,18 @@
+# Description: gtk viewer for gts
+# URL: http://gts.sourceforge.net
+# Depends on: gtk1 gtkglarea gts
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=gtsview
+version=0.1.0
+release=1
+
+source=(http://mesh.dl.sourceforge.net/sourceforge/gts/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld \
+    --with-lib-GL
+#   --with-lib-MesaGL
+    make
+    make DESTDIR=$PKG install
+}

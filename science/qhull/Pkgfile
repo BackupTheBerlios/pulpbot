@@ -1,0 +1,22 @@
+# Description: computation engine for convex hulls, Delaunay triangulations and Voronoi diagrams
+# URL: http://www.qhull.org/
+# Depends on:
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=qhull
+version=2003.1
+release=1
+source=(http://www.qhull.org/download/$name-$version-src.tgz)
+
+build () {
+    cd $name-$version/src
+    sed -i "s|CCOPTS1 = -O2 -ansi|CCOPTS1 = $CFLAGS|g" Makefile
+    echo -e 'libqhull.so: $(OBJS)\r\n\tc++ -shared -Xlinker -soname -Xlinker $@ -o libqhull.so $(OBJS)\r' >> Makefile 
+    make libqhull.so
+
+    mkdir -p $PKG/usr/lib
+    mkdir -p $PKG/usr/include/qhull
+
+    cp libqhull.so $PKG/usr/lib
+    cp *.h $PKG/usr/include/qhull
+}

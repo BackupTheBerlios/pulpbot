@@ -1,0 +1,16 @@
+# Description: GNU triangulated surface library
+# URL: http://gts.sourceforge.net
+# Depends on: glib netpbm
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=gts
+version=0.7.2
+release=1
+
+source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld
+    make
+    make DESTDIR=$PKG install
+}

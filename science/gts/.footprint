@@ -1,0 +1,23 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gts-config
+-rwxr-xr-x	root/root	usr/bin/gts2dxf
+-rwxr-xr-x	root/root	usr/bin/gts2oogl
+-rwxr-xr-x	root/root	usr/bin/gts2stl
+-rwxr-xr-x	root/root	usr/bin/gtscheck
+-rwxr-xr-x	root/root	usr/bin/gtscompare
+-rwxr-xr-x	root/root	usr/bin/gtstemplate
+-rwxr-xr-x	root/root	usr/bin/stl2gts
+-rwxr-xr-x	root/root	usr/bin/transform
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/gts.h
+-rw-r--r--	root/root	usr/include/gtsconfig.h
+drwxr-xr-x	root/root	usr/lib/
+lrwxrwxrwx	root/root	usr/lib/libgts-0.7.so.2 -> libgts-0.7.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libgts-0.7.so.2.0.0
+-rw-r--r--	root/root	usr/lib/libgts.a
+-rwxr-xr-x	root/root	usr/lib/libgts.la
+lrwxrwxrwx	root/root	usr/lib/libgts.so -> libgts-0.7.so.2.0.0
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/aclocal/
+-rw-r--r--	root/root	usr/share/aclocal/gts.m4

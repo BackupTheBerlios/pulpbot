@@ -1,0 +1,17 @@
+# Description: GNU Multiple Precision Arithmetic Library 
+# URL: http://www.swox.com/gmp
+# Depends on: 
+# Maintainer: acrux <acrux@crux-it.org> 
+
+name=libgmp
+version=4.1.4
+release=1
+source=(ftp://ftp.gnu.org/gnu/gmp/gmp-$version.tar.bz2)
+
+build() {
+	cd gmp-$version
+	./configure --prefix=/usr --with-gnu-ld --enable-fft
+	make
+	make DESTDIR=$PKG install
+	rm -R $PKG/usr/info
+}

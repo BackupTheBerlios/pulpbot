@@ -1,0 +1,18 @@
+# Description: GiNaC is Not a CAS
+# URL: http://www.ginac.de/
+# Depends on: perl cln
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=ginac
+version=1.3.0
+release=1
+source=(ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/GiNaC-$version.tar.bz2)
+
+build () {
+    cd GiNaC-$version
+    ./configure --prefix=/usr --with-gnu-ld
+    make
+    make DESTDIR=$PKG install
+    rm -R $PKG/usr/info
+    rm -R $PKG/usr/lib/pkgconfig
+}

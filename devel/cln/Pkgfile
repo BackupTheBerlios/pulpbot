@@ -1,0 +1,22 @@
+# Description: class library for numbers
+# URL: http://www.ginac.de/CLN
+# Depends on: libgmp
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=cln
+version=1.1.8
+release=1
+source=(ftp://ftpthep.physik.uni-mainz.de/pub/gnu/$name-$version.tar.bz2)
+
+build () {
+    cd $name-$version
+
+	export CFLAGS="-O2 -march=i686 -pipe"
+        export CXXFLAGS="-O2 -march=i686 -pipe"
+
+    ./configure --prefix=/usr --with-gnu-ld --with-gmp
+    make
+    make DESTDIR=$PKG install
+    rm -R $PKG/usr/lib/pkgconfig
+    rm -R $PKG/usr/share/{dvi,html}
+}

@@ -1,0 +1,20 @@
+# Description: general polygon clipper
+# URL: http://www.cs.man.ac.uk/aig/staff/alan/software/
+# Depends on:
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=gpc
+version=2.31
+release=1
+
+source=(ftp://ftp.cs.man.ac.uk/pub/toby/$name/gpc231.tar.Z)
+build () {
+    cd gpc231
+    
+    gcc -O2 -c gpc.c
+    ar cru libgenpolyclip.a gpc.o
+    
+    mkdir -p $PKG/usr/include ; mkdir -p $PKG/usr/lib
+    cp gpc.h $PKG/usr/include/
+    cp libgenpolyclip.a $PKG/usr/lib
+}

@@ -1,0 +1,16 @@
+# Description: icons tool for fluxbox
+# URL: http://fluxbox.sourceforge.net/fbdesk/
+# Depends on: fluxbox
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=fbdesk
+version=1.2.1
+release=1
+source=(http://fluxbox.sourceforge.net/download/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --disable-nls
+    make
+    make DESTDIR=$PKG install
+}
