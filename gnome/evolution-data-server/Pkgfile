@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.4 2004/11/21 01:40:26 yankeegohome Exp $
+# $Id: Pkgfile,v 1.5 2004/12/13 14:01:15 yankeegohome Exp $
 # Description: evolution data server for the calendar and addressbook
 # URL: http://cvs.gnome.org/viewcvs/evolution-data-server/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -7,7 +7,7 @@
 # Group: gnome
 
 name=evolution-data-server
-version=1.0.2
+version=1.0.3
 release=1
 source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/1.0/$name-$version.tar.bz2)
 

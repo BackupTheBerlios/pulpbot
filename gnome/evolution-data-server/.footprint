@@ -124,13 +124,13 @@ drwxr-xr-x	root/root	usr/lib/bonobo/servers/
 drwxr-xr-x	root/root	usr/lib/evolution-data-server/
 -rwxr-xr-x	root/root	usr/lib/evolution-data-server/evolution-data-server-1.0
 -rwxr-xr-x	root/root	usr/lib/libebook.la
-lrwxrwxrwx	root/root	usr/lib/libebook.so -> libebook.so.8.0.5
-lrwxrwxrwx	root/root	usr/lib/libebook.so.8 -> libebook.so.8.0.5
--rwxr-xr-x	root/root	usr/lib/libebook.so.8.0.5
+lrwxrwxrwx	root/root	usr/lib/libebook.so -> libebook.so.8.0.6
+lrwxrwxrwx	root/root	usr/lib/libebook.so.8 -> libebook.so.8.0.6
+-rwxr-xr-x	root/root	usr/lib/libebook.so.8.0.6
 -rwxr-xr-x	root/root	usr/lib/libecal.la
-lrwxrwxrwx	root/root	usr/lib/libecal.so -> libecal.so.6.2.1
-lrwxrwxrwx	root/root	usr/lib/libecal.so.6 -> libecal.so.6.2.1
--rwxr-xr-x	root/root	usr/lib/libecal.so.6.2.1
+lrwxrwxrwx	root/root	usr/lib/libecal.so -> libecal.so.6.3.0
+lrwxrwxrwx	root/root	usr/lib/libecal.so.6 -> libecal.so.6.3.0
+-rwxr-xr-x	root/root	usr/lib/libecal.so.6.3.0
 -rwxr-xr-x	root/root	usr/lib/libedata-book.la
 lrwxrwxrwx	root/root	usr/lib/libedata-book.so -> libedata-book.so.1.0.1
 lrwxrwxrwx	root/root	usr/lib/libedata-book.so.1 -> libedata-book.so.1.0.1
