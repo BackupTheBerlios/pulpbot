@@ -1,12 +1,12 @@
-drwxr-xr-x	yankeegohome/users	usr/
-drwxr-xr-x	yankeegohome/users	usr/lib/
-drwxr-xr-x	yankeegohome/users	usr/lib/perl5/
-drwxr-xr-x	yankeegohome/users	usr/lib/perl5/site_perl/
-drwxr-xr-x	yankeegohome/users	usr/lib/perl5/site_perl/5.8.4/
-drwxr-xr-x	yankeegohome/users	usr/lib/perl5/site_perl/5.8.4/linux/
--r--r--r--	yankeegohome/users	usr/lib/perl5/site_perl/5.8.4/linux/Socket6.pm
-drwxr-xr-x	yankeegohome/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/
-drwxr-xr-x	yankeegohome/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/Socket6/
--rw-r--r--	yankeegohome/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/Socket6/.packlist
--r--r--r--	yankeegohome/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/Socket6/Socket6.bs (EMPTY)
--r-xr-xr-x	yankeegohome/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/Socket6/Socket6.so
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/perl5/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Socket6.pm
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Socket6/
+-rw-r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Socket6/.packlist
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Socket6/Socket6.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Socket6/Socket6.so
