@@ -1,4 +1,4 @@
-# Description: geospatial data abstraction standalone drovers for GRASS-5.7.x
+# Description: geospatial data abstraction standalone driver for GRASS-5.7.x
 # URL: http://gdal.org/
 # Depends on: gdal grass
 # Maintainer: acrux <acrux@crux-it.org>
