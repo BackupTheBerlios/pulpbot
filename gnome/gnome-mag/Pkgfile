@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.2 2004/11/05 13:28:01 yankeegohome Exp $
+# $Id: Pkgfile,v 1.3 2004/12/11 00:30:41 slash Exp $
 # Description: gnome-mag magnification service definition
 # URL: http://developer.gnome.org/projects/gap/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,7 +6,7 @@
 # Depends on: at-spi
 
 name=gnome-mag
-version=0.11.9
+version=0.11.11
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/$name/0.11/$name-$version.tar.bz2)
 
