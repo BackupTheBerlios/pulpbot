@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/10/18 14:30:27 yankeegohome Exp $
+# Packager: Coviello Giuseppe <giuseppecoviello@tin.it>
+# Description: Python bindings for Gnome
+# URL: http://www.daa.com.au/~james/software/pygtk/
+# Depends on: gnome pygtk pyorbit
+
+name=gnome-python
+version=2.6.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/gnome-python/2.6/$name-$version.tar.bz2)
+
+build()
+{
+	cd $name-$version
+	./configure --prefix=/usr
+	make && make DESTDIR=$PKG install
+	
+}
+
