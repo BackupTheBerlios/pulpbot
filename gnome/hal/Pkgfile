@@ -1,15 +1,15 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:55:49 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/19 14:53:56 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@email.it>
 # Maintainer: Stefano Esposito <yankeegohome@email.it>
 # Description: An implementation of a hardware abstraction layer
 # URL: http://freedesktop.org/
-# Depends on: gnome-python, pciutils, dbus
+# Depends on: gnome-python, pciutils, dbus, libcap
 
 name=hal
-version=0.2.97
-release=2
+version=0.4.0
+release=1
 source=(http://freedesktop.org/~david/dist/$name-$version.tar.gz \
-    hald)
+	hald)
 
 build () {
     cd $name-$version
@@ -27,4 +27,5 @@ build () {
     chown -R haldaemon:haldaemon $PKG/var/run/hald
     mkdir -p $PKG/etc/rc.d
     cp ../hald $PKG/etc/rc.d
+    rm -rf $PKG/usr/share/locale
 }

@@ -4,7 +4,7 @@ drwxr-xr-x	root/root	etc/dbus-1/system.d/
 -rw-r--r--	root/root	etc/dbus-1/system.d/hal.conf
 drwxr-xr-x	root/root	etc/dev.d/
 drwxr-xr-x	root/root	etc/dev.d/default/
-lrwxrwxrwx	root/root	etc/dev.d/default/hal.dev -> /usr/lib/hal/hal.dev
+lrwxrwxrwx	root/root	etc/dev.d/default/10-hal.dev -> /usr/lib/hal/hal.dev
 drwxr-xr-x	root/root	etc/hal/
 drwxr-xr-x	root/root	etc/hal/capability.d/
 drwxr-xr-x	root/root	etc/hal/device.d/
@@ -12,7 +12,7 @@ drwxr-xr-x	root/root	etc/hal/device.d/
 drwxr-xr-x	root/root	etc/hal/property.d/
 drwxr-xr-x	root/root	etc/hotplug.d/
 drwxr-xr-x	root/root	etc/hotplug.d/default/
-lrwxrwxrwx	root/root	etc/hotplug.d/default/hal.hotplug -> /usr/lib/hal/hal.hotplug
+lrwxrwxrwx	root/root	etc/hotplug.d/default/20-hal.hotplug -> /usr/lib/hal/hal.hotplug
 drwxr-xr-x	root/root	etc/rc.d/
 -rwxr-xr-x	root/root	etc/rc.d/hald
 drwxr-xr-x	root/root	usr/
@@ -23,22 +23,38 @@ lrwxrwxrwx	root/root	usr/bin/hal-device-manager -> /usr/share/hal/device-manager
 -rwxr-xr-x	root/root	usr/bin/lshal
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/hal/
+-rw-r--r--	root/root	usr/include/hal/libhal-storage.h
 -rw-r--r--	root/root	usr/include/hal/libhal.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/hal/
+-rwxr-xr-x	root/root	usr/lib/hal/hal-hotplug-map
 -rwxr-xr-x	root/root	usr/lib/hal/hal.dev
 -rwxr-xr-x	root/root	usr/lib/hal/hal.hotplug
+-rw-r--r--	root/root	usr/lib/libhal-storage.a
+-rwxr-xr-x	root/root	usr/lib/libhal-storage.la
+lrwxrwxrwx	root/root	usr/lib/libhal-storage.so -> libhal-storage.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libhal-storage.so.0 -> libhal-storage.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libhal-storage.so.0.0.0
 -rw-r--r--	root/root	usr/lib/libhal.a
 -rwxr-xr-x	root/root	usr/lib/libhal.la
 lrwxrwxrwx	root/root	usr/lib/libhal.so -> libhal.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libhal.so.0 -> libhal.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libhal.so.0.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/hal-storage.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/hal.pc
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
 drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/fstab-sync
 -rwxr-xr-x	root/root	usr/sbin/hald
 drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/doc/
+drwxr-xr-x	root/root	usr/share/doc/hal-0.4.0/
+drwxr-xr-x	root/root	usr/share/doc/hal-0.4.0/conf/
+-rw-r--r--	root/root	usr/share/doc/hal-0.4.0/conf/storage-non-fixed.fdi
+-rw-r--r--	root/root	usr/share/doc/hal-0.4.0/conf/storage-policy-examples.fdi
+-rw-r--r--	root/root	usr/share/doc/hal-0.4.0/conf/storage-skip-all.fdi
 drwxr-xr-x	root/root	usr/share/hal/
 drwxr-xr-x	root/root	usr/share/hal/device-manager/
 -rw-r--r--	root/root	usr/share/hal/device-manager/Const.py
@@ -76,16 +92,23 @@ drwxr-xr-x	root/root	usr/share/hal/device-manager/
 -rw-r--r--	root/root	usr/share/hal/device-manager/hal-floppy.png
 -rw-r--r--	root/root	usr/share/hal/device-manager/hal-harddisk.png
 -rw-r--r--	root/root	usr/share/hal/device-manager/hal-network.png
+-rw-r--r--	root/root	usr/share/hal/device-manager/hal-serial-port.png
 -rw-r--r--	root/root	usr/share/hal/device-manager/hal-unknown.png
 -rw-r--r--	root/root	usr/share/hal/device-manager/hal-video.png
 drwxr-xr-x	root/root	usr/share/hal/fdi/
 drwxr-xr-x	root/root	usr/share/hal/fdi/10generic/
 drwxr-xr-x	root/root	usr/share/hal/fdi/20freedesktop/
 -rw-r--r--	root/root	usr/share/hal/fdi/20freedesktop/6in1-card-reader.fdi
--rw-r--r--	root/root	usr/share/hal/fdi/20freedesktop/canon-digital-ixus-v.fdi
 -rw-r--r--	root/root	usr/share/hal/fdi/20freedesktop/jetflash-mp3-player.fdi
 -rw-r--r--	root/root	usr/share/hal/fdi/20freedesktop/lexar-media-cf-reader.fdi
 -rw-r--r--	root/root	usr/share/hal/fdi/20freedesktop/lucent-pcmcia-wireless.fdi
+-rw-r--r--	root/root	usr/share/hal/fdi/20freedesktop/sony_dsc.fdi
+drwxr-xr-x	root/root	usr/share/hal/fdi/30osvendor/
+drwxr-xr-x	root/root	usr/share/hal/fdi/40oem/
+drwxr-xr-x	root/root	usr/share/hal/fdi/50user/
+drwxr-xr-x	root/root	usr/share/hal/fdi/90defaultpolicy/
+-rw-r--r--	root/root	usr/share/hal/fdi/90defaultpolicy/storage-policy.fdi
+drwxr-xr-x	root/root	usr/share/hal/fdi/95userpolicy/
 -rw-r--r--	root/root	usr/share/hal/fdi/fdi.dtd
 -rw-r--r--	root/root	usr/share/hal/fdi/fdi.rng
 drwxr-xr-x	root/root	var/
