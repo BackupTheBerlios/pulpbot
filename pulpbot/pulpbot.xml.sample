@@ -3,7 +3,7 @@
   <nick>JulesWinnfield</nick>
   <password>password</password>
   <server>irc.sample.org</server>
-  <canale chan="#pulpbot" password="pulp" />
+  <canale chan="#pulpbot" password="pulp" logfile="/home/pulpman/pulp" />
   <canale chan="#onlyplup" password="ilovepulp" />
   <!-- decommentare la parte sottostante per arrivare megahal -->
   <!--megahal>

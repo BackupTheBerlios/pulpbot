@@ -6,6 +6,7 @@ use POE::Kernel;
 use POE::Session;
 use POE::Component::IRC;
 use XML::Simple;
+use POSIX qw(strftime);
 use Dizionario qw(cerca);
 use Google qw(google);
 
@@ -21,11 +22,12 @@ my $i=0;
 my $canale;
 
 do{
-    $canale=$config->{canale}->[$i]->{chan};
-    $canali="$canali$canale,";
-    my $password=$config->{canale}->[$i]->{password};
-    $operatori{"$password"}="$canale";
-    $i++;
+  $canale=$config->{canale}->[$i]->{chan};
+  $canali="$canali$canale,";
+  my $password=$config->{canale}->[$i]->{password};
+  $operatori{"$password"}="$canale";
+  $operatori{"$canale"}=$config->{canale}->[$i]->{logfile};
+  $i++;
 }while($canale ne "");
 
 
@@ -35,19 +37,18 @@ my $megaignora;
 
 if($config->{megahal})
 {
-    use AI::MegaHAL;
-    $megahal		=	new AI::MegaHAL('Path' => $config->{megahal}->{path}, 
+  use AI::MegaHAL;
+  $megahal	=	new AI::MegaHAL('Path' => $config->{megahal}->{path}, 
 						'AutoSave' => 1);
-    $megatext		=	$megahal->initial_greeting();
-    $i=0;
-    my $ignora;
-    do{
-	$ignora=$config->{megahal}->{ignora}->[$i];
-	$megaignora="$megaignora $ignora";
-	$i++;
-    }while($ignora ne "");
+  $megatext	=	$megahal->initial_greeting();
+  $i=0;
+  my $ignora;
+  do{
+    $ignora=$config->{megahal}->{ignora}->[$i];
+    $megaignora="$megaignora $ignora";
+    $i++;
+  }while($ignora ne "");
 }
-
 
 my $SLEEP=0;
 my $swap=0;
@@ -68,304 +69,310 @@ my $pulpkick_=0;
 my %iskicked;
 my %kicked;
 
-# This gets executed as soon as the kernel sets up this session.
-sub _start {
-    my ($kernel, $session) = @_[KERNEL, SESSION];
-    
-    # Ask the IRC component to send us all IRC events it receives. This
-    # is the easy, indiscriminate way to do it.
-    $kernel->post( 'test', 'register', 'all');
 
-    # Setting Debug to 1 causes P::C::IRC to #print all raw lines of text
-    # sent to and received from the IRC server. Very useful for debugging.
-    $kernel->post( 'test', 'connect', { Debug    => 1,
-					Nick     => $nick,
-					Server   => $server,
-					Port     => 6667,
-					Username => 'PulpBot',
-					Ircname  => 'Pulp Bot', }
-		   );
+sub _start {
+  my ($kernel, $session) = @_[KERNEL, SESSION];
+  $kernel->post( 'test', 'register', 'all');
+  $kernel->post( 'test', 'connect', { Debug    => 1,
+				      Nick     => $nick,
+				      Server   => $server,
+				      Port     => 6667,
+				      Username => 'PulpBot',
+				      Ircname  => 'Pulp Bot', }
+	       );
 }
 
-
-# After we successfully log into the IRC server, join a channel.
 sub irc_001 {
-    my ($kernel) = $_[KERNEL];
-    $kernel->post( 'test', 'mode', $nick, '+i' );
-    #This identify the bot at the nick you have chosen for it
-    $kernel->post( 'test', 'privmsg', 'nickserv', "identify $nickpasswd" );
-    $kernel->post( 'test', 'join', "$canali" );
+  my ($kernel) = $_[KERNEL];
+  $kernel->post( 'test', 'mode', $nick, '+i' );
+  $kernel->post( 'test', 'privmsg', 'nickserv', "identify $nickpasswd" );
+  $kernel->post( 'test', 'join', "$canali" );
 }
 
 
 sub irc_dcc_done {
-    my ($magic, $nick, $type, $port, $file, $size, $done) = @_[ARG0 .. ARG6];
-    #print "DCC $type to $nick ($file) done: $done bytes transferred.\n";
+  my ($magic, $nick, $type, $port, $file, $size, $done) = @_[ARG0 .. ARG6];
 }
 
 
 sub irc_dcc_error {
-    my ($err, $nick, $type, $file) = @_[ARG0 .. ARG2, ARG4];
-    #print "DCC $type to $nick ($file) failed: $err.\n";
+  my ($err, $nick, $type, $file) = @_[ARG0 .. ARG2, ARG4];
 }
 
 sub irc_notice {
-    my ($kernel, $who, $where, $what) = @_[KERNEL, ARG0 .. ARG2];
-    #print "\n\n$who\n\n$where\n\n$what\n\n";
-    if($what=~/332/) {
-	$kernel->post('test', 'privmsg', "#casertalug", "$what");
-    }								
-    my $where = $dovesta;
-    if($what=~/online/) {
-	my $pos = index $what, "\ ";
-	my $chi = substr $what, 0, $pos;
-	if($chi=~/$nick/) {
-	    $kernel->post('test', 'privmsg', $where, "Sono io $chi, idiota!");
-	} elsif($chi=~/$chivuoi/) {
-	    $kernel->post('test', 'privmsg', $where, "Non ti rispondo neanche $chivuoi");
-	} else {
-	    #print $chi;
-	    $kernel->post('test', 'privmsg', $where, "$chi è online idiota");
-	    $kernel->post('test', 'privmsg', $where, "ma sei cieco?Non darmi più fastidio, $chivuoi");
-	}
-    } elsif($what=~/uscire/) {
-	my $prepos = index $what, "visto";
-	my $prechi = substr $what, $prepos+6;
-	my $pos = index $prechi, "\ ";
-	my $chi = substr $prechi, 0, $pos+1;
-	my $timebeginpos = index $prechi, "uscire";
-	my $time = substr $prechi, $timebeginpos+6;
-	$kernel->post('test', 'privmsg', $where, "$chi è uscito $time..");
-	$kernel->post('test', 'privmsg', $where, "e onestamente, non vedo l'ora che te ne vada anche tu, $chivuoi");
-    } elsif($what=~/cambiare/) {
-	my $prepos = index $what, "visto";
-	my $prechi = substr $what, $prepos+6;
-	my $pos = index $prechi, "\ ";
-	my $chi = substr $prechi, 0, $pos+1;
-	my $timebeginpos = index $prechi, "nick";
-	my $time = substr $prechi, $timebeginpos+4;
-	$kernel->post('test', 'privmsg', $where, "$chi ha cambiato nick $time");
-	$kernel->post('test', 'privmsg', $where, 'sperava di nascondersi il pezzo di merda');
-    } elsif($what=~/mai/) {
-	my $pos = index $what, "visto";
-	my $chi = substr $what, $pos+6;
-	$kernel->post('test', 'privmsg', $where, "No, non l'ho visto quel pezzo di merda di $chi");
+  my ($kernel, $who, $where, $what) = @_[KERNEL, ARG0 .. ARG2];
+  my $where = $dovesta;
+  if($what=~/online/) {
+    my $pos = index $what, "\ ";
+    my $chi = substr $what, 0, $pos;
+    if($chi=~/$nick/) {
+      #$kernel->post('test', 'privmsg', $where, "Sono io $chi, idiota!");
+      dici($kernel, $where, "Sono io $chi, idiota!");
+    } elsif($chi=~/$chivuoi/) {
+      #$kernel->post('test', 'privmsg', $where, "Non ti rispondo neanche $chivuoi");
+      dici($kernel, $where, "Non ti rispondo neanche $chivuoi");
+    } else {
+      #$kernel->post('test', 'privmsg', $where, "$chi è online idiota");
+      #$kernel->post('test', 'privmsg', $where, "ma sei cieco?Non darmi più fastidio, $chivuoi");
+      dici($kernel, $where, "$chi è online idiota");
+      dici($kernel, $where, "ma sei cieco?Non darmi più fastidio, $chivuoi");
     }
+  } elsif($what=~/uscire/) {
+    my $prepos = index $what, "visto";
+    my $prechi = substr $what, $prepos+6;
+    my $pos = index $prechi, "\ ";
+    my $chi = substr $prechi, 0, $pos+1;
+    my $timebeginpos = index $prechi, "uscire";
+    my $time = substr $prechi, $timebeginpos+6;
+    #$kernel->post('test', 'privmsg', $where, "$chi è uscito $time..");
+    #$kernel->post('test', 'privmsg', $where, "e onestamente, non vedo l'ora che te ne vada anche tu, $chivuoi");
+    dici($kernel, $where, "$chi è uscito $time..");
+    dici($kernel, $where, "e onestamente, non vedo l'ora che te ne vada ".
+	 "anche tu, $chivuoi");
+  } elsif($what=~/cambiare/) {
+    my $prepos = index $what, "visto";
+    my $prechi = substr $what, $prepos+6;
+    my $pos = index $prechi, "\ ";
+    my $chi = substr $prechi, 0, $pos+1;
+    my $timebeginpos = index $prechi, "nick";
+    my $time = substr $prechi, $timebeginpos+4;
+    #$kernel->post('test', 'privmsg', $where, "$chi ha cambiato nick $time");
+    #$kernel->post('test', 'privmsg', $where, 'sperava di nascondersi il pezzo di merda');
+    dici($kernel, $where, "$chi ha cambiato nick $time");
+    dici($kernel, $where, 'sperava di nascondersi il pezzo di merda');
+  } elsif($what=~/mai/) {
+    my $pos = index $what, "visto";
+    my $chi = substr $what, $pos+6;
+    #$kernel->post('test', 'privmsg', $where, "No, non l'ho visto quel pezzo di merda di $chi");
+    dici($kernel, $where, "No, non l'ho visto quel pezzo di merda di $chi");
+  }
 }
 
 sub irc_311 {
-    my ($what) = $_[ARG1];
-    $whoisuser=$what;
-    $esiste=1;
+  my ($what) = $_[ARG1];
+  $whoisuser=$what;
+  $esiste=1;
 }
 
 sub irc_319 {
-    my ($what) = $_[ARG1];
-    $whoischannels=$what;
-    if(!$esiste) {
-	$esiste=1;
-    }
+  my ($what) = $_[ARG1];
+  $whoischannels=$what;
+  if(!$esiste) {
+    $esiste=1;
+  }
 }
 
 sub irc_318 {
-    my ($kernel) =$_[KERNEL];
-    if ($esiste) {
-	$kernel->post('test', 'privmsg', $dovewhois, "sono cose da dire in privato $chiwhois");
-	$kernel->post('test', 'privmsg', $chiwhois, "il nome completo di $nickwhois è $whoisuser");
-	$kernel->post('test', 'privmsg', $chiwhois, "ora sta su questi canali: $whoischannels");
-    } else {
-	$kernel->post('test', 'privmsg', $dovewhois, "non ne ho idea $chiwhois");
-    }
+  my ($kernel) =$_[KERNEL];
+  if ($esiste) {
+    #$kernel->post('test', 'privmsg', $dovewhois, "sono cose da dire in privato $chiwhois");
+    dici($kernel, $dovewhois, "sono cose da dire in privato $chiwhois");
+    $kernel->post('test', 'privmsg', $chiwhois, "il nome completo di $nickwhois è $whoisuser");
+    $kernel->post('test', 'privmsg', $chiwhois, "ora sta su questi canali: $whoischannels");
+  } else {
+    #$kernel->post('test', 'privmsg', $dovewhois, "non ne ho idea $chiwhois");
+    dici($kernel, $dovewhois, "non ne ho idea $chiwhois");
+  }
 }
 
 sub irc_406 {
-    $esiste=0
+  $esiste=0
 }
 
 sub _stop {
-    my ($kernel) = $_[KERNEL];
-    #print "Control session stopped.\n";
-    $kernel->call( 'test', 'quit', 'Neenios on ice!' );
+  my ($kernel) = $_[KERNEL];
+  #print "Control session stopped.\n";
+  $kernel->call( 'test', 'quit', 'Neenios on ice!' );
 }
 
 
 sub irc_disconnected {
-    my ($server) = $_[ARG0];
-    #print "Lost connection to server $server.\n";
+  my ($server) = $_[ARG0];
+  #print "Lost connection to server $server.\n";
 }
 
 
 sub irc_error {
-    my $err = $_[ARG0];
-    #print "Server error occurred! $err\n";
+  my $err = $_[ARG0];
+  #print "Server error occurred! $err\n";
 }
 
 
 sub irc_socketerr {
-    my $err = $_[ARG0];
-    #print "Couldn't connect to server: $err\n";
+  my $err = $_[ARG0];
+  #print "Couldn't connect to server: $err\n";
 }
 
 
 sub irc_kick {
-    my ($kernel, $who, $where, $isitme, $reason) = @_[KERNEL, ARG0 .. ARG4];
-    #print "Kicked from $where by $who: $reason\n" if $isitme eq $nick;
-    $kernel->post('test', 'join', $where);
-    $who=split ("!", $who);
-    if($who ne $nick) {
-	if($isitme eq $nick) {
-	    if($kicked{$who}) {
-		$morto=$who;
-		$morto_dove=$where;
-		$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la Bibbia?");
-		$pulpkick=1;
-		$iskicked{$who}=1;
-		$kicked{$who}=0;
-	    } else {
-		$kernel->post('test', 'privmsg', $where, "non farlo mai più, $who, sono stato chiaro?");
-		$kicked{$who}=1;
-		$iskicked{$who}=1;
-	    }
-	}
+  my ($kernel, $who, $where, $isitme, $reason) = @_[KERNEL, ARG0 .. ARG4];
+  logga ($where, "--- $isitme was kicked by $who: $reason\n");
+  $kernel->post('test', 'join', $where);
+  $who=split ("!", $who);
+  if($who ne $nick) {
+    if($isitme eq $nick) {
+      if($kicked{$who}) {
+	$morto=$who;
+	$morto_dove=$where;
+	#$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la Bibbia?");
+	dici($kernel, $morto_dove, "$morto leggi la Bibbia?");
+	$pulpkick=1;
+	$iskicked{$who}=1;
+	$kicked{$who}=0;
+      } else {
+	#$kernel->post('test', 'privmsg', $where, "non farlo mai più, $who, sono stato chiaro?");
+	dici($kernel, $where, "non farlo mai più, $who, sono stato chiaro?");
+	$kicked{$who}=1;
+	$iskicked{$who}=1;
+      }
     }
+  }
 }
 
 sub irc_join {
-    my ($kernel, $who, $where) = @_[KERNEL, ARG0, ARG1];
-    $who = (split "!", $who)[0];
-    if($who eq $nick) {
-	#$kernel->post('test', 'privmsg', $where, "Salve a tutti, pezzenti di $where");
-    } elsif($iskicked{$who}) {
-	$kernel->post('test', 'privmsg', $where, "Sei ancora qui $who?");
-	$iskicked{$who}=0;
-    } else {
-	#$kernel->post('test', 'privmsg', $where, "Benvenuto in $where, $who");
-    }
+  my ($kernel, $who, $where) = @_[KERNEL, ARG0, ARG1];
+  $who = (split "!", $who)[0];
+  logga ($where, "--> $who has joined $where\n");
+}
+
+sub irc_part {
+  my ($kernel, $who, $where) = @_[KERNEL, ARG0, ARG1];
+  $who = (split "!", $who)[0];
+  $where = (split " ", $where)[0];
+  logga($where, "<-- $who has quit\n");
+}
+
+sub irc_quit {
+  my ($kernel, $who, $where) = @_[KERNEL, ARG0, ARG1];
+  $who = (split "!", $who)[0];
+  $where = (split " ", $where)[0];
+  logga($where, "<-- $who has quit\n");
 }
 
 sub irc_ctcp_version {
-    my($kernel, $who) = @_[KERNEL, ARG0];
-    $who=(split "!", $who)[0];
-    $kernel->post('test', 'ctcpreply', $who, "Pulpbot v.0.2");
+  my($kernel, $who) = @_[KERNEL, ARG0];
+  $who=(split "!", $who)[0];
+  $kernel->post('test', 'ctcpreply', $who, "Pulpbot http://pulpbot.berlios.de");
 }
 
 sub irc_public {
-    my ($kernel, $who, $where, $msg) = @_[KERNEL, ARG0 .. ARG2];
-    $who = (split "!", $who)[0];
+  my ($kernel, $who, $where, $msg) = @_[KERNEL, ARG0 .. ARG2];
+  $who = (split "!", $who)[0];
 
-    #print "<$who:@{$where}[0]> $msg\n";
-    if($pulpkick) {
-	if(uc($who) eq uc($morto)) {
-	    $DORME=1;
-	    recita($kernel, $morto, $morto_dove);
-	    while($DORME){}
-	    #$kernel->post('test', 'kick', $morto_dove, $morto);
-	    $pulpkick=0;
-	    $pulpkick_=1;
-	}
-    }
-    if($pulpkick_) {
-	##print "$who $where $msg\n";
-	#if($who eq $nick)
-	#{
-	#	#print "###############################\n";
-	#$DORME=1;
-	#recita($kernel, $morto, $morto_dove);
-	#while($DORME){}
-	if($msg=~/E tu saprai che il mio nome/) {
-	    if($ban){
-		$kernel->post('test', 'mode', $morto_dove, '+b', $morto);
-		$ban=0;
-	    }
-	    $kernel->post('test', 'kick', $morto_dove, $morto);
-	    $iskicked{$morto}=1;
-	    $pulpkick_=0;
-	}
-    }
+  logga(@{$where}[0], "<$who> $msg\n");
 
-    # tutti i comandi pubblici
-    # my $pos=index $msg, "\w";
-    #my $a_chi="";
-    my $a_me=substr $msg, 0, length($nick);
-    #$kernel->post('test', 'privmsg', $where, $a_me);
-    $a_me=uc($a_me);
-    if($a_me eq uc($nick)) {
-	if($msg=~/signific/) {
-	    my $pos=index $msg, "signific";
-	    my $stringa=substr $msg, $pos;
-	    $pos=index $stringa, " ";
-	    my $stringa=substr $stringa, $pos;
-	    $pos=index $stringa, " ";
-	    my $lemma=substr $stringa, $pos;
-	    $lemma=trim($lemma);
-	    $pos=index $lemma, " ";
-	    my $numero=substr $stringa, $pos;
-	    $numero=trim($numero);
-	    $pos=index $numero, " ";
-	    $numero=substr $numero,0, $pos;
-	    $numero=trim($numero);
-	    my ($risultato)=cerca($stringa, $numero);
-	    my @risultato=split "\n", $risultato;
-	    foreach $risultato (@risultato) {
-		$kernel->post('test', 'privmsg', $where , "$risultato");
-	    }
-	    $kernel->post('test', 'privmsg', $where , "Hei $who questa è l'ultima volta che faccio il lavoro sporco al posto tuo!");
-	} elsif($msg=~/strunzat/) {
-	    my $strunzata=`fortune`;
-	    my @strunzata= split "\n", $strunzata;
-	    foreach $strunzata (@strunzata) {
-		$kernel->post('test', 'privmsg', $where , "$strunzata");
-	    }
-	} elsif($msg=~/trov/) {
-	    my $pos=index $msg, "trov";
-	    my $stringa=substr $msg, $pos;
-	    $pos=index $stringa, " ";
-	    $stringa=substr $stringa, $pos;
-	    $stringa =~ s/\ /\+/gs;
-	    my (@risultato)=google($stringa);
-	    ##print $risultato;
-	    #$kernel->post('test', 'privmsg', $where, $risultato);
-	    #my @risultato=split "\n", $risultato;
-	    my $a=0;
-	    my $risultato;
-	    foreach $risultato(@risultato) {
-		$a++;
-		$kernel->post('test', 'privmsg', $where , "$a. http://$risultato");
-	    }
-	    $kernel->post('test', 'privmsg', $where , "Hei $who questa è l'ultima volta che faccio il lavoro sporco al posto tuo!");
-	} elsif($msg=~/visto/) {
-	    $dovesta = $where;
-	    my $pos=index $msg, "visto";
-	    $chivuoi = $who;
-	    my $chi = substr $msg, $pos+=5;
-	    if($chi=~/\?$/) {
-		chop($chi);
-	    }
-	    $kernel->post('test', 'privmsg', 'seenserv', "seen $chi");
-	} elsif($msg=~/chi è/) {
-	    $chiwhois=$who;
-	    $dovewhois=$where;
-	    my $pos=index $msg, "è";
-	    my $chi=substr $msg, $pos+2;
-	    if($chi=~/\?$/) {
-		chop($chi);
-	    }
-	    $nickwhois=$chi;
-	    $kernel->post('test', 'whois', $chi);
-	} elsif($megahal) {
-	    my $megamsg=$msg;
-	    $megamsg =~ s/$nick\W//g;
-	    $megatext = $megahal->do_reply($megamsg);
-	    $kernel->post('test', 'privmsg', $where , "$megatext");
-	}
+  if($pulpkick) {
+    if(uc($who) eq uc($morto)) {
+      $DORME=1;
+      recita($kernel, $morto, $morto_dove);
+      while($DORME){}
+      #$kernel->post('test', 'kick', $morto_dove, $morto);
+      $pulpkick=0;
+      $pulpkick_=1;
+    }
+  }
+
+  if($pulpkick_) {
+    if($msg=~/E tu saprai che il mio nome/) {
+      if($ban){
+	$kernel->post('test', 'mode', $morto_dove, '+b', $morto);
+	$ban=0;
+      }
+      $kernel->post('test', 'kick', $morto_dove, $morto);
+      $iskicked{$morto}=1;
+      $pulpkick_=0;
+    }
+  }
+
+  # tutti i comandi pubblici
+  my $a_me=substr $msg, 0, length($nick);
+  $a_me=uc($a_me);
+
+  if($a_me eq uc($nick)) {
+    if($msg=~/signific/) {
+      my $pos=index $msg, "signific";
+      my $stringa=substr $msg, $pos;
+      $pos=index $stringa, " ";
+      my $stringa=substr $stringa, $pos;
+      $pos=index $stringa, " ";
+      my $lemma=substr $stringa, $pos;
+      $lemma=trim($lemma);
+      $pos=index $lemma, " ";
+      my $numero=substr $stringa, $pos;
+      $numero=trim($numero);
+      $pos=index $numero, " ";
+      $numero=substr $numero,0, $pos;
+      $numero=trim($numero);
+      my ($risultato)=cerca($stringa, $numero);
+      my @risultato=split "\n", $risultato;
+      foreach $risultato (@risultato) {
+	#$kernel->post('test', 'privmsg', $where , "$risultato");
+	dici($kernel, $where , "$risultato");
+      }
+      #$kernel->post('test', 'privmsg', $where , "Hei $who questa è l'ultima volta che faccio il lavoro sporco al posto tuo!");
+      dici($kernel, $where , "Hei $who questa è l'ultima volta che faccio il lavoro".
+	   "sporco al posto tuo!");
+    } elsif($msg=~/strunzat/) {
+      my $strunzata=`fortune`;
+      my @strunzata= split "\n", $strunzata;
+      foreach $strunzata (@strunzata) {
+	#$kernel->post('test', 'privmsg', $where , "$strunzata");
+	dici($kernel, $where , "$strunzata");
+      }
+    } elsif($msg=~/trov/) {
+      my $pos=index $msg, "trov";
+      my $stringa=substr $msg, $pos;
+      $pos=index $stringa, " ";
+      $stringa=substr $stringa, $pos;
+      $stringa =~ s/\ /\+/gs;
+      my (@risultato)=google($stringa);
+      my $a=0;
+      my $risultato;
+      foreach $risultato(@risultato) {
+	$a++;
+	#$kernel->post('test', 'privmsg', $where , "$a. http://$risultato");
+	dici($kernel, $where , "$a. http://$risultato");
+      }
+      #$kernel->post('test', 'privmsg', $where , "Hei $who questa è l'ultima volta che faccio il lavoro sporco al posto tuo!");
+      dici($kernel, $where , "Hei $who questa è l'ultima volta che faccio il lavoro".
+	   "sporco al posto tuo!");
+    } elsif($msg=~/visto/) {
+      $dovesta = $where;
+      my $pos=index $msg, "visto";
+      $chivuoi = $who;
+      my $chi = substr $msg, $pos+=5;
+      if($chi=~/\?$/) {
+	chop($chi);
+      }
+      $kernel->post('test', 'privmsg', 'seenserv', "seen $chi");
+    } elsif($msg=~/chi è/) {
+      $chiwhois=$who;
+      $dovewhois=$where;
+      my $pos=index $msg, "è";
+      my $chi=substr $msg, $pos+2;
+      if($chi=~/\?$/) {
+	chop($chi);
+      }
+      $nickwhois=$chi;
+      $kernel->post('test', 'whois', $chi);
     } elsif($megahal) {
-	if(uc($who) ne uc($megaignora)){
-	    $megatext = $megahal->do_reply($msg);
-	}
-	if(uc($msg) =~ uc($nick)){
-	    $kernel->post('test', 'privmsg', $where , "$megatext");
-	}
+      my $megamsg=$msg;
+      $megamsg =~ s/$nick\W//g;
+      $megatext = $megahal->do_reply($megamsg);
+      #$kernel->post('test', 'privmsg', $where , "$megatext");
+      dici($kernel, $where , "$megatext");
     }
+  } elsif($megahal) {
+    my $megamsg=$msg;
+    $megamsg=~s/$nick/me/g;
+    if(uc($who) ne uc($megaignora)){
+      $megatext = $megahal->do_reply($megamsg);
+    }
+    if(uc($msg) =~ uc($nick)){
+      #$kernel->post('test', 'privmsg', $where , "$megatext");
+      dici($kernel, $where , "$megatext");
+    }
+  }
 }
 
 
@@ -373,189 +380,183 @@ sub irc_public {
 
 sub recita
 {
-    my $kernel=shift;
-    my $morto=shift;
-    my $morto_dove=shift;
-	
-    my @ezechiele=("$morto Ezechiele 25:17",
-		   "Il cammino dell'uomo timorato e'minacciato da ogni parte dalle iniquita' degli esseri egoisti e dalla tirannia degli uomini malvagi.", 
-		   "Benedetto sia colui che nel nome della carita' e della buona volonta' conduce i deboli attraverso la valle delle tenebre",
-		   "perche' egli e' in verita' il pastore di suo fratello e il ricercatore dei figli smarriti.",
-		   "E la mia giustizia calera' sopra di loro con grandissima vendetta e furiosissimo sdegno, su coloro che proveranno ad ammorbare ed infine a distruggere i miei fratelli.",
-		   "E tu saprai che il mio nome e' quello del Signore quando faro' calare la mia vendetta sopra di te... "
-		   );
-    foreach my $verso (@ezechiele) {
-	$kernel->post('test', 'privmsg', $morto_dove, $verso);
-	$kernel->post('test', 'privmsg', $nick, $verso);
-    }
-    $DORME=0;
+  my $kernel=shift;
+  my $morto=shift;
+  my $morto_dove=shift;
+
+  my @ezechiele=("$morto Ezechiele 25:17",
+		 "Il cammino dell'uomo timorato e'minacciato da ogni parte dalle".
+		 "iniquita' degli esseri egoisti e dalla tirannia degli uomini malvagi.",
+		 "Benedetto sia colui che nel nome della carita' e della buona volonta'".
+		 "conduce i deboli attraverso la valle delle tenebre",
+		 "perche' egli e' in verita' il pastore di suo fratello e il ricercatore".
+		 "dei figli smarriti.",
+		 "E la mia giustizia calera' sopra di loro con grandissima vendetta e".
+		 "furiosissimo sdegno, su coloro che proveranno ad ammorbare ed infine".
+		 "a distruggere i miei fratelli.",
+		 "E tu saprai che il mio nome e' quello del Signore quando faro' calare".
+		 "la mia vendetta sopra di te... "
+		);
+  foreach my $verso (@ezechiele) {
+    #$kernel->post('test', 'privmsg', $morto_dove, $verso);
+    dici($kernel, $morto_dove, $verso);
+    $kernel->post('test', 'privmsg', $nick, $verso);
+  }
+  $DORME=0;
 }
 
 sub irc_msg {
-    my ($kernel, $who, $where, $msg) = @_[KERNEL, ARG0 .. ARG2];
-    my $chi=$who;
-    $who = (split "!", $who)[0];
+  my ($kernel, $who, $where, $msg) = @_[KERNEL, ARG0 .. ARG2];
+  my $chi=$who;
+  $who = (split "!", $who)[0];
 
-    #print "<$who:@{$where}[0]> $msg\n";
-    $swap=0;
-    $SLEEP=1;
-    identificato($kernel, $who);
-    while($SLEEP) {
-	#print "sleeping\n";
+  $swap=0;
+  $SLEEP=1;
+  identificato($kernel, $who);
+  while($SLEEP) {
+  }
+
+  if($swap) {
+    my $pos=index $msg, "\ ";
+    my $comando=substr $msg, 0, $pos;
+    if($comando eq "vai") {
+      my $pos=index $msg, "#";
+      my $canale=substr $msg, $pos;
+      $kernel->post('test', 'join', $canale);
+      $kernel->post('test', 'privmsg', $where, $canale);
+    } elsif($comando eq "vieni") {
+      my $canale=substr $msg, $pos+1;
+      $kernel->post('test', 'part', $canale);
+    } elsif($comando eq "nome") {
+      my $nome=substr $msg, $pos+1;
+      $nick=$nome;
+      $kernel->post('test', 'nick', $nome);
+    } elsif($comando eq "dici") {
+      $msg=substr $msg, $pos+1;
+      $pos=index $msg, "\ ";
+      my $dove=substr $msg, 0, $pos;
+      $msg=substr $msg, $pos+1;
+      #$kernel->post('test', 'privmsg', $dove, "$msg");
+      dici($kernel, $dove, "$msg");
+    } elsif($comando eq "topic") {
+      $msg=substr $msg, $pos+1;
+      $pos=index $msg, "\ ";
+      my $dove=substr $msg, 0, $pos;
+      $msg=substr $msg, $pos+1;
+      $kernel->post('test', 'topic', $dove, "$msg");
+    } elsif($comando eq "ctopic") {
+      $msg=substr $msg, $pos+1;
+      $pos=index $msg, "\ ";
+      my $dove=substr $msg, 0, $pos;
+      $msg=substr $msg, $pos+1;
+      $kernel->post('test', 'privmsg', $dove, $kernel->post('test', 'topic', $dove));
+    } elsif($comando eq "spara") {
+      $msg=substr $msg, $pos+1;
+      $pos=index $msg, "\ ";
+      $morto=substr $msg, 0, $pos;
+      $morto_dove=substr $msg, $pos+1;
+      #$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
+      dici($kernel, $morto_dove, "$morto leggi la bibbia?");
+      $pulpkick=1;
+    } elsif($comando eq "uccidi") {
+      $msg=substr $msg, $pos+1;
+      $pos=index $msg, "\ ";
+      $morto=substr $msg, 0, $pos;
+      $morto_dove=substr $msg, $pos+1;
+      #$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
+      dici($kernel, $morto_dove, "$morto leggi la bibbia?");
+      $pulpkick=1;
+      $ban=1;
     }
-    if($swap) {
-	my $pos=index $msg, "\ ";
-	my $comando=substr $msg, 0, $pos;
-	if($comando eq "vai") {
-	    my $pos=index $msg, "#";
-	    my $canale=substr $msg, $pos;
-	    $kernel->post('test', 'join', $canale);
-	    $kernel->post('test', 'privmsg', $where, $canale);
-	} elsif($comando eq "vieni") {
-	    my $canale=substr $msg, $pos+1;
-	    $kernel->post('test', 'part', $canale);
-	} elsif($comando eq "nome") {
-	    my $nome=substr $msg, $pos+1;
-	    $nick=$nome;
-	    $kernel->post('test', 'nick', $nome);
-	} elsif($comando eq "dici") {
-	    $msg=substr $msg, $pos+1;
-	    $pos=index $msg, "\ ";
-	    my $dove=substr $msg, 0, $pos;
-	    $msg=substr $msg, $pos+1;
-	    $kernel->post('test', 'privmsg', $dove, "$msg");
-	} elsif($comando eq "topic") {
-	    $msg=substr $msg, $pos+1;
-	    $pos=index $msg, "\ ";
-	    my $dove=substr $msg, 0, $pos;
-	    $msg=substr $msg, $pos+1;
-	    $kernel->post('test', 'topic', $dove, "$msg");
-	} elsif($comando eq "ctopic") {
-	    $msg=substr $msg, $pos+1;
-	    $pos=index $msg, "\ ";
-	    my $dove=substr $msg, 0, $pos;
-	    $msg=substr $msg, $pos+1;
-	    $kernel->post('test', 'privmsg', $dove, $kernel->post('test', 'topic', $dove));
-	    #$kernel->post('test', 'topic', $dove, $kernel->post('test', 'privmsg', $dove, "$topic"));
-	} elsif($comando eq "spara") {
-	    $msg=substr $msg, $pos+1;
-	    $pos=index $msg, "\ ";
-	    $morto=substr $msg, 0, $pos;
-	    $morto_dove=substr $msg, $pos+1;
-	    $kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
-	    $pulpkick=1;
-	} elsif($comando eq "uccidi") {
-	    $msg=substr $msg, $pos+1;
-	    $pos=index $msg, "\ ";
-	    $morto=substr $msg, 0, $pos;
-	    $morto_dove=substr $msg, $pos+1;
-	    $kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
-	    $pulpkick=1;
-	    $ban=1;
-	}
-    } elsif(uc($who) eq uc($nick)) {
-    } elsif($msg=~/332/) {
-	$kernel->post('test', 'privmsg', "#casertalug", "$msg");
+  } elsif(uc($who) eq uc($nick)) {
+  } else {
+    my $pass=$msg;
+    my $pos = index $msg, "\ ";
+    if($pos!=-1) {
+      $pass = substr $msg, 0, $pos;
+    }
+    if($operatori{$pass}) {
+      $msg=substr $msg, $pos+1;
+      $pos=index $msg, "\ ";
+      my $comando=substr $msg, 0, $pos;
+      if($comando eq "dici") {
+	$msg=substr $msg, $pos+1;
+	#$kernel->post('test', 'privmsg', $operatori{$pass}, "$msg");
+	dici($kernel, $operatori{$pass}, "$msg");
+      } elsif($comando eq "spara") {
+	$msg=substr $msg, $pos+1;
+	$morto=$msg;
+	$morto_dove=$operatori{$pass}; 
+	#$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
+	dici($kernel, $morto_dove, "$morto leggi la bibbia?");
+	$pulpkick=1;
+      } elsif($comando eq "uccidi") {
+	$msg=substr $msg, $pos+1;
+	$morto=$msg;
+	$morto_dove=$operatori{$pass}; 
+	#$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
+	dici($kernel, $morto_dove, "$morto leggi la bibbia?");
+	$ban=1;
+	$pulpkick=1;
+      } elsif($comando eq "op") {
+	$msg=substr $msg, $pos+1;
+	$chi=$msg;
+	my $dove=$operatori{$pass};
+	$kernel->post('test', 'privmsg', 'chanserv', "op $dove $chi");
+      } elsif($comando eq "deop") {
+	$msg=substr $msg, $pos+1;
+	$chi=$msg;
+	my $dove=$operatori{$pass};
+	$kernel->post('test', 'privmsg', 'chanserv', "deop $dove $chi");
+      } elsif($comando eq "vai") {
+	$msg=substr $msg, $pos+1;
+	my $dove=$msg;
+	$kernel->post('test', 'join', $dove);
+      } elsif($comando eq "vieni") {
+	$msg=substr $msg, $pos+1;
+	my $dove=$msg;
+	$kernel->post('test', 'part', $dove);
+      }
     } else {
-	my $pass=$msg;
-	my $pos = index $msg, "\ ";
-	if($pos!=-1) {
-	    $pass = substr $msg, 0, $pos;
-	}
-	if($operatori{$pass}) {
-	    $msg=substr $msg, $pos+1;
-	    $pos=index $msg, "\ ";
-	    my $comando=substr $msg, 0, $pos;
-	    if($comando eq "dici") {
-		$msg=substr $msg, $pos+1;
-		$kernel->post('test', 'privmsg', $operatori{$pass}, "$msg");
-	    } elsif($comando eq "spara") {
-		$msg=substr $msg, $pos+1;
-		$morto=$msg;
-		$morto_dove=$operatori{$pass}; 
-		$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
-		$pulpkick=1;
-	    } elsif($comando eq "uccidi") {
-		$msg=substr $msg, $pos+1;
-		$morto=$msg;
-		$morto_dove=$operatori{$pass}; 
-		$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
-		$ban=1;
-		$pulpkick=1;
-	    } elsif($comando eq "op") {
-		$msg=substr $msg, $pos+1;
-		$chi=$msg;
-		my $dove=$operatori{$pass};
-		$kernel->post('test', 'privmsg', 'chanserv', "op $dove $chi");
-	    } elsif($comando eq "deop") {
-		$msg=substr $msg, $pos+1;
-		$chi=$msg;
-		my $dove=$operatori{$pass};
-		$kernel->post('test', 'privmsg', 'chanserv', "deop $dove $chi");
-	    } elsif($comando eq "vai") {
-		$msg=substr $msg, $pos+1;
-		my $dove=$msg;
-		$kernel->post('test', 'join', $dove);
-	    } elsif($comando eq "vieni") {
-		$msg=substr $msg, $pos+1;
-		my $dove=$msg;
-		$kernel->post('test', 'part', $dove);
-	    }
-	} else {
-	    $kernel->post('test', 'privmsg', $who, "che vuoi idiota?");
-	}
+      $kernel->post('test', 'privmsg', $who, "che vuoi idiota?");
     }
-    
-    if($pulpkick_) {
-	if($msg=~/E tu saprai che il mio nome/) {
-	    if($ban){
-		$kernel->post('test', 'mode', $morto_dove, '+b', $morto);
-		$ban=0;
-	    }
-	    $kernel->post('test', 'kick', $morto_dove, $morto);
-	    $pulpkick_=0;
-	}
+  }
+
+  if($pulpkick_) {
+    if($msg=~/E tu saprai che il mio nome/) {
+      if($ban){
+	$kernel->post('test', 'mode', $morto_dove, '+b', $morto);
+	$ban=0;
+      }
+      $kernel->post('test', 'kick', $morto_dove, $morto);
+      $pulpkick_=0;
     }
+  }
 }
 
 sub irc_dcc_request {
-    my ($kernel, $nick, $type, $port, $magic, $filename, $size) = @_[KERNEL, ARG0 .. ARG5];
-    #print "DCC $type request from $nick on port $port\n";
-    $nick = ($nick =~ /^([^!]+)/);
-    $nick =~ s/\W//;
-    $kernel->post( 'test', 'dcc_accept', $magic, "$1.$filename" );
+  my ($kernel, $nick, $type, $port, $magic, $filename, $size) = @_[KERNEL, ARG0 .. ARG5];
+  $nick = ($nick =~ /^([^!]+)/);
+  $nick =~ s/\W//;
+  $kernel->post( 'test', 'dcc_accept', $magic, "$1.$filename" );
 }
 
 sub identificato
 {
-    #my ($who, $kernel)=shift  @_[ARG0 .. ARG1];
-    my $kernel=shift;
-    my $who=shift;
-    ##print $who;
-    #$kernel->post('test', 'privmsg', '#ilclan', "$who $admin");
-    if(uc($who) eq uc($admin))
-    {
-	#my @whois_ = @_[$kernel->post('test', 'whois', $who)];
-	#$kernel->post('test', 'privmsg', $who, "aa");
-	#foreach my $riga (@whois_)
-	#{
-	#$kernel->post('test', 'privmsg', '#ilclan', "$riga");
-	
-	#if($riga=~/identified/)
-	#{
-	$swap=1;
-	$SLEEP=0;
-	#}
-	#}
-	}
+  my $kernel=shift;
+  my $who=shift;
+  if(uc($who) eq uc($admin)) {
+    $swap=1;
     $SLEEP=0;
+  }
+  $SLEEP=0;
 }
 
 # here's where execution starts.
 
 POE::Component::IRC->new( 'test' ) or
-    die "Can't instantiate new IRC component!\n";
-POE::Session->new( 'main' => [qw(_start _stop irc_001 irc_kick irc_join
+  die "Can't instantiate new IRC component!\n";
+POE::Session->new( 'main' => [qw(_start _stop irc_001 irc_kick irc_join irc_part irc_quit
 				 irc_disconnected irc_error irc_socketerr
 				 irc_dcc_done irc_dcc_error irc_dcc_request
 				 irc_public irc_msg irc_notice irc_311 irc_319
@@ -565,10 +566,27 @@ $poe_kernel->run();
 exit 0;
 
 sub trim {
-    my ($string)=@_;
-    for ($string) {
-	s/^\s+//;
-	s/\s+$//;
-    }
-    return $string;
+  my ($string)=@_;
+  for ($string) {
+    s/^\s+//;
+    s/\s+$//;
+  }
+  return $string;
+}
+
+sub logga {
+  my($canale, $riga)=@_;
+  if((my $logfile=$operatori{$canale})) {
+    my $tempo = strftime "%b %e %H:%M:%S", localtime;
+    $riga="$tempo $riga";
+    open(LOG, ">>$logfile");
+    print LOG $riga;
+    close(LOG);
+  }
+}
+
+sub dici {
+  my($kernel, $canale, $riga)=@_;
+  $kernel->post('test', 'privmsg', $canale, " $riga");
+  logga(@{$canale}[0], "<$nick> $riga\n");
 }
