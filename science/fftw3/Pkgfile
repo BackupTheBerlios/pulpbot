@@ -11,12 +11,12 @@ source=(http://www.fftw.org/fftw-$version.tar.gz)
 build () {
     cd fftw-$version
     ./configure --prefix=/usr --enable-long-double --enable-threads \
-#	--enable-k7 \
+    --with-gnu-ld --disable-nls
+#	--enable-k7 
 #	--enable-sse \
 #	--enable-sse2 \
 #	--enable-altivec \
 #	--enable-3dnow \
-    --with-gnu-ld --disable-nls
     make
     make DESTDIR=$PKG install
     rm -rf $PKG/usr/info
