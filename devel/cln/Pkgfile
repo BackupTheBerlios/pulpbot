@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=cln
-version=1.1.8
+version=1.1.9
 release=1
 source=(ftp://ftpthep.physik.uni-mainz.de/pub/gnu/$name-$version.tar.bz2)
 

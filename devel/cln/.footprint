@@ -86,9 +86,9 @@ drwxr-xr-x	root/root	usr/info/
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libcln.a
 -rwxr-xr-x	root/root	usr/lib/libcln.la
-lrwxrwxrwx	root/root	usr/lib/libcln.so -> libcln.so.3.0.2
-lrwxrwxrwx	root/root	usr/lib/libcln.so.3 -> libcln.so.3.0.2
--rwxr-xr-x	root/root	usr/lib/libcln.so.3.0.2
+lrwxrwxrwx	root/root	usr/lib/libcln.so -> libcln.so.3.0.3
+lrwxrwxrwx	root/root	usr/lib/libcln.so.3 -> libcln.so.3.0.3
+-rwxr-xr-x	root/root	usr/lib/libcln.so.3.0.3
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/cln-config.1.gz
