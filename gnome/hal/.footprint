@@ -17,7 +17,7 @@ drwxr-xr-x	root/root	etc/rc.d/
 -rwxr-xr-x	root/root	etc/rc.d/hald
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
-lrwxrwxrwx	root/root	usr/bin/hal-device-manager -> /usr/share/hal/device-manager/hal-device-manager
+-rwxr-xr-x	root/root	usr/bin/hal-device-manager
 -rwxr-xr-x	root/root	usr/bin/hal-get-property
 -rwxr-xr-x	root/root	usr/bin/hal-set-property
 -rwxr-xr-x	root/root	usr/bin/lshal
@@ -50,11 +50,11 @@ drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/hald
 drwxr-xr-x	root/root	usr/share/
 drwxr-xr-x	root/root	usr/share/doc/
-drwxr-xr-x	root/root	usr/share/doc/hal-0.4.0/
-drwxr-xr-x	root/root	usr/share/doc/hal-0.4.0/conf/
--rw-r--r--	root/root	usr/share/doc/hal-0.4.0/conf/storage-non-fixed.fdi
--rw-r--r--	root/root	usr/share/doc/hal-0.4.0/conf/storage-policy-examples.fdi
--rw-r--r--	root/root	usr/share/doc/hal-0.4.0/conf/storage-skip-all.fdi
+drwxr-xr-x	root/root	usr/share/doc/hal-0.4.1/
+drwxr-xr-x	root/root	usr/share/doc/hal-0.4.1/conf/
+-rw-r--r--	root/root	usr/share/doc/hal-0.4.1/conf/storage-non-fixed.fdi
+-rw-r--r--	root/root	usr/share/doc/hal-0.4.1/conf/storage-policy-examples.fdi
+-rw-r--r--	root/root	usr/share/doc/hal-0.4.1/conf/storage-skip-all.fdi
 drwxr-xr-x	root/root	usr/share/hal/
 drwxr-xr-x	root/root	usr/share/hal/device-manager/
 -rw-r--r--	root/root	usr/share/hal/device-manager/Const.py
