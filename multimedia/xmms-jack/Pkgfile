@@ -1,0 +1,16 @@
+##
+## xmms-jack
+##
+
+name=xmms-jack
+version=0.11
+release=a1
+source=(http://dl.sourceforge.net/sourceforge/xmms-jack/$name-$version.tar.gz)
+depends=('xmms' 'jack')
+
+build() {
+	cd $name
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
