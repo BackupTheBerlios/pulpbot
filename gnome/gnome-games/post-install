@@ -1,0 +1,61 @@
+#!/bin/sh
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+	gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/aisleriot.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/blackjack.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gataxx.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+        /usr/etc/gconf/schemas/glines.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gnect.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gnibbles.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gnobots2.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gnome-stones.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gnometris.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gnomine.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gnotravex.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/gtali.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/iango.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/mahjongg.schemas
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+        gconftool-2 --makefile-install-rule \
+	/usr/etc/gconf/schemas/same-gnome.schemas

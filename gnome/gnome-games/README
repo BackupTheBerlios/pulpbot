@@ -1,0 +1,8 @@
+PRE-INSTALL
+
+	If you want to get an highscore management you'll need to create games 
+	user & group
+
+POST-INSTALL
+
+	Use post-install script. See it for more details	

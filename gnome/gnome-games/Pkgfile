@@ -1,0 +1,26 @@
+# $Id: Pkgfile,v 1.1 2004/10/15 14:38:17 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Gnome games
+# Depends on: libgnomeui
+# URL: http://www.gnome.org
+
+name=gnome-games
+version=2.8.1
+release=1
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2 \	$name.patch)
+
+build () {
+	touch scrollkeeper-config
+	chmod +x scrollkeeper-config
+	export SCROLLKEEPER_CONFIG="$PATH:$PWD"
+	cd $name-$version
+	patch -p0 < ../$name.patch
+	./configure --prefix=/usr \
+		    --localstatedir=/var \
+		    --disable-schemas-install \
+		    --disable-setgid
+	make
+	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	make DESTDIR=$PKG install
+}

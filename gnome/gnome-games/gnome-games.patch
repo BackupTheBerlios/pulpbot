@@ -1,0 +1,21 @@
+diff -Nru configure.old configure
+--- configure.old	2004-10-15 15:18:23.499215000 +0000
++++ configure	2004-10-15 15:18:54.746464696 +0000
+@@ -21165,7 +21165,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -22407,7 +22407,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
