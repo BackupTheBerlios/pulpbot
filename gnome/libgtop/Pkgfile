@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.2 2004/11/05 12:50:29 slash Exp $
+# $Id: Pkgfile,v 1.3 2004/12/06 18:54:21 slash Exp $
 # Description: library that fetches information about the running system
 # URL: http://www.gnu.org/directory/libs/LibGTop.html
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,7 +6,7 @@
 # Depends on: glib,popt
 
 name=libgtop
-version=2.8.1
+version=2.8.2
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2)
 
