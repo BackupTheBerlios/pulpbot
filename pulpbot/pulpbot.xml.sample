@@ -5,4 +5,10 @@
   <server>irc.sample.org</server>
   <canale chan="#pulpbot" password="pulp" />
   <canale chan="#onlyplup" password="ilovepulp" />
+  <!-- decommentare la parte sottostante per arrivare megahal -->
+  <!--megahal>
+    <path>/home/megahal/.megahal/</path>
+    <ignora>User</ignora>
+    <ignora>AnotherUser</ignora>
+  </megahal-->
 </config>
