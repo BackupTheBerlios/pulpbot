@@ -1,9 +1,0 @@
-drwxr-xr-x	root/root	usr/
-drwxr-xr-x	root/root	usr/lib/
-drwxr-xr-x	root/root	usr/lib/xmms/
-drwxr-xr-x	root/root	usr/lib/xmms/General/
-lrwxrwxrwx	root/root	usr/lib/xmms/General/libinfopipe-1.3.so.1 -> libinfopipe-1.3.so.1.0.1
--rwxr-xr-x	root/root	usr/lib/xmms/General/libinfopipe-1.3.so.1.0.1
--rw-r--r--	root/root	usr/lib/xmms/General/libinfopipe.a
--rwxr-xr-x	root/root	usr/lib/xmms/General/libinfopipe.la
-lrwxrwxrwx	root/root	usr/lib/xmms/General/libinfopipe.so -> libinfopipe-1.3.so.1.0.1
