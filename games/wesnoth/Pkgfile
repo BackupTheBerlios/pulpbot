@@ -1,0 +1,16 @@
+# Description: strategy game
+# URL: http://www.wesnoth.org
+# Depends on: x11 libsdl sdl_mixer sdl_image libsdl-ttf sdl_net
+# Packager: acrux
+
+name=wesnoth
+version=0.8.5
+release=1
+
+source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld --enable-editor --disable-nls
+    make
+    make DESTDIR=$PKG install
+}
