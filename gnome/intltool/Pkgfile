@@ -1,11 +1,11 @@
-# $Id: Pkgfile,v 1.2 2004/11/05 13:13:14 slash Exp $
+# $Id: Pkgfile,v 1.3 2004/11/10 12:18:26 slash Exp $
 # Description: internationalization tool collection
 # URL: http://cvs.gnome.org/viewcvs/intltool/
 # Maintainer: Coviello Giuseppe <slash@crux-it.org>
 # Depends on: libxml2,p5-xml-parser,popt
 
 name=intltool
-version=0.32
+version=0.32.1
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/$name/0.32/$name-$version.tar.bz2)
 
