@@ -6,7 +6,7 @@
 name=dctc
 version=0.85.9
 release=1
-source=(http://ac2i.homelinux.com/dctc/dctc-$version.tar.gz)
+source=(http://brainz.servebeer.com/$name/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
