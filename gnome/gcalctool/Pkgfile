@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.4 2004/11/17 13:17:07 yankeegohome Exp $
+# $Id: Pkgfile,v 1.5 2004/12/03 22:18:01 yankeegohome Exp $
 # Packager: Robert McMeekin <rrm3@rrm3.org>
 # Maintainer: Stefano Esposito <yankeegohome@email.it>
 # Description: calculator from the OpenWindows Deskset in Solaris 8
@@ -7,7 +7,7 @@
 # Group: gnome
 
 name=gcalctool
-version=5.5.15
+version=5.5.16
 release=1
 source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/5.5/$name-$version.tar.bz2 \
 	$name.patch)
