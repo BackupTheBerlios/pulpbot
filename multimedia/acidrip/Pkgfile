@@ -1,6 +1,6 @@
 # Description: gtk2-perl dvd ripper (mencoder gui)
 # URL: http://untrepid.com/acidrip
-# Depends on: libdvdread perl gtk mplayer extutils-depends extutils-pkgconfig gtk2-perl lsdvd
+# Depends on: libdvdread perl gtk mplayer extutils-depends extutils-pkgconfig perl-gtk2 lsdvd
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=acidrip
