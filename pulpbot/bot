@@ -365,7 +365,7 @@ sub irc_public {
   } elsif($megahal) {
     my $megamsg=$msg;
     $megamsg=~s/$nick/me/g;
-    if(uc($who) ne uc($megaignora)){
+    if(uc($megaignora) !~ uc($who)){
       $megatext = $megahal->do_reply($megamsg);
     }
     if(uc($msg) =~ uc($nick)){
