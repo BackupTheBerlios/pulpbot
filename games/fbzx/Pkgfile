@@ -1,0 +1,19 @@
+# Description: Sinclair ZX Spectrum emulator for framebuffer
+# URL: http://www.rastersoft.com/fbzx.html
+# Depends on: libsdl fbset svgalib
+# Packager: acrux
+
+name=fbzx
+version=1.5
+release=1
+source=(http://www.rastersoft.com/programas/$name/fbzx15.tar.gz)
+
+build() {
+   cd $name
+#   make clean
+   make
+   mkdir -p $PKG/usr/bin
+   mkdir -p $PKG/usr/share/spectrum
+   cp fbzx $PKG/usr/bin/
+   mv roms $PKG/usr/share/spectrum/
+}

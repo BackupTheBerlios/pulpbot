@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/fbzx
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/spectrum/
+drwxr-xr-x	1000/1000	usr/share/spectrum/roms/
+-r-xr-xr-x	1000/1000	usr/share/spectrum/roms/128.rom
+-r-xr-xr-x	1000/1000	usr/share/spectrum/roms/if1-v1.rom
+-r-xr-xr-x	1000/1000	usr/share/spectrum/roms/if1-v2.rom
+-r-xr-xr-x	1000/1000	usr/share/spectrum/roms/plus2.rom
+-r-xr-xr-x	1000/1000	usr/share/spectrum/roms/plus3.rom
+-r-xr-xr-x	1000/1000	usr/share/spectrum/roms/spectrum.rom
