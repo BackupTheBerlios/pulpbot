@@ -6,7 +6,10 @@
 name=ilenia
 version=testing
 release=1
-source=(ilenia.cvsup)
+source=(ilenia.cvsup \
+    crux.cvsup.in \
+    crux-it.cvsup.in \
+    clc.cvsup.in)
 
 build () {
     sed -i "s|DIR|$SRC|g" ilenia.cvsup
@@ -17,7 +20,11 @@ build () {
     make
     make DESTDIR=$PKG install
     mkdir $PKG/usr/ports
-    cd $PKG/usr/bin
+    CRUX_VERSION=`crux|head -n 1|sed "s|CRUX version ||"|sed "s|\.|\_|"`
+    cat ../crux.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/crux.cvsup
+    cat ../crux-it.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/crux-it.cvsup
+    cat ../clc.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/clc.cvsup
+   cd $PKG/usr/bin
     ln -s ilenia ports
     cd $PKG/usr/man/man8
     ln -s ilenia.8.gz ports.8.gz
