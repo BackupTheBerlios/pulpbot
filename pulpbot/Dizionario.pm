@@ -44,7 +44,7 @@ sub cerca {
 			$lemma =~ s/&nbsp;/\ /g;
 			$lemma =~ s/<[^<]*>/\ /g;
 			#print $lemma."\n";
-			$definizione=$lemma;
+			$definizione="$definizione\n$lemma";
 		    }
 		}
 	    }
@@ -68,11 +68,11 @@ sub cerca {
 	    $linea =~ s/<[^<]*>//g;
 	    if(length($linea)>0) {
 		#print $linea."\n";
-		$definizione=$linea;
+		$definizione="$definizione\n$linea";
 	    }
 	}
 	if($cont) {
-	    $definizione="continua su http://www.demauroparavia.it/$numero_lemma\n";
+	    $definizione="$definizione\ncontinua su http://www.demauroparavia.it/$numero_lemma\n";
 	}
     }
     return $definizione;
