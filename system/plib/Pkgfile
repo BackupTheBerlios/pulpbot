@@ -1,7 +1,7 @@
 # Description: a suite of portable game libraries
 # URL: http://plib.sourceforge.net/
 # Depends on: libglut
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=plib
 version=1.8.3

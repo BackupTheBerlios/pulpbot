@@ -1,7 +1,7 @@
 # Description: strategy game
 # URL: http://www.wesnoth.org
 # Depends on: x11 libsdl sdl_mixer sdl_image libsdl-ttf sdl_net
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=wesnoth
 version=0.8.5

@@ -1,7 +1,7 @@
 # Description: Image(jpg,png,tiff) and ps(ps,pdf) viewer for fbdev
 # URL: http://linux.bytesex.org/fbida/index.html
 # Depends on: ghostscript libjpeg libtiff libpng
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=fbi
 version=1.31

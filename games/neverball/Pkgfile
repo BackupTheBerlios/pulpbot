@@ -1,7 +1,7 @@
 # Description: OpenGL game
 # URL: http://icculus.org/neverball
 # Depends on: libsdl sdl_mixer sdl_image libsdl-ttf
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=neverball
 version=1.4.0

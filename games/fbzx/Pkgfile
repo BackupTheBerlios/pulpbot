@@ -1,7 +1,7 @@
 # Description: Sinclair ZX Spectrum emulator for framebuffer
 # URL: http://www.rastersoft.com/fbzx.html
 # Depends on: libsdl fbset svgalib
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=fbzx
 version=1.5

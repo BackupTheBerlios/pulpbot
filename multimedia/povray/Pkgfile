@@ -1,7 +1,7 @@
 # Description: The Persistence of Vision Raytracer
 # URL: http://www.povray.org/
 # Depends on: svgalib zlib libpng libjpeg libtiff
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=povray
 version=3.6.1

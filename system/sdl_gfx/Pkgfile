@@ -1,7 +1,7 @@
 # Description: SDL Graphic Primitives
 # URL: http://www.ferzkopp.net/~aschiffler/Software/SDL_gfx-2.0/index.html
 # Depends on: libsdl
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=sdl_gfx
 version=2.0.12

@@ -1,7 +1,7 @@
 # Description: gtk2 port of the sylpheed, email client and news reader
 # URL:         http://sylpheed-gtk2.sourceforge.net/
 # Depends on:  gtk imlib gdk-pixbuf gpgme
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=sylpheed-gtk2
 version=0.9.12

@@ -1,6 +1,6 @@
 # Description: Atlas produce and display map for FlightGear Users
 # URL: http://atlas.sourceforge.net/
-# Depends On: fgfs-base
+# Depends on: fgfs-base
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=fgfs-atlas

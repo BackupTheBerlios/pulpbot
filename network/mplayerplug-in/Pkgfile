@@ -1,7 +1,7 @@
 # Description: Embedded Video Player for Firefox (eventually Mozilla)
 # URL: http://mplayerplug-in.sourceforge.net/
-# Depends on: gtk firefox
-# Packager: acrux
+# Depends on: gtk firefox mplayer
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=mplayerplug-in
 version=2.70

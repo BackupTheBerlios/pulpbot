@@ -1,7 +1,7 @@
 # Description: java plugin for Firefox
 # URL: http://www.blackdown.org
-# Depends on: j2re, firefox
-# Packager: acrux
+# Depends on: j2re firefox
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=firefox-java-plugin
 version=1.4.2

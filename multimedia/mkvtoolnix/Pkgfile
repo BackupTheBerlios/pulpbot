@@ -1,7 +1,7 @@
 # Description: set of tools to manipoulate Matroska files
 # URL: http://www.bunkus.org/videotools/mkvtoolnix/index.html
 # Depends on: libmatroska libebml lzo
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=mkvtoolnix
 version=0.9.6

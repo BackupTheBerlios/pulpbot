@@ -1,7 +1,7 @@
 # Description: gtk GUI for printer process
 # URL: http://gtklp.sourceforge.net/
 # Depends on: gtk glib cups
-# Packager: [slash] acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=gtklp
 version=1.0pre3

@@ -1,7 +1,7 @@
 # Description: console front end to the Direct Conect Text Client
 # URL: http://members.chello.se/hampasfirma/cccp/
 # Depends on: dctc
-# Packager: acrux 
+# Maintainer: acrux <acrux@crux-it.org> 
 
 name=cccp
 version=0.9

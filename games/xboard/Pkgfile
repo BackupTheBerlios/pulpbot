@@ -1,7 +1,7 @@
 # Description: xboard is a chess interface for gnuchess and crafty engines
 # URL: http://www.tim-mann.org/xboard.html
 # Dependencies: x11 gnuchess
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=xboard
 version=4.2.7

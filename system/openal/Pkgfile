@@ -1,7 +1,7 @@
 # Description: OpenAL is a cross-platform 3D audio API
 # URL: http://www.openal.org/
 # Dependencies: cvs
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=openal
 version=0.0.7

@@ -1,7 +1,7 @@
 # Description: xmms plugin
 # URL: http://www.beastwithin.org/users/wwwwolf/code/xmms/infopipe.html
 # Depends on: xmms
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=xmms-infopipe
 version=1.3

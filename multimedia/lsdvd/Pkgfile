@@ -1,7 +1,7 @@
 # Description: needed by acidrip
 # URL: http://untrepid.com/acidrip
 # Depends on:
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=lsdvd
 version=0.10

@@ -1,7 +1,7 @@
 # Description: Greek dictionary for aspell
 # URL:         http://aspell.net
 # Depends on:  aspell
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=aspell-el
 version=0.50-3

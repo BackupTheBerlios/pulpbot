@@ -1,7 +1,7 @@
 # Description: website copier
 # URL: http://www.httrack.com/
-# Depends on: xterm
-# Packager: acrux
+# Depends on:
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=httrack
 version=3.32
