@@ -1,0 +1,18 @@
+# Packager: Alberto Venturini <aventurini@gmail.com>
+# Maintainer: Alberto Venturini <aventurini@gmail.com>
+# Description: Jack audio server (provides low-latency audio pipes)
+# Depends on: 
+# URL: http://jackit.sourceforge.net
+
+name=jack
+version=0.99.0
+release=1
+source=(http://dl.sourceforge.net/jackit/jack-audio-connection-kit-$version.tar.gz)
+
+build() {
+	cd jack-audio-connection-kit-$version
+	mkdir $PKG/usr
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
