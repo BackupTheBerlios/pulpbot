@@ -1,0 +1,22 @@
+# $Id: Pkgfile,v 1.1 2004/10/20 14:39:09 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Video editor for linux
+# URL: http://avidemux.berlios.de
+# Depends on:
+
+name=avidemux
+version=2.0.30
+release=1
+
+source=(http://download.berlios.de/$name/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	make -f Makefile.dist
+	./configure --prefix=/usr \
+		    --libexec=/usr/lib/$name \
+		    --disable-nls
+	make
+	make DESTDIR=$PKG install
+}
