@@ -1,0 +1,8 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/aspell-0.60/
+-rw-r--r--	root/root	usr/lib/aspell-0.60/el.dat
+-rw-r--r--	root/root	usr/lib/aspell-0.60/el.multi
+-rw-r--r--	root/root	usr/lib/aspell-0.60/el.rws
+-rw-r--r--	root/root	usr/lib/aspell-0.60/el_phonet.dat
+-rw-r--r--	root/root	usr/lib/aspell-0.60/greek.alias

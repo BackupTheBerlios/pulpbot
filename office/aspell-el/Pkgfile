@@ -1,0 +1,15 @@
+# Description: Greek dictionary for aspell
+# URL:         http://aspell.net
+# Depends on:  aspell
+# Packager: acrux
+
+name=aspell-el
+version=0.50-3
+release=1
+source=(ftp://ftp.gnu.org/gnu/aspell/dict/el/$name-$version.tar.bz2)
+build () {
+    cd $name-$version
+    ./configure
+    make
+    make DESTDIR=$PKG install
+}
