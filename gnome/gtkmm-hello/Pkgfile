@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.2 2004/11/09 19:12:33 yankeegohome Exp $
+# $Id: Pkgfile,v 1.3 2004/11/17 13:36:58 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description:  
@@ -8,10 +8,10 @@
 name=gtkmm-hello
 version=2.4.1
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/sources/gtkmm_hello/2.4/$name-$version.tar.bz2)
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/gtkmm_hello/2.4/gtkmm_hello-$version.tar.bz2)
 
 build () {
-	cd $name-$version
+	cd gtkmm_hello-$version
 	./configure --prefix=/usr --disable-nls
 	make
 	make DESTDIR=$PKG install
