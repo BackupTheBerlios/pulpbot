@@ -1,0 +1,6 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/freecol
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/freecol/
+-rw-r--r--	root/root	usr/share/freecol/FreeCol.jar

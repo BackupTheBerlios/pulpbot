@@ -1,0 +1,25 @@
+# $Id: Pkgfile,v 1.1 2004/11/01 15:37:06 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Free Colonizzation
+# URL: http://freecol.sf.net
+# Depends on: ant j2sdk
+
+name=freecol
+version=0.3.0
+release=1
+
+source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/$name-$version-src.tar.gz \
+	Freecol)
+
+build () {
+
+	export JAVA_HOME='/usr/lib/java'
+	cd $name
+	ant
+	mkdir -p $PKG/usr/share/freecol
+	cp FreeCol.jar $PKG/usr/share/freecol
+	mkdir -p $PKG/usr/bin
+	cp ../Freecol $PKG/usr/bin/freecol
+	chmod a+x $PKG/usr/bin/freecol
+}
