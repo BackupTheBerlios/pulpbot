@@ -91,14 +91,14 @@ drwxr-xr-x	root/root	usr/lib/bonobo/
 drwxr-xr-x	root/root	usr/lib/bonobo/servers/
 -rw-r--r--	root/root	usr/lib/bonobo/servers/GNOME_GtkHTML_Editor-3.6.server
 drwxr-xr-x	root/root	usr/lib/gtkhtml/
--rwxr-xr-x	root/root	usr/lib/gtkhtml/libgnome-gtkhtml-editor-3.6
 -rw-r--r--	root/root	usr/lib/gtkhtml/libgnome-gtkhtml-editor-3.6.a
 -rwxr-xr-x	root/root	usr/lib/gtkhtml/libgnome-gtkhtml-editor-3.6.la
-lrwxrwxrwx	root/root	usr/lib/libgtkhtml-3.6 -> libgtkhtml-3.6.12.0.0
-lrwxrwxrwx	root/root	usr/lib/libgtkhtml-3.6.12 -> libgtkhtml-3.6.12.0.0
--rwxr-xr-x	root/root	usr/lib/libgtkhtml-3.6.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gtkhtml/libgnome-gtkhtml-editor-3.6.so
 -rw-r--r--	root/root	usr/lib/libgtkhtml-3.6.a
 -rwxr-xr-x	root/root	usr/lib/libgtkhtml-3.6.la
+lrwxrwxrwx	root/root	usr/lib/libgtkhtml-3.6.so -> libgtkhtml-3.6.so.13.0.0
+lrwxrwxrwx	root/root	usr/lib/libgtkhtml-3.6.so.13 -> libgtkhtml-3.6.so.13.0.0
+-rwxr-xr-x	root/root	usr/lib/libgtkhtml-3.6.so.13.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libgtkhtml-3.6.pc
 drwxr-xr-x	root/root	usr/share/
