@@ -1,0 +1,16 @@
+# Description: amazing 3d OpenGL pager
+# URL: http://desk3d.sourceforge.net/
+# Depends on: x11 imlib2
+# Packager: warez acrux
+
+name=3ddesktop
+version=0.2.7
+release=1
+
+source=(http://belnet.dl.sourceforge.net/sourceforge/desk3d/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --disable-nls
+    make
+    make DESTDIR=$PKG install
+}
