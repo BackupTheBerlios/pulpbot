@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/10/22 15:25:25 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Perl bindings to gnome-vfs
+# Depends on: gnome-vfs gtk2-perl
+# URL: http://gtk2-perl.sourceforge.net
+
+name=perl-gnome2-vfs
+version=1.003
+release=1
+source=(http://puzzle.dl.sourceforge.net/sourceforge/gtk2-perl/Gnome2-VFS-$version.tar.gz)
+
+build () {
+	cd Gnome2-VFS-$version
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}
