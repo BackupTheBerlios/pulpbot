@@ -14,9 +14,9 @@ drwxr-xr-x	root/root	usr/include/libgnomemm-2.6/libgnomemm/private/
 -rw-r--r--	root/root	usr/include/libgnomemm-2.6/libgnomemm/wrap_init.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libgnomemm-2.6.la
-lrwxrwxrwx	root/root	usr/lib/libgnomemm-2.6.so -> libgnomemm-2.6.so.1.0.0
-lrwxrwxrwx	root/root	usr/lib/libgnomemm-2.6.so.1 -> libgnomemm-2.6.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libgnomemm-2.6.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libgnomemm-2.6.so -> libgnomemm-2.6.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libgnomemm-2.6.so.1 -> libgnomemm-2.6.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libgnomemm-2.6.so.1.0.1
 drwxr-xr-x	root/root	usr/lib/libgnomemm-2.6/
 drwxr-xr-x	root/root	usr/lib/libgnomemm-2.6/include/
 -rw-r--r--	root/root	usr/lib/libgnomemm-2.6/include/libgnomemmconfig.h
