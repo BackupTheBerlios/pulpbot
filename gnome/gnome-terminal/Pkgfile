@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:29 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/05 22:09:19 slash Exp $
 # Description: Standard GNOME terminal application
 # URL: http://www.gnome.org/softwaremap/projects/gnome-terminal/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,9 +6,9 @@
 # Depends on: libgnomeui,startup-notification,vte
 
 name=gnome-terminal
-version=2.7.3
-release=2
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+version=2.8.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2)
 
 build() {
     cd $name-$version
