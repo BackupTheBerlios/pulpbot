@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/10/24 20:46:13 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Clone of tetris
+# URL: http://flashtris.flashtux.org/index.php?lang=en
+# Depends on:
+
+name=ftris
+version=0.30
+release=1
+
+source=(http://flashtris.flashtux.org/download/$name.gz)
+
+build () {
+	gunzip $name.gz
+	mkdir -p $PKG/usr/bin
+	mv $name $PKG/usr/bin
+	chmod a+x $PKG/usr/bin/$name
+}
