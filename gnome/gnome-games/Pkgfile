@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/10/15 14:38:17 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/10/31 20:12:07 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Gnome games
@@ -16,6 +16,7 @@ build () {
 	export SCROLLKEEPER_CONFIG="$PATH:$PWD"
 	cd $name-$version
 	patch -p0 < ../$name.patch
+	sed -e "/scrollkeeper-update/d" -i */C/Makefile.in
 	./configure --prefix=/usr \
 		    --localstatedir=/var \
 		    --disable-schemas-install \
