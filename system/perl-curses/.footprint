@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/perl5/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Curses.pm
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Curses/
+-rw-r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Curses/.packlist
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Curses/Curses.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Curses/Curses.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-r--r--r--	root/root	usr/man/man3/Curses.3pm.gz
