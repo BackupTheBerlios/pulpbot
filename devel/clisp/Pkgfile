@@ -1,0 +1,23 @@
+# Description: GNU CLISP - an ANSI Common Lisp
+# URL: http://clisp.cons.org/
+# Depends on: ncurses readline gpm
+# Packager: acrux
+
+name=clisp
+version=2.33.2
+release=2
+source=(ftp://ftp.gnu.org/pub/gnu/$name/latest/$name-$version.tar.bz2)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-threads=POSIX_THREADS 
+    cd src
+    ./makemake --prefix=/usr --with-readline --with-gettext \
+    --with-dynamic-ffi --with-threads=POSIX_THREADS > Makefile
+    make config.lisp
+    make
+    make check
+    make DESTDIR=$PKG install
+    mv $PKG/usr/share/man $PKG/usr/man
+    rm -Rf $PKG/usr/share
+}
