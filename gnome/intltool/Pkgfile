@@ -1,13 +1,13 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:55:47 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/05 13:13:14 slash Exp $
 # Description: internationalization tool collection
 # URL: http://cvs.gnome.org/viewcvs/intltool/
 # Maintainer: Coviello Giuseppe <slash@crux-it.org>
 # Depends on: libxml2,p5-xml-parser,popt
 
 name=intltool
-version=0.31.2
+version=0.32
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/platform/2.8/2.8.0/sources/$name-$version.tar.bz2)
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/0.32/$name-$version.tar.bz2)
 
 build() {
     cp /usr/share/automake-*/{install-sh,mkinstalldirs} .
