@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/10/18 13:25:48 yankeegohome Exp $
+# Packager: Stoyan Zhekov <zhware@hotpop.com>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: set of bindings for the GTK widget set
+# URL: http://www.daa.com.au/~james/software/pygtk/
+# Depends on: python,libglade
+# Group: gnome
+
+name=pygtk
+version=2.4.0
+release=1
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/2.4/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}
