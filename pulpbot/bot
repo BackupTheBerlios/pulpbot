@@ -588,5 +588,9 @@ sub logga {
 sub dici {
   my($kernel, $canale, $riga)=@_;
   $kernel->post('test', 'privmsg', $canale, " $riga");
-  logga(@{$canale}[0], "<$nick> $riga\n");
+  if(substr($canale,0,1) eq "#"){
+    logga($canale, "<$nick> $riga\n");
+  } else {
+    logga(@{$canale}[0], "<$nick> $riga\n");
+  }
 }
