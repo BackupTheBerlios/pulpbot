@@ -1,9 +1,9 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:15 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/31 11:04:39 slash Exp $
 # Description: Open Documentation Cataloging System
 # URL: http://scrollkeeper.sourceforge.net/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
 # Maintainer: Coviello Giuseppe <slash@crux-it.org>
-# Depends on: docbook-xml-gnome,intltool
+# Depends on: docbokk-xml-dtd,docbook-xml-gnome,intltool
 
 
 name=scrollkeeper
