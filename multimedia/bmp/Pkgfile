@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/11/02 00:05:37 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/11/04 23:10:28 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: A new music player
@@ -7,7 +7,8 @@
 
 name=bmp
 version=0.9.6.1
-release=1
+release=2
+
 source=(http://puzzle.dl.sourceforge.net/sourceforge/beepmp/$name-$version.tar.gz)
 
 build () {
@@ -15,4 +16,6 @@ build () {
 	./configure --prefix=/usr --disable-nls
 	make
 	make DESTDIR=$PKG install
+	cd $PKG/usr/bin
+	ln -s beep-music-player $PKG/usr/bin/bmp
 }
