@@ -6,12 +6,31 @@ use Time::HiRes qw( sleep );
 use POE::Kernel;
 use POE::Session;
 use POE::Component::IRC;
+use XML::Simple;
 use Dizionario qw(cerca);
 use Google qw(google);
 
-my $nick = "JulesWinnfiled";
-my $admin = "";
-my $nickpasswd="";
+
+my $config	=	XMLin($ARGV[0]);
+my $nick	=	$config->{nick};
+my $admin	=	$config->{admin};
+my $nickpasswd	=	$config->{password};
+my $server	=	$config->{server};
+my %operatori;
+my $canali;
+my $i=0;
+my $canale;
+
+do{
+    $canale=$config->{canale}->[$i]->{chan};
+    $canali="$canali$canale,";
+    #print "$canale ";
+    my $password=$config->{canale}->[$i]->{password};
+    $operatori{"$password"}="$canale";
+    $i++;
+}while($canale ne "");
+
+
 my $SLEEP=0;
 my $swap=0;
 my $pulpkick=0;
@@ -25,14 +44,12 @@ my $dovewhois;
 my $whoisuser;
 my $whoischannels;
 my $nickwhois;
+my $ban;
 my $esiste;
 my $pulpkick_=0;
 my %iskicked;
 my %kicked;
-# %operatori contanins the passwds for the privates commands. 
-# Write them like ("password"=>"#channel", "password2"=>"#channel2");
-my %operatori=
-    ("" => ""); 
+
 # This gets executed as soon as the kernel sets up this session.
 sub _start {
     my ($kernel, $session) = @_[KERNEL, SESSION];
@@ -41,12 +58,12 @@ sub _start {
     # is the easy, indiscriminate way to do it.
     $kernel->post( 'test', 'register', 'all');
 
-    # Setting Debug to 1 causes P::C::IRC to print all raw lines of text
+    # Setting Debug to 1 causes P::C::IRC to #print all raw lines of text
     # sent to and received from the IRC server. Very useful for debugging.
     $kernel->post( 'test', 'connect', { Debug    => 1,
 					Nick     => $nick,
-					Server   => $ARGV[0] || 'irc.azzurra.org',
-					Port     => $ARGV[1] || 6667,
+					Server   => $server,
+					Port     => 6667,
 					Username => 'PulpBot',
 					Ircname  => 'Pulp Bot', }
 		   );
@@ -59,24 +76,24 @@ sub irc_001 {
     $kernel->post( 'test', 'mode', $nick, '+i' );
     #This identify the bot at the nick you have chosen for it
     $kernel->post( 'test', 'privmsg', 'nickserv', "identify $nickpasswd" );
-    $kernel->post( 'test', 'join', '#casertalug' );
+    $kernel->post( 'test', 'join', "$canali" );
 }
 
 
 sub irc_dcc_done {
     my ($magic, $nick, $type, $port, $file, $size, $done) = @_[ARG0 .. ARG6];
-    print "DCC $type to $nick ($file) done: $done bytes transferred.\n";
+    #print "DCC $type to $nick ($file) done: $done bytes transferred.\n";
 }
 
 
 sub irc_dcc_error {
     my ($err, $nick, $type, $file) = @_[ARG0 .. ARG2, ARG4];
-    print "DCC $type to $nick ($file) failed: $err.\n";
+    #print "DCC $type to $nick ($file) failed: $err.\n";
 }
 
 sub irc_notice {
     my ($kernel, $who, $where, $what) = @_[KERNEL, ARG0 .. ARG2];
-    print "\n\n$who\n\n$where\n\n$what\n\n";
+    #print "\n\n$who\n\n$where\n\n$what\n\n";
     if($what=~/332/) {
 	$kernel->post('test', 'privmsg', "#casertalug", "$what");
     }								
@@ -89,7 +106,7 @@ sub irc_notice {
 	} elsif($chi=~/$chivuoi/) {
 	    $kernel->post('test', 'privmsg', $where, "Non ti rispondo neanche $chivuoi");
 	} else {
-	    print $chi;
+	    #print $chi;
 	    $kernel->post('test', 'privmsg', $where, "$chi è online idiota");
 	    $kernel->post('test', 'privmsg', $where, "ma sei cieco?Non darmi più fastidio, $chivuoi");
 	}
@@ -149,32 +166,32 @@ sub irc_406 {
 
 sub _stop {
     my ($kernel) = $_[KERNEL];
-    print "Control session stopped.\n";
+    #print "Control session stopped.\n";
     $kernel->call( 'test', 'quit', 'Neenios on ice!' );
 }
 
 
 sub irc_disconnected {
     my ($server) = $_[ARG0];
-    print "Lost connection to server $server.\n";
+    #print "Lost connection to server $server.\n";
 }
 
 
 sub irc_error {
     my $err = $_[ARG0];
-    print "Server error occurred! $err\n";
+    #print "Server error occurred! $err\n";
 }
 
 
 sub irc_socketerr {
     my $err = $_[ARG0];
-    print "Couldn't connect to server: $err\n";
+    #print "Couldn't connect to server: $err\n";
 }
 
 
 sub irc_kick {
     my ($kernel, $who, $where, $isitme, $reason) = @_[KERNEL, ARG0 .. ARG4];
-    print "Kicked from $where by $who: $reason\n" if $isitme eq $nick;
+    #print "Kicked from $where by $who: $reason\n" if $isitme eq $nick;
     $kernel->post('test', 'join', $where);
     $who=(split /!/, $who)[0];
     if($who ne $nick) {
@@ -218,7 +235,7 @@ sub irc_public {
     my ($kernel, $who, $where, $msg) = @_[KERNEL, ARG0 .. ARG2];
     $who = (split /!/, $who)[0];
 
-    print "<$who:@{$where}[0]> $msg\n";
+    #print "<$who:@{$where}[0]> $msg\n";
     if($pulpkick) {
 	if(uc($who) eq uc($morto)) {
 	    $DORME=1;
@@ -230,14 +247,18 @@ sub irc_public {
 	}
     }
     if($pulpkick_) {
-	#print "$who $where $msg\n";
+	##print "$who $where $msg\n";
 	#if($who eq $nick)
 	#{
-	#	print "###############################\n";
+	#	#print "###############################\n";
 	#$DORME=1;
 	#recita($kernel, $morto, $morto_dove);
 	#while($DORME){}
 	if($msg=~/E tu saprai che il mio nome/) {
+	    if($ban){
+		$kernel->post('test', 'mode', $morto_dove, '+b', $morto);
+		$ban=0;
+	    }
 	    $kernel->post('test', 'kick', $morto_dove, $morto);
 	    $iskicked{$morto}=1;
 	    $pulpkick_=0;
@@ -284,7 +305,7 @@ sub irc_public {
 	    $stringa=substr $stringa, $pos;
 	    $stringa =~ s/\ /\+/gs;
 	    my (@risultato)=google($stringa);
-	    #print $risultato;
+	    ##print $risultato;
 	    #$kernel->post('test', 'privmsg', $where, $risultato);
 	    #my @risultato=split "\n", $risultato;
 	    my $a=0;
@@ -345,12 +366,12 @@ sub irc_msg {
     my $chi=$who;
     $who = (split /!/, $who)[0];
 
-    print "<$who:@{$where}[0]> $msg\n";
+    #print "<$who:@{$where}[0]> $msg\n";
     $swap=0;
     $SLEEP=1;
     identificato($kernel, $who);
     while($SLEEP) {
-	print "sleeping\n";
+	#print "sleeping\n";
     }
     if($swap) {
 	my $pos=index $msg, "\ ";
@@ -386,6 +407,13 @@ sub irc_msg {
 	    $msg=substr $msg, $pos+1;
 	    $kernel->post('test', 'privmsg', $dove, $kernel->post('test', 'topic', $dove));
 	    #$kernel->post('test', 'topic', $dove, $kernel->post('test', 'privmsg', $dove, "$topic"));
+	} elsif($comando eq "spara") {
+	    $msg=substr $msg, $pos+1;
+	    $pos=index $msg, "\ ";
+	    $morto=substr $msg, 0, $pos;
+	    $morto_dove=substr $msg, $pos+1;
+	    $kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
+	    $pulpkick=1;
 	} elsif($comando eq "uccidi") {
 	    $msg=substr $msg, $pos+1;
 	    $pos=index $msg, "\ ";
@@ -393,6 +421,7 @@ sub irc_msg {
 	    $morto_dove=substr $msg, $pos+1;
 	    $kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
 	    $pulpkick=1;
+	    $ban=1;
 	}
     } elsif(uc($who) eq uc($nick)) {
     } elsif($msg=~/332/) {
@@ -410,17 +439,18 @@ sub irc_msg {
 	    if($comando eq "dici") {
 		$msg=substr $msg, $pos+1;
 		$kernel->post('test', 'privmsg', $operatori{$pass}, "$msg");
+	    } elsif($comando eq "spara") {
+		$msg=substr $msg, $pos+1;
+		$morto=$msg;
+		$morto_dove=$operatori{$pass}; 
+		$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
+		$pulpkick=1;
 	    } elsif($comando eq "uccidi") {
 		$msg=substr $msg, $pos+1;
 		$morto=$msg;
 		$morto_dove=$operatori{$pass}; 
 		$kernel->post('test', 'privmsg', $morto_dove, "$morto leggi la bibbia?");
-		#sleep(30);
-		#recita($kernel, $morto, $morto_dove);
-		#while($DORME) {}
-		#if($msg=~/E tu saprai/) {
-		#$kernel->post('test','kick', $morto_dove, $morto);
-		#}				
+		$ban=1;
 		$pulpkick=1;
 	    } elsif($comando eq "op") {
 		$msg=substr $msg, $pos+1;
@@ -448,6 +478,10 @@ sub irc_msg {
     
     if($pulpkick_) {
 	if($msg=~/E tu saprai che il mio nome/) {
+	    if($ban){
+		$kernel->post('test', 'mode', $morto_dove, '+b', $morto);
+		$ban=0;
+	    }
 	    $kernel->post('test', 'kick', $morto_dove, $morto);
 	    $pulpkick_=0;
 	}
@@ -456,7 +490,7 @@ sub irc_msg {
 
 sub irc_dcc_request {
     my ($kernel, $nick, $type, $port, $magic, $filename, $size) = @_[KERNEL, ARG0 .. ARG5];
-    print "DCC $type request from $nick on port $port\n";
+    #print "DCC $type request from $nick on port $port\n";
     $nick = ($nick =~ /^([^!]+)/);
     $nick =~ s/\W//;
     $kernel->post( 'test', 'dcc_accept', $magic, "$1.$filename" );
@@ -467,7 +501,7 @@ sub identificato
     #my ($who, $kernel)=shift  @_[ARG0 .. ARG1];
     my $kernel=shift;
     my $who=shift;
-    #print $who;
+    ##print $who;
     #$kernel->post('test', 'privmsg', '#ilclan', "$who $admin");
     if(uc($who) eq uc($admin))
     {

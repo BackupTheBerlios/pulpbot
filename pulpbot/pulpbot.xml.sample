@@ -1,0 +1,8 @@
+<config>
+  <admin>admin_nick</admin>
+  <nick>JulesWinnfield</nick>
+  <password>password</password>
+  <server>irc.sample.org</server>
+  <canale chan="#pulpbot" password="pulp" />
+  <canale chan="#onlyplup" password="ilovepulp" />
+</config>
