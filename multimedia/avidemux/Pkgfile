@@ -1,9 +1,10 @@
-# $Id: Pkgfile,v 1.1 2004/10/20 14:39:09 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/10/20 21:09:48 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Video editor for linux
 # URL: http://avidemux.berlios.de
-# Depends on:
+# Depends on: gtk1 libmad lame mjpegtools libxvid libdivx
+# (Last 4 dependencies are just recomended)
 
 name=avidemux
 version=2.0.30
