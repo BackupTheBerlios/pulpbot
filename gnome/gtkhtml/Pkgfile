@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:39 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/14 15:53:42 yankeegohome Exp $
 # Description: lightweight html rendering/printing/editing engine
 # URL: http://cvs.gnome.org/viewcvs/gtkhtml/
 # Packager: Nuno Afonso <nuno.afonso@tagus.ist.utl.pt>
@@ -7,9 +7,9 @@
 # Group: gnome
 
 name=gtkhtml
-version=3.2.1
+version=3.3.2
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 \
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/3.3/$name-$version.tar.bz2 \
         $name.patch)
 
 build () {
