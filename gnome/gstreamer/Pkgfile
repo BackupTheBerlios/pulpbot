@@ -1,22 +1,23 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:55:56 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/12/13 13:43:49 slash Exp $
 # Description: framework for streaming media
 # URL: http://gstreamer.net/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
 # Depends on: glib,libxml2,popt
 # Group: gnome
 
 name=gstreamer
-version=0.8.5
+version=0.8.7
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/0.8/$name-$version.tar.bz2)
 
 build() {
-	cd $name-$version
-	./configure --prefix=/usr \
-	            --disable-debug \
-	            --disable-docs-build \
-	            --disable-gst-debug \
-	            --disable-nls
-	make
-	make DESTDIR=$PKG install
+    cd $name-$version
+    ./configure --prefix=/usr \
+	--disable-debug \
+	--disable-docs-build \
+	--disable-gst-debug \
+	--disable-nls
+    make
+    make DESTDIR=$PKG install
 }
