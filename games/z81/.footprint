@@ -1,7 +1,17 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
--rwxr-xr-x	root/root	usr/bin/mmzx81
 -rwxr-xr-x	root/root	usr/bin/xz81
+-rwxr-xr-x	root/root	usr/bin/z81
+-rwxr-xr-x	root/root	usr/bin/zx81get
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/z81/
+-rw-r--r--	root/root	usr/lib/z81/xz81.xpm
+-rw-r--r--	root/root	usr/lib/z81/zx80.rom
+-rw-r--r--	root/root	usr/lib/z81/zx80kybd.pbm
+-rw-r--r--	root/root	usr/lib/z81/zx81.rom
+-rw-r--r--	root/root	usr/lib/z81/zx81kybd.pbm
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
--rw-r--r--	root/root	usr/man/man1/xz81.1.gz
+lrwxrwxrwx	root/root	usr/man/man1/xz81.1.gz -> z81.1.gz
+-rw-r--r--	root/root	usr/man/man1/z81.1.gz
+-rw-r--r--	root/root	usr/man/man1/zx81get.1.gz

@@ -1,23 +1,26 @@
-# Description: Sinclair ZX81 emulator for x and .wav to .p convertor
-# URL: http://www.michaelminn.com/linux/mmzx81/
-# Depends on: x11
+# Description: Sinclair ZX81 emulator for framebuffer and x11
+# URL: http://rus.members.beeb.net/z81.html
+# Depends on: svgalib x11
 # Packager: acrux
 
 name=z81
-version=mm
+version=2.1
 release=1
-source=(http://www.michaelminn.com/linux/mmzx81/$name-$version.tgz \
-        http://www.michaelminn.com/linux/mmzx81/mmzx81.cpp \
-	zx81_keyboard.jpg )
+source=(ftp://ftp.ibiblio.org/pub/Linux/system/emulators/zx/z81-2.1.tar.gz \
+	ftp://ftp.nvg.ntnu.no/pub/sinclair/roms/zx80.rom \
+	ftp://ftp.nvg.ntnu.no/pub/sinclair/roms/zx81.rom )
 
 build() {
-    cd $name
+    cd $name-$version
+    sed -i "s|PREFIX=/usr/local|PREFIX=/usr|g" Makefile
     make
     mkdir -p $PKG/usr/bin
+    mkdir -p $PKG/usr/lib/z81
     mkdir -p $PKG/usr/man/man1
-    cp xz81 $PKG/usr/bin/
-    gzip -c z81.1 > $PKG/usr/man/man1/xz81.1.gz
-    cd ..
-    g++ -o mmzx81 mmzx81.cpp
-    cp mmzx81 $PKG/usr/bin/
+    cp {z81,xz81,zx81get} $PKG/usr/bin/
+    cp {*.xpm,*.pbm} $PKG/usr/lib/z81/ ; cp ../*.rom $PKG/usr/lib/z81/
+    chmod 644 $PKG/usr/lib/z81/*
+    gzip -c z81.1 > $PKG/usr/man/man1/z81.1.gz
+    gzip -c zx81get.1 > $PKG/usr/man/man1/zx81get.1.gz
+    cd $PKG/usr/man/man1 ; ln -s z81.1.gz xz81.1.gz
 }
