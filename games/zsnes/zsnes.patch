@@ -1,0 +1,19 @@
+diff -Nru Makefile.in.old Makefile.in
+--- Makefile.in.old	2002-05-23 00:03:07.000000000 +0000
++++ Makefile.in	2004-10-22 18:36:56.575575096 +0000
+@@ -167,11 +167,11 @@
+ ${DOSDIR}/modemrtn.o: ${DOSDIR}/modemrtn.asm macros.mac
+ 
+ install:
+-	@INSTALL@ -m 0755 @ZSNESEXE@ @prefix@/bin
+-	@INSTALL@ -m 0644 linux/zsnes.1 @prefix@/man/man1
+-
++	@INSTALL@ -m 0755 @ZSNESEXE@ $(DESTDIR)@prefix@/bin
++	@INSTALL@ -m 0644 linux/zsnes.1 $(DESTDIR)@prefix@/man/man1
++	
+ uninstall:
+-	rm -f @prefix@/bin/$(notdir @ZSNESEXE@) @prefix@/man/man5/zsnes.5
++	rm -f $(DESTDIR)@prefix@/bin/$(notdir @ZSNESEXE@) $(DESTDIR)@prefix@/man/man5/zsnes.5
+ 
+ clean:
+ 	rm -f ${CHIPDIR}/*.o  ${CPUDIR}/*.o  ${VIDEODIR}/*.o  ${GUIDIR}/*.o  ${DOSDIR}/*.o  ${WINDIR}/*.o  ${ZIPDIR}/*.o  *.o  @ZSNESEXE@
