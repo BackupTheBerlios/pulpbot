@@ -3,10 +3,12 @@ drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/gnome-vfsmm-2.6/
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm.h
 drwxr-xr-x	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/
+-rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/address.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/application-registry.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/async-handle.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/async.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/directory-handle.h
+-rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/dns-sd.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/drive.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/enums.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/exception.h
@@ -20,6 +22,7 @@ drwxr-xr-x	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/monitor-handle.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private.h
 drwxr-xr-x	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/
+-rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/address_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/async-handle_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/drive_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/enums_p.h
@@ -27,10 +30,12 @@ drwxr-xr-x	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/mime-action_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/mime-application_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/mime-monitor_p.h
+-rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/resolve-handle_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/transfer-progress_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/uri_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/volume-monitor_p.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/private/volume_p.h
+-rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/resolve-handle.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/transfer-progress.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/transfer.h
 -rw-r--r--	root/root	usr/include/gnome-vfsmm-2.6/libgnomevfsmm/types.h
@@ -48,8 +53,8 @@ drwxr-xr-x	root/root	usr/lib/gnome-vfsmm-2.6/proc/m4/
 -rw-r--r--	root/root	usr/lib/gnome-vfsmm-2.6/proc/m4/convert.m4
 -rw-r--r--	root/root	usr/lib/gnome-vfsmm-2.6/proc/m4/convert_gnome_vfsmm.m4
 -rwxr-xr-x	root/root	usr/lib/libgnomevfsmm-2.6.la
-lrwxrwxrwx	root/root	usr/lib/libgnomevfsmm-2.6.so -> libgnomevfsmm-2.6.so.1.0.1
-lrwxrwxrwx	root/root	usr/lib/libgnomevfsmm-2.6.so.1 -> libgnomevfsmm-2.6.so.1.0.1
--rwxr-xr-x	root/root	usr/lib/libgnomevfsmm-2.6.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libgnomevfsmm-2.6.so -> libgnomevfsmm-2.6.so.1.0.4
+lrwxrwxrwx	root/root	usr/lib/libgnomevfsmm-2.6.so.1 -> libgnomevfsmm-2.6.so.1.0.4
+-rwxr-xr-x	root/root	usr/lib/libgnomevfsmm-2.6.so.1.0.4
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gnome-vfsmm-2.6.pc
