@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.2 2004/11/04 23:06:15 slash Exp $
+# $Id: Pkgfile,v 1.3 2004/12/11 01:30:23 slash Exp $
 # Description: write files to a CD burner in Nautilus
 # URL: http://cvs.gnome.org/viewcvs/nautilus-cd-burner/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -7,7 +7,7 @@
 
 
 name=nautilus-cd-burner
-version=2.8.5
+version=2.8.6
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2)
 
