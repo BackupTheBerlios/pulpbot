@@ -1,0 +1,17 @@
+# Packager: Coviello Giuseppe <slash@crux-it.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Description: Ecasound is a software package designed for multitrack audio processing
+# Depends on: audiofile libsamplerate python
+# URL: http://www.wakkanet.fi/~kaiv/ecasound/welcome.html
+
+name=ecasound
+version=2.3.4
+release=1
+source=(http://ecasound.seul.org/download/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+   ./configure --prefix=/usr --disable-nls
+   make 
+   make DESTDIR=$PKG install
+}
