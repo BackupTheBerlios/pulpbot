@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:34 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/22 13:54:08 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: A framwork to write database oriented applications
@@ -6,7 +6,7 @@
 # Depends on: glib
 
 name=libgda
-version=1.1.6
+version=1.1.99
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/$name/1.1/$name-$version.tar.bz2)
 
