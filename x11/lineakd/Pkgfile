@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=lineakd
-version=0.8
+version=0.8.1
 release=1
 source=(http://belnet.dl.sourceforge.net/lineak/$name-$version.tar.gz)
 
