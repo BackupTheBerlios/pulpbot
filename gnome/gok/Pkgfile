@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:55:49 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/05 22:56:37 yankeegohome Exp $
 # Description: GNOME On-Screen Keyboard
 # URL: http://www.gok.ca/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,9 +6,9 @@
 # Depends on: at-spi,libgnomeui,libwnck
 
 name=gok
-version=0.11.8
+version=0.11.16
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/0.11/$name-$version.tar.bz2 
         $name.patch)
 
 build() {
