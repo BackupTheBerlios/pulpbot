@@ -1,7 +1,7 @@
 # Description: opengl widget for gtk+ GUI toolkit (outdated)
 # URL: http://www.student.oulu.fi/~jlof/gtkglarea/
 # Depends on: gtk1 libglut
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=gtkglarea
 version=1.2.3

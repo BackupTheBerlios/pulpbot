@@ -1,7 +1,7 @@
 # Description: GNU CLISP - an ANSI Common Lisp
 # URL: http://clisp.cons.org/
 # Depends on: ncurses readline gpm
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=clisp
 version=2.33.2
