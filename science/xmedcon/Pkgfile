@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=xmedcon
-version=0.9.7.3
+version=0.9.8.0
 release=1
 source=(http://belnet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
 
