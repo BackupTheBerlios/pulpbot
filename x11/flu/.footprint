@@ -4,6 +4,7 @@ drwxr-xr-x	root/root	usr/bin/
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/FLU/
 -rw-r--r--	root/root	usr/include/FLU/FluSimpleString.h
+-rw-r--r--	root/root	usr/include/FLU/FluVectorClass.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_Button.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_Chat_Buffer.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_Choice_Group.h
@@ -17,6 +18,7 @@ drwxr-xr-x	root/root	usr/include/FLU/
 -rw-r--r--	root/root	usr/include/FLU/Flu_Enumerations.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_File_Chooser.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_Float_Input.h
+-rw-r--r--	root/root	usr/include/FLU/Flu_GL_Canvas.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_GL_Window.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_Helpers.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_Int_Input.h
@@ -32,14 +34,13 @@ drwxr-xr-x	root/root	usr/include/FLU/
 -rw-r--r--	root/root	usr/include/FLU/Flu_Toggle_Group.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_Tree_Browser.h
 -rw-r--r--	root/root	usr/include/FLU/Flu_Wrap_Group.h
--rw-r--r--	root/root	usr/include/FLU/VectorClass.h
 -rw-r--r--	root/root	usr/include/FLU/flu_export.h
 -rw-r--r--	root/root	usr/include/FLU/flu_file_chooser_pixmaps.h
 -rw-r--r--	root/root	usr/include/FLU/flu_pixmaps.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libflu.a
-lrwxrwxrwx	root/root	usr/lib/libflu.so -> libflu.so.2.13
--rwxr-xr-x	root/root	usr/lib/libflu.so.2.13
+lrwxrwxrwx	root/root	usr/lib/libflu.so -> libflu.so.2.14
+-rwxr-xr-x	root/root	usr/lib/libflu.so.2.14
 -rwxr-xr-x	root/root	usr/lib/libflu_gl.a
-lrwxrwxrwx	root/root	usr/lib/libflu_gl.so -> libflu_gl.so.2.13
--rwxr-xr-x	root/root	usr/lib/libflu_gl.so.2.13
+lrwxrwxrwx	root/root	usr/lib/libflu_gl.so -> libflu_gl.so.2.14
+-rwxr-xr-x	root/root	usr/lib/libflu_gl.so.2.14
