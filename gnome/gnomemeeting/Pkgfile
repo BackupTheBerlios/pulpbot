@@ -1,8 +1,8 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:30 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/09 18:48:15 yankeegohome Exp $
 # Description:  H.323 compatible client for GNOME
 # URL: http://www.gnomemeeting.org/
 # Packager: Markus Ackermann <maol@symlink.ch>
-# Maintainer: Stefano Esposito <yabkeegohome@email.it>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Depends on: libgnomeui,openh323
 # Group: gnome
 
