@@ -1,0 +1,19 @@
+# Description: astronomy application for fun and education
+# URL: http://www.lsw.uni-heidelberg.de/users/rwichman/Nightfall.html
+# Depends on: gcc-f77 x11 gtk libjpeg gnuplot gtkglarea
+# Packager: acrux
+
+name=nightfall
+version=1.42
+release=1
+
+source=(http://www.lsw.uni-heidelberg.de/users/rwichman/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --disable-nls --disable-gnome \
+    --with-gnu-ld --with-gnuplot \
+    --with-lib-GL
+#    --with-lib-MesaGl    
+    make
+    make DESTDIR=$PKG install
+}

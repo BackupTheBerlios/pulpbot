@@ -1,0 +1,17 @@
+# Description: GNU scientific library
+# URL: http://www.gnu.org/software/gsl/
+# Depends on: gawk libtool
+# Packager: acrux
+
+name=gsl
+version=1.5
+release=1
+
+source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld --disable-nls
+    make
+    make DESTDIR=$PKG install
+    rm -Rf $PKG/usr/info
+}

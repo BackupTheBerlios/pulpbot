@@ -1,0 +1,34 @@
+# Description: astronomical software ephemeris
+# URL: http://www.clearskyinstitute.com/xephem/index.html
+# Depends on: x11 gcc-f77 openmotif
+# Packager: acrux
+
+name=xephem
+version=3.6.1
+release=1
+
+source=(http://www.clearskyinstitute.com/$name/$name-$version.tar.gz)
+build () {
+    cd $name-$version    
+    cd libastro ; make
+    cd ../libip ; make
+    cd ../liblilxml ; make
+    cd ../libjpegd ; make
+    cd ../GUI/xephem ; xmkmf ; make
+
+    mkdir -p $PKG/opt/bin
+    mkdir -p $PKG/opt/xephem
+    mkdir -p $PKG/usr/man/man8
+    
+    cp $SRC/$name-$version/Copyright $PKG/opt/$name/
+
+    mv auxil $PKG/opt/xephem ; mv catalogs $PKG/opt/xephem
+    mv fifos $PKG/opt/xephem ; mv fits  $PKG/opt/xephem
+    mv gallery $PKG/opt/xephem ; mv help $PKG/opt/xephem
+    mv lo $PKG/opt/xephem
+    cp xephem XEphem.png $PKG/opt/xephem
+    gzip -c xephem.man > $PKG/usr/man/man8/xephem.8.gz
+    
+    cd $PKG/opt/bin ; echo -e '#!/bin/sh \ncd /opt/xephem ; ./xephem' > xephem
+    chmod +x $PKG/opt/bin/xephem	
+}

@@ -1,0 +1,16 @@
+# Description: reading and writing geotiff library
+# URL: http://www.remotesensing.org/geotiff/geotiff.html
+# Depends on: libtool libtiff
+# Packager: acrux
+
+name=libgeotiff
+version=1.2.2
+release=1
+
+source=(http://dl.maptools.org/dl/geotiff/$name/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --disable-nls
+    make
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,8 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+-rw-r--r--	root/root	usr/include/cblas.h
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libatlas.a
+-rw-r--r--	root/root	usr/lib/libcblas.a
+-rw-r--r--	root/root	usr/lib/libf77blas.a
+-rw-r--r--	root/root	usr/lib/libtstatlas.a

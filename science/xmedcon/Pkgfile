@@ -1,0 +1,16 @@
+# Description: Medical Image Conversion
+# URL: http://xmedcon.sourceforge.net/index.html
+# Depends on: gawk gdk-pixbuf gtk1 libpng
+# Packager: acrux
+
+name=xmedcon
+version=0.9.7.3
+release=1
+source=(http://belnet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.bz2)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr 
+    make
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,19 @@
+# Description: geospatial data abstraction library
+# URL: http://gdal.org/
+# Depends on: python gcc-f77 libtool zlib libjpeg libtiff libgeotiff libpng proj
+# Packager: acrux
+
+name=gdal
+version=1.2.3
+release=1
+
+source=(http://gdal.org/dl/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=$PKG/usr --exec-prefix=$PKG/usr \
+    --with-pymoddir=$PKG/usr/lib/python/site-packages \
+    --disable-nls --with-grass=no --without-ogdi --without-pg
+    make
+    mkdir -p $PKG/usr/lib/python/site-packages
+    make DESTDIR=$PKG install
+}

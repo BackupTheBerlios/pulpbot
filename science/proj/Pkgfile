@@ -1,0 +1,16 @@
+# Description: cartographic projections library
+# URL: http://proj.maptools.org/
+# Depends on: libtool gcc-f77
+# Packager: acrux
+
+name=proj
+version=4.4.8
+release=1
+
+source=(http://dl.maptools.org/dl/$name/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --disable-nls
+    make
+    make DESTDIR=$PKG install
+}

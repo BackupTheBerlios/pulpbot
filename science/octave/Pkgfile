@@ -1,0 +1,19 @@
+# Description: high-level language for numerical computation
+# URL: http://www.octave.org
+# Depends on: gcc-f77 gnuplot fftw3 atlas lapack
+# Packager: acrux
+
+name=octave
+version=2.1.57
+release=4
+
+source=(ftp://ftp.octave.org/pub/$name/$name-$version.tar.bz2)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-g77 --with-blas \
+    --with-lapack --without-hdf5 --disable-nls
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/info
+    rm -rf $PKG/usr/libexec
+}

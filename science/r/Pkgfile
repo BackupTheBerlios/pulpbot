@@ -1,0 +1,23 @@
+# Description: Language and environment for statistical computing and graphics
+# URL: http://www.r-project.org/
+# Depends on: gcc-f77 x11 zlib fftw tcl tk libpng libjpeg bunzip2 libpcre atlas dillo lapack
+# Packager: jahor acrux
+
+name=r
+version=2.0.0
+release=1
+source=(http://cran.r-project.org/src/base/R-2/R-$version.tar.gz)
+
+build()
+{
+        cd R-$version
+	export R_BROWSER=dillo
+        ./configure --prefix=/usr --with-gnu-ld \
+	--with-blas --with-lapack --with-tcltk \
+	--with-zlib --with-bzlib --with-pcre
+        make
+        mkdir -p $PKG/usr
+        make prefix=$PKG/usr install
+        sed -i -e "s|^R_HOME_DIR=.*|R_HOME_DIR=/usr/lib/R|" $PKG/usr/bin/R
+}
+

@@ -1,0 +1,27 @@
+# Description: Automatically Tuned Linear Algebra Software
+# URL: http://math-atlas.sourceforge.net/
+# Depends on: gcc-f77 
+# Packager: acrux ncrfgs
+
+name=atlas
+version=3.7.8
+release=1
+
+source=(http://heanet.dl.sourceforge.net/sourceforge/math-atlas/$name$version.tar.gz)
+
+build() {
+	cd ATLAS
+	
+	yes "" | make
+	export CPU_TYPE=`ls bin/ | grep Linux_`
+	mkdir -p $PKG/usr/{lib,include}
+	make DESTDIR=$PKG install arch=$CPU_TYPE
+	
+	rm lib/$CPU_TYPE/{liblapack.a,Make.inc,Makefile}
+	cp -rf lib/$CPU_TYPE/* $PKG/usr/lib
+	cp -rf include/cblas.h $PKG/usr/include
+#	cp -rf include/clapack.h $PKG/usr/include
+}
+
+
+

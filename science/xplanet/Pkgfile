@@ -1,0 +1,16 @@
+Description: xearth based background for the X root window
+# URL: http://xplanet.sourceforge.net/
+# Depends on: x11 libtiff libpng libjpeg pango xscreensaver freetype
+# Packager: acrux
+
+name=xplanet
+version=1.1.1
+release=1
+source=(http://belnet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --datadir=/usr/share
+	make
+	make DESTDIR=$PKG install
+}

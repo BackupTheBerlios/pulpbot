@@ -1,0 +1,17 @@
+# Description: Maxima - a sophisticated Computer Algebra System
+# URL: http://maxima.sourceforge.net/
+# Depends on: clisp
+# Packager: acrux
+
+name=maxima
+version=5.9.1
+release=1
+source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --libexecdir=/usr/lib --enable-clisp --disable-nls 
+    make
+    make DESTDIR=$PKG install
+    rm -Rf $PKG/usr/info
+}

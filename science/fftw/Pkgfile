@@ -1,0 +1,18 @@
+# Description: C subroutine library for computing discrete Fourier transform
+# URL: http://www.fftw.org/
+# Depends on: gcc-f77
+# Packager: acrux
+
+name=fftw
+version=2.1.5
+release=3
+
+source=(http://www.fftw.org/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --enable-threads \
+    --with-gcc --with-gnu-ld --disable-nls
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/info
+}

@@ -1,0 +1,9 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gonvert
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/gonvert/
+-rw-r--r--	root/root	usr/share/gonvert/gonvert.glade
+drwxr-xr-x	root/root	usr/share/gonvert/pixmaps/
+-rw-r--r--	root/root	usr/share/gonvert/pixmaps/gonvert.png
+-rw-r--r--	root/root	usr/share/gonvert/pixmaps/gonvert_picture.png
