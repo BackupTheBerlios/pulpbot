@@ -1,0 +1,19 @@
+# Description: Fast Light Tool Kit
+# URL: http://www.fltk.org/
+# Depends on: x11 libjpeg libpng libglut freetype
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=fltk
+version=1.1.5
+release=1
+
+source=(http://belnet.dl.sourceforge.net/sourceforge/$name/$name-$version-source.tar.bz2)
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --enable-shared --enable-threads \
+    --enable-xdbe --enable-xft --disable-nls
+    make
+    make prefix=$PKG/usr install
+    mv $PKG/usr/share/man $PKG/usr
+    rm -R $PKG/usr/man/cat* ; rm -R $PKG/usr/share
+}
