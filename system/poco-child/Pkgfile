@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/11/01 22:33:15 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: This POE component serves as a wrapper for POE::Wheel::Run, obviating the need to create a session to receive the events it dishes out.
+# URL: http://search.cpan.org/~ecalder/POE-Component-Child-1.33/Child.pm
+# Depends on: poe perl
+
+name=poco-child
+version=1.33
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/E/EC/ECALDER/POE-Component-Child-$version.tar.gz)
+
+build () {
+	cd POE-Component-Child-$version
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}
