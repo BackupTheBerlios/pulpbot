@@ -5,10 +5,10 @@
 
 name=fgfs-base
 version=0.9.6
-release=1
+release=2
 
 source=(ftp://ftp.de.flightgear.org/pub/fgfs/Shared/$name-$version.tar.bz2)
 build () {
     mkdir -p $PKG/opt/FlightGear
-    mv $SRC/data $PKG/opt/FlightGear
+    cp -R $SRC/data $PKG/opt/FlightGear
 }
