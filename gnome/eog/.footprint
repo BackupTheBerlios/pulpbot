@@ -20,6 +20,7 @@ drwxr-xr-x	root/root	usr/share/gnome/help/eog/
 drwxr-xr-x	root/root	usr/share/gnome/help/eog/C/
 -rw-r--r--	root/root	usr/share/gnome/help/eog/C/eog.xml
 drwxr-xr-x	root/root	usr/share/gnome/help/eog/C/figures/
+-rw-r--r--	root/root	usr/share/gnome/help/eog/C/figures/eog_save_as_window.png
 -rw-r--r--	root/root	usr/share/gnome/help/eog/C/figures/eog_start_window.png
 -rw-r--r--	root/root	usr/share/gnome/help/eog/C/legal.xml
 drwxr-xr-x	root/root	usr/share/omf/
