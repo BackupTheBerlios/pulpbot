@@ -1,0 +1,23 @@
+# Description: Sinclair ZX81 emulator for x and .wav to .p convertor
+# URL: http://www.michaelminn.com/linux/mmzx81/
+# Depends on: x11
+# Packager: acrux
+
+name=z81
+version=mm
+release=1
+source=(http://www.michaelminn.com/linux/mmzx81/$name-$version.tgz \
+        http://www.michaelminn.com/linux/mmzx81/mmzx81.cpp \
+	zx81_keyboard.jpg )
+
+build() {
+    cd $name
+    make
+    mkdir -p $PKG/usr/bin
+    mkdir -p $PKG/usr/man/man1
+    cp xz81 $PKG/usr/bin/
+    gzip -c z81.1 > $PKG/usr/man/man1/xz81.1.gz
+    cd ..
+    g++ -o mmzx81 mmzx81.cpp
+    cp mmzx81 $PKG/usr/bin/
+}
