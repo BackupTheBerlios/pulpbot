@@ -1,9 +1,9 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:04 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/09 23:23:47 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@email.it>
 # Maintainer: Stefano Esposito <yankeegohome@email.it>
 # Description: GNOME system utilities
 # URL: http://www.gnome.org/
-# Depends on:
+# Depends on: libgnomeui
 
 name=gnome-system-tools
 version=1.0.0
