@@ -1,4 +1,4 @@
-Description: A callback framework for C++
+# Description: A typesafe callback framework for C++
 # URL: http://libsigc.sourceforge.net
 # Depends on: perl
 # Maintainer: acrux <acrux@crux-it.org>
