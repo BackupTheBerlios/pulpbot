@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:57:02 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/14 22:17:14 yankeegohome Exp $
 # Description: GStreamer Streaming-media framework plug-ins
 # URL: http://freedesktop.org/Software/gstreamer
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -7,9 +7,9 @@
 # Group: gnome
 
 name=gst-plugins
-version=0.8.4
+version=0.8.5
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/0.8/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version

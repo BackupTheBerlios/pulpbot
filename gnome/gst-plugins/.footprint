@@ -149,6 +149,8 @@ drwxr-xr-x	root/root	usr/lib/gstreamer-0.8/
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.8/libgstmedian.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.8/libgstmixmatrix.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.8/libgstmixmatrix.so
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.8/libgstmng.la
+-rwxr-xr-x	root/root	usr/lib/gstreamer-0.8/libgstmng.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.8/libgstmodplug.la
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.8/libgstmodplug.so
 -rwxr-xr-x	root/root	usr/lib/gstreamer-0.8/libgstmonoscope.la
