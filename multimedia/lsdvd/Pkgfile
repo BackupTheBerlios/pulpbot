@@ -1,0 +1,16 @@
+# Description: needed by acidrip
+# URL: http://untrepid.com/acidrip
+# Depends on:
+# Packager: acrux
+
+name=lsdvd
+version=0.10
+release=1
+source=(http://mesh.dl.sourceforge.net/sourceforge/acidrip/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,17 @@
+# Description: The Persistence of Vision Raytracer
+# URL: http://www.povray.org/
+# Depends on: svgalib zlib libpng libjpeg libtiff
+# Packager: acrux
+
+name=povray
+version=3.6.1
+release=1
+source=(ftp://ftp.povray.org/pub/povray/Official/Unix/$name-3.6.tar.bz2)
+build(){
+    cd $name-$version
+       ./configure --prefix=/usr --sysconfdir=/etc --libexecdir=/usr \
+       --enable-strip --with-svga COMPILED_BY="Progetto Crux Italia - http://www.crux-it.org" \
+       --enable-watch-cursor 
+    make
+    make DESTDIR=$PKG install
+}

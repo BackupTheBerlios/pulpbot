@@ -1,0 +1,16 @@
+# Description: website copier
+# URL: http://www.httrack.com/
+# Depends on: xterm
+# Packager: acrux
+
+name=httrack
+version=3.32
+release=3
+source=(http://www.httrack.com/$name-$version-2.tar.gz)
+
+build() {
+    cd $name-$version.03
+    ./configure --prefix=/usr --with-gnu-ld --disable-nls
+    make
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,18 @@
+# Description: a cute little eye-candy calendar for desktop 
+# URL: http://www.pycage.de/software_gdeskcal.html
+# Depends on: python gtk pygtk
+# Packager: acrux
+
+name=gdeskcal
+version=0.57.1
+release=1
+source=( http://pycage.de/download/gDeskCal-0_57_1.tar.gz )
+
+build () {
+    cd gDeskCal-$version
+    rm -R locale ; rm README.i18n
+    mkdir -p $PKG/usr/share
+    cp -R $SRC/gDeskCal-$version $PKG/usr/share/gdeskcal
+    mkdir -p $PKG/usr/bin
+    cd $PKG/usr/bin ; ln -s /usr/share/$name/$name $name 
+}

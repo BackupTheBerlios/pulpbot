@@ -1,0 +1,17 @@
+# Description: gtk GUI for lineakd 	
+# URL: http://lineak.sourceforge.net/
+# Depends on:  gtk1  lineakd
+# Packager: acrux
+
+name=lineakconfig
+version=0.3.2
+release=2
+source=(http://puzzle.dl.sourceforge.net/sourceforge/lineak/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr 
+	make
+	make DESTDIR=$PKG install
+	rm -Rf $PKG/usr/doc
+}

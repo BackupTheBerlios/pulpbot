@@ -1,0 +1,15 @@
+# Description: java plugin for Firefox
+# URL: http://www.blackdown.org
+# Depends on: j2re, firefox
+# Packager: acrux
+
+name=firefox-java-plugin
+version=1.4.2
+release=1
+source=()
+
+build() {
+	mkdir -p $PKG/usr/lib/firefox/plugins
+        ln -s /usr/lib/java/plugin/i386/mozilla/libjavaplugin_oji.so \
+	  $PKG/usr/lib/firefox/plugins/    	
+}

@@ -1,0 +1,16 @@
+# Description: wm based on blackbox
+# URL: http://fluxbox.org 
+# Depends on: x11
+# Packager: acrux
+
+name=fluxbox
+version=0.9.10
+release=1
+source=(http://osdn.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr --disable-nls --enable-xinerama
+    make
+    make install DESTDIR=$PKG
+}

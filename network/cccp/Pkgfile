@@ -1,0 +1,20 @@
+# Description: console front end to the Direct Conect Text Client
+# URL: http://members.chello.se/hampasfirma/cccp/
+# Depends on: dctc
+# Packager: acrux 
+
+name=cccp
+version=0.9
+release=1
+source=(http://members01.chello.se/hampasfirma/$name/$name.$version.tar.gz)
+
+build() {
+	cd $name.$version
+	sed -i "s|/usr/local|/usr|g " Makefile
+	make
+	make DESTDIR=$PKG install
+	mkdir -p $PKG/usr/share/$name
+	mv scripts $PKG/usr/share/$name/
+	chmod 755 $PKG/usr/share/$name/scripts/*
+	chmod 444 $PKG/usr/share/$name/scripts/SCRIPTS
+}

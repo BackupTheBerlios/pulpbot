@@ -1,0 +1,15 @@
+# Description: lunar ephemerisis dockapp
+# URL:  http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
+# Packager: acrux
+
+name=wmmoonclock
+version=1.27
+release=1
+source=(http://fastnet.linux.tucows.com/files/x11/dock/wmMoonClock-$version.tar.gz)
+
+build () {
+  cd wmMoonClock-$version/Src
+  make
+  mkdir -p $PKG/usr/bin
+  cp wmMoonClock $PKG/usr/bin
+}

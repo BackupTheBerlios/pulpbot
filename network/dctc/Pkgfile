@@ -1,0 +1,16 @@
+# Description: Direct Connect Text Client for Linux
+# URL: http://ac2i.homelinux.com/dctc/
+# Depends on: gawk glib
+# Packager: acrux 
+
+name=dctc
+version=0.85.9
+release=1
+source=(http://ac2i.homelinux.com/dctc/dctc-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --with-gnu-ld
+	make
+	make DESTDIR=$PKG install
+}

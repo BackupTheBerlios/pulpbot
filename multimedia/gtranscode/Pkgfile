@@ -1,0 +1,16 @@
+# Description: gtk transcode gui
+# URL: http://www.fuzzymonkey.org/newfuzzy/software/gtranscode/
+# Depends on: gtk1 transcode ffmpeg
+# Packager: acrux
+
+name=gtranscode
+version=0.3
+release=1
+source=(http://www.fuzzymonkey.org/files/$name-v$version.tar.gz)
+
+build() {
+	cd $name
+	make
+	mkdir -p $PKG/usr/bin
+	mv $name $PKG/usr/bin
+}

@@ -1,0 +1,10 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/exiftran
+-rwxr-xr-x	root/root	usr/bin/fbgs
+-rwxr-xr-x	root/root	usr/bin/fbi
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/exiftran.1.gz
+-rw-r--r--	root/root	usr/man/man1/fbgs.1.gz
+-rw-r--r--	root/root	usr/man/man1/fbi.1.gz

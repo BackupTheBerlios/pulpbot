@@ -1,0 +1,17 @@
+# Description: gtk2-perl dvd ripper (mencoder gui)
+# URL: http://untrepid.com/acidrip
+# Depends on: libdvdread perl gtk mplayer extutils-depends extutils-pkgconfig gtk2-perl lsdvd
+# Packager: acrux
+
+name=acidrip
+version=0.14
+release=1
+source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    perl Makefile.PL
+    make
+    make DESTDIR=$PKG install
+    rm -R $PKG/usr/lib/perl5/5.8.4/linux
+}

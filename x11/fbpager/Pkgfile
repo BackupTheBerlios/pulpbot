@@ -1,0 +1,16 @@
+# Description: fluxbox pager
+# URL: http://fluxbox.sourceforge.net/fbpager/
+# Depends on: fluxbox
+# Packager: acrux
+
+name=fbpager
+version=0.1.4
+release=1
+source=(http://fluxbox.org/download/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr 
+    make
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,20 @@
+# Description: simple system monitor
+# URL: http://torsmo.sourceforge.net/
+# Depends on: x11
+# Packager: acrux
+
+name=torsmo
+version=0.17
+release=2
+source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
+	torsmo-setiathome.patch)
+
+build() {
+    cd $name-$version
+    patch -p0 < ../torsmo-setiathome.patch
+    ./configure --prefix=/usr --enable-own-window \
+    --enable-proc-uptime --disable-nls
+    make
+    make install DESTDIR=$PKG
+    install -D torsmorc.sample $PKG/usr/share/$name/torsmorc.sample
+}

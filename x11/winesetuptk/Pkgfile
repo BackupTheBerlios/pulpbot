@@ -1,0 +1,20 @@
+# Description: Graphical wine setup tool 
+# URL: http://www.winehq.com/
+# Depends on: x11 tcl tk wine
+# Packager: acrux
+
+name=winesetuptk
+version=0.73
+release=1
+source=(http://heanet.dl.sourceforge.net/sourceforge/wine/$name-0-73.tar.bz2)
+build () {
+	cd $name$version
+	cd tcltk-$name-$version;
+	./build.sh
+	cd ../$name-$version;
+	./configure --prefix=/usr --with-tcltk=../tcltk-winesetuptk-$version \
+		--with-launcher="$PKG/usr/bin" --without-doc --with-exe="$PKG/usr/bin"
+	make
+	mkdir -p $PKG/usr/bin
+	cp $name $PKG/usr/bin
+}

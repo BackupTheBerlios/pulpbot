@@ -1,0 +1,17 @@
+# Description: colour ASCII art library
+# URL: http://sam.zoy.org/projects/libcaca/
+# Depends on: imlib2
+# Packager: acrux
+
+name=libcaca
+version=0.9
+release=2
+source=(http://sam.zoy.org/projects/$name/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr --disable-doc --disable-nls
+    make
+    make DESTDIR=$PKG install
+    rm -Rf $PKG/usr/share/doc
+}
