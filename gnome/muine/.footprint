@@ -1,0 +1,24 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/muine
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/gconf/
+drwxr-xr-x	root/root	usr/etc/gconf/schemas/
+-rw-r--r--	root/root	usr/etc/gconf/schemas/muine.schemas
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/muine/
+-rw-r--r--	root/root	usr/lib/muine/AmazonSearchService.dll
+-rw-r--r--	root/root	usr/lib/muine/libmuine.a
+-rwxr-xr-x	root/root	usr/lib/muine/libmuine.la
+lrwxrwxrwx	root/root	usr/lib/muine/libmuine.so -> libmuine.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/muine/libmuine.so.0 -> libmuine.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/muine/libmuine.so.0.0.0
+-rw-r--r--	root/root	usr/lib/muine/muine.exe
+-rw-r--r--	root/root	usr/lib/muine/muine.exe.config
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/application-registry/
+-rw-r--r--	root/root	usr/share/application-registry/muine.applications
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/muine.desktop
+drwxr-xr-x	root/root	usr/share/pixmaps/
+-rw-r--r--	root/root	usr/share/pixmaps/muine.png
