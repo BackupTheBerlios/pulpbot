@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/11/12 17:50:20 slash Exp $
+# Packager: Coviello Giuseppe <slash@crux-it.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Description: A free audio editor
+# URL: http://audacity.sf.net
+# Depends on: wxgtk, libvorbis, libmad, libid3tag 
+
+name=audacity
+version=1.2.2
+release=1
+source=(http://dl.sourceforge.net/sourceforge/audacity/$name-src-$version.tar.gz )
+
+build(){
+    cd $name-src-$version
+    ./configure --prefix=/usr --disable-nls
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/{doc,locale}
+}
