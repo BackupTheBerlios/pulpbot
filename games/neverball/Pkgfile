@@ -1,0 +1,23 @@
+# Description: OpenGL game
+# URL: http://icculus.org/neverball
+# Depends on: libsdl sdl_mixer sdl_image libsdl-ttf
+# Packager: acrux
+
+name=neverball
+version=1.4.0
+release=2
+
+source=(http://icculus.org/$name/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    make
+    mkdir -p $PKG/usr/bin
+    mkdir -p $PKG/usr/share/$name
+    cp -R data $PKG/usr/share/$name/
+    cp mapc $PKG/usr/share/$name
+    cp never* $PKG/usr/share/$name
+    cd $PKG ; echo -e '#!/bin/sh \ncd /usr/share/neverball ; ./mapc' > usr/bin/mapc
+    echo -e '#!/bin/sh \ncd /usr/share/neverball ; ./neverball' > usr/bin/neverball
+    echo -e '#!/bin/sh \ncd /usr/share/neverball ; ./neverputt' > usr/bin/neverputt
+    chmod +x usr/bin/*  
+}
