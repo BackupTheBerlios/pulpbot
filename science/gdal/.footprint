@@ -45,12 +45,13 @@ drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/ogr_spatialref.h
 -rw-r--r--	root/root	usr/include/ogr_srs_api.h
 -rw-r--r--	root/root	usr/include/ogrsf_frmts.h
+-rw-r--r--	root/root	usr/include/thinplatespline.h
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libgdal.a
 -rwxr-xr-x	root/root	usr/lib/libgdal.la
-lrwxrwxrwx	root/root	usr/lib/libgdal.so -> libgdal.so.1.5.0
-lrwxrwxrwx	root/root	usr/lib/libgdal.so.1 -> libgdal.so.1.5.0
--rwxr-xr-x	root/root	usr/lib/libgdal.so.1.5.0
+lrwxrwxrwx	root/root	usr/lib/libgdal.so -> libgdal.so.1.6.0
+lrwxrwxrwx	root/root	usr/lib/libgdal.so.1 -> libgdal.so.1.6.0
+-rwxr-xr-x	root/root	usr/lib/libgdal.so.1.6.0
 drwxr-xr-x	root/root	usr/lib/python/
 drwxr-xr-x	root/root	usr/lib/python/site-packages/
 -rw-r--r--	root/root	usr/lib/python/site-packages/_gdalmodule.a
