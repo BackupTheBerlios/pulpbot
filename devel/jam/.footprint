@@ -1,0 +1,6 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/jam
+-rwxr-xr-x	root/root	usr/bin/mkjambase
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libjam.a

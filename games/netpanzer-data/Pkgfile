@@ -1,0 +1,16 @@
+# Description: data files for netpanzer
+# URL: http://netpanzer.berlios.de/
+# Depends on: netpanzer
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=netpanzer-data
+version=0.2.0
+release=1
+source=( http://download.berlios.de/netpanzer/$name-$version.tar.bz2 )
+
+build() {
+	cd $name-$version
+	./configure --prefix=$PKG/usr
+	jam
+	jam install
+}

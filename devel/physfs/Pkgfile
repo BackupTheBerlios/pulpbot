@@ -1,0 +1,16 @@
+# Description: PhysicsFS is a library to provide abstract access to various archives
+# URL: http://icculus.org/physfs/
+# Depends on: glibc zlib
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=physfs
+version=1.0.0
+release=1
+source=(http://icculus.org/physfs/downloads/physfs-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --with-gnu-ld --disable-nls
+	make
+	make DESTDIR=$PKG install
+}

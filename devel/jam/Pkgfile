@@ -1,0 +1,17 @@
+# Description: A very portable make(1) alternative/replacement
+# URL: http://www.perforce.com/jam/jam.html
+# Depends on: glibc
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=jam
+version=2.5
+release=1
+source=(ftp://ftp.perforce.com/pub/$name/$name-$version.zip)
+
+build () {
+	  make
+	  cd bin.linuxx86
+	  mkdir -p $PKG/usr/{bin,lib}
+	  install -m755 jam mkjambase $PKG/usr/bin
+	  install -m644 libjam.a $PKG/usr/lib
+}
