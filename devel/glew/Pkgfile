@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=glew
-version=1.2.4
+version=1.2.5
 release=1
 source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version-src.tgz)
 
