@@ -1,0 +1,23 @@
+# Description: scientific sw for numerical computation
+# URL: http://www.scilab.org
+# Depends on: x11 gcc-f77 zlib tcl tk xaw3d sablotron
+# Packager: acrux
+
+name=scilab
+version=3.0
+release=2
+source=(ftp://ftp.inria.fr/INRIA/Scilab/distributions/$name-$version.src.tar.gz Makefile.in)
+
+build () {
+    rm -Rf /usr/lib/$name-*
+    cd $name-$version
+    rm Makefile.in ; cp ../Makefile.in Makefile.in
+    ./configure --prefix=$PKG/usr --with-gnu \
+    --without-ocaml --disable-nls
+    mkdir -p $PKG/usr/bin
+    mkdir -p $PKG/usr/lib/
+    sed -i "s|LIBPREFIX = $PKG/usr/lib|LIBPREFIX = /usr/lib|g" $SRC/$name-$version/Makefile
+    make all
+    make DESTDIR=$PKG/usr install
+    rm -Rf $PKG/usr/lib/$name-$version/Win95-util
+}
