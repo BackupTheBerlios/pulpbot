@@ -1,0 +1,18 @@
+# Description: geospatial data abstraction standalone drovers for GRASS-5.7.x
+# URL: http://gdal.org/
+# Depends on: gdal grass
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=gdal-grass
+version=1.2.3
+release=1
+
+source=(http://gdal.org/dl/$name-$version.tar.gz)
+build () {
+    cd $name-$version
+    ./configure --with-grass=/opt/grass-5.7.0
+
+    make
+    mkdir -p $PKG/usr/lib
+    cp gdal_GRASS.so $PKG/usr/lib
+}
