@@ -27,9 +27,7 @@ drwxr-xr-x	root/root	usr/lib/nautilus-cd-burner/
 drwxr-xr-x	root/root	usr/lib/nautilus/
 drwxr-xr-x	root/root	usr/lib/nautilus/extensions-1.0/
 -rwxr-xr-x	root/root	usr/lib/nautilus/extensions-1.0/libnautilus-burn-extension.la
-lrwxrwxrwx	root/root	usr/lib/nautilus/extensions-1.0/libnautilus-burn-extension.so -> libnautilus-burn-extension.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/nautilus/extensions-1.0/libnautilus-burn-extension.so.0 -> libnautilus-burn-extension.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/nautilus/extensions-1.0/libnautilus-burn-extension.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/nautilus/extensions-1.0/libnautilus-burn-extension.so
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libnautilus-burn.pc
 drwxr-xr-x	root/root	usr/share/
