@@ -57,9 +57,9 @@ drwxr-xr-x	root/root	usr/include/libgnomeuimm-2.6/libgnomeuimm/private/
 -rw-r--r--	root/root	usr/include/libgnomeuimm-2.6/libgnomeuimm/wrap_init.h
 drwxr-xr-x	root/root	usr/lib/
 -rwxr-xr-x	root/root	usr/lib/libgnomeuimm-2.6.la
-lrwxrwxrwx	root/root	usr/lib/libgnomeuimm-2.6.so -> libgnomeuimm-2.6.so.1.0.0
-lrwxrwxrwx	root/root	usr/lib/libgnomeuimm-2.6.so.1 -> libgnomeuimm-2.6.so.1.0.0
--rwxr-xr-x	root/root	usr/lib/libgnomeuimm-2.6.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libgnomeuimm-2.6.so -> libgnomeuimm-2.6.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libgnomeuimm-2.6.so.1 -> libgnomeuimm-2.6.so.1.0.1
+-rwxr-xr-x	root/root	usr/lib/libgnomeuimm-2.6.so.1.0.1
 drwxr-xr-x	root/root	usr/lib/libgnomeuimm-2.6/
 drwxr-xr-x	root/root	usr/lib/libgnomeuimm-2.6/include/
 -rw-r--r--	root/root	usr/lib/libgnomeuimm-2.6/include/libgnomeuimmconfig.h
