@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/11/21 01:32:33 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Perl bindings for Gtk+ 2
+# URL: http://gtk2-perl.sourceforge.net/
+# Depends on: gtk perl-glib
+
+name=gtk2-perl
+version=1.061
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/Gtk2-$version.tar.gz)
+
+build () {
+	cd Gtk2-$version
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}
