@@ -48,6 +48,7 @@ drwxr-xr-x	root/root	usr/share/applications/
 drwxr-xr-x	root/root	usr/share/epiphany/
 drwxr-xr-x	root/root	usr/share/epiphany/art/
 -rw-r--r--	root/root	usr/share/epiphany/art/epiphany-bookmarks.png
+-rw-r--r--	root/root	usr/share/epiphany/art/epiphany-close-tab.png
 -rw-r--r--	root/root	usr/share/epiphany/art/epiphany-download.png
 -rw-r--r--	root/root	usr/share/epiphany/art/epiphany-entry.png
 -rw-r--r--	root/root	usr/share/epiphany/art/epiphany-history.png
