@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:55:48 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/10/14 15:34:53 yankeegohome Exp $
 # Description: GNOME Application Libs (GAL)
 # URL: http://cvs.gnome.org/viewcvs/gal/
 # Maintainer: Stefano Esposito <yankeegohome@email.it>
@@ -7,9 +7,9 @@
 # Group: gnome
 
 name=gal
-version=2.2.1
+version=2.2.3
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/gal/2.2/gal-$version.tar.bz2)
 
 build () {
 	cd $name-$version
