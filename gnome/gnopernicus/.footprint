@@ -38,33 +38,33 @@ drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/libsrutil/
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/
 -rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libbrl.la
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libbrl.so -> libbrl.so.12.0.0
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libbrl.so.12 -> libbrl.so.12.0.0
--rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libbrl.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libbrl.so -> libbrl.so.16.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libbrl.so.16 -> libbrl.so.16.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libbrl.so.16.0.0
 -rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libke.la
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libke.so -> libke.so.12.0.0
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libke.so.12 -> libke.so.12.0.0
--rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libke.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libke.so -> libke.so.16.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libke.so.16 -> libke.so.16.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libke.so.16.0.0
 -rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libmag.la
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libmag.so -> libmag.so.12.0.0
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libmag.so.12 -> libmag.so.12.0.0
--rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libmag.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libmag.so -> libmag.so.16.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libmag.so.16 -> libmag.so.16.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libmag.so.16.0.0
 -rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrconf.la
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrconf.so -> libsrconf.so.12.0.0
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrconf.so.12 -> libsrconf.so.12.0.0
--rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrconf.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrconf.so -> libsrconf.so.16.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrconf.so.16 -> libsrconf.so.16.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrconf.so.16.0.0
 -rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrlow.la
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrlow.so -> libsrlow.so.12.0.0
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrlow.so.12 -> libsrlow.so.12.0.0
--rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrlow.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrlow.so -> libsrlow.so.16.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrlow.so.16 -> libsrlow.so.16.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrlow.so.16.0.0
 -rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrs.la
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrs.so -> libsrs.so.12.0.0
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrs.so.12 -> libsrs.so.12.0.0
--rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrs.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrs.so -> libsrs.so.16.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrs.so.16 -> libsrs.so.16.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrs.so.16.0.0
 -rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrutil.la
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrutil.so -> libsrutil.so.12.0.0
-lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrutil.so.12 -> libsrutil.so.12.0.0
--rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrutil.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrutil.so -> libsrutil.so.16.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrutil.so.16 -> libsrutil.so.16.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrutil.so.16.0.0
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gnopernicus-1.0.pc
 drwxr-xr-x	root/root	usr/libexec/

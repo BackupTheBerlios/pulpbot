@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:32 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/05 22:30:12 yankeegohome Exp $
 # Description: Early Release of the BAUM Gnopernicus Project
 # URL: http://www.baum.ro/gnopernicus.html
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,9 +6,9 @@
 # Depends on: at-spi,gnome-mag,gnome-speech,libgnomeui
 
 name=gnopernicus
-version=0.9.12
+version=0.9.16
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/0.9/$name-$version.tar.bz2)
 
 build() {
     cd $name-$version
