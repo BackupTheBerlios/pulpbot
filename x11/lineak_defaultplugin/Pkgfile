@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=lineak_defaultplugin
-version=0.8.1
+version=0.8.2
 release=1
 source=(http://puzzle.dl.sourceforge.net/sourceforge/lineak/$name-$version.tar.gz)
 
