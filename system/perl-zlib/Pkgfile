@@ -1,0 +1,20 @@
+# $Id: Pkgfile,v 1.1 2004/10/24 17:48:55 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Perl interface to zlib compression library
+# URL: http://search.cpan.org/~pmqs/Compress-Zlib-1.33/
+# Depends on: perl
+
+name=perl-zlib
+version=1.33
+release=1
+
+source=(http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/Compress-Zlib-$version.tar.gz)
+
+build () {
+	cd Compress-Zlib-$version
+	perl Makefile.PL prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/lib/perl5/5.8.4
+}
