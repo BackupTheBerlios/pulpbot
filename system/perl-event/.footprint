@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/perl5/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/Event/Lib.pm
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/
+drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Lib/
+-rw-r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Lib/.packlist
+-r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Lib/Lib.bs (EMPTY)
+-r-xr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/Event/Lib/Lib.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man3/
+-r--r--r--	root/root	usr/man/man3/Event::Lib.3pm.gz
