@@ -4,18 +4,15 @@
 # Depends on: cvsup, httpup
 
 name=ilenia
-version=testing
-release=2
-source=(ilenia.cvsup \
+version=1.0
+release=1
+source=(http://www.crux-it.org/evolution/src/$name-$version.tar.gz \
     crux.cvsup.in \
     crux-it.cvsup.in \
     clc.cvsup.in)
 
 build () {
-    sed -i "s|DIR|$SRC|g" ilenia.cvsup
-    cvsup -g -L 1 -r 0 -c .cvsup ilenia.cvsup
-    cd $name
-    ./autogen.sh
+    cd $name-$version
     ./configure --prefix=/usr
     make
     make DESTDIR=$PKG install
@@ -24,7 +21,7 @@ build () {
     cat ../crux.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/crux.cvsup
     cat ../crux-it.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/crux-it.cvsup
     cat ../clc.cvsup.in|sed "s|#VERION#|$CRUX_VERSION|" > $PKG/etc/ports/clc.cvsup
-   cd $PKG/usr/bin
+    cd $PKG/usr/bin
     ln -s ilenia ports
     cd $PKG/usr/man/man8
     ln -s ilenia.8.gz ports.8.gz

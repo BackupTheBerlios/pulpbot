@@ -1,9 +1,0 @@
-*default host=khazad-dum.orson.it
-*default base=DIR
-*default prefix=DIR
-*default release=cvs
-*default delete
-*default use-rel-suffix
-*default compress
-*default tag=TESTING
-ilenia
