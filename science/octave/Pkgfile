@@ -4,10 +4,10 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=octave
-version=2.1.57
-release=4
+version=2.1.58
+release=1
 
-source=(ftp://ftp.octave.org/pub/$name/$name-$version.tar.bz2)
+source=(ftp://ftp.octave.org/pub/$name/bleeding-edge/$name-$version.tar.bz2)
 build () {
     cd $name-$version
     ./configure --prefix=/usr --with-g77 --with-blas \
