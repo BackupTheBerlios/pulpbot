@@ -1,0 +1,21 @@
+# $Id: Pkgfile,v 1.1 2004/10/31 11:32:02 slash Exp $
+# Description: An open source development platform based on the .NET
+# URL: http://www.go-mono.org
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Packager: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: glib,icu
+
+name=mono
+version=1.0.2
+release=1
+source=(http://mono2.ximian.com/archive/$version/$name-$version.tar.gz)
+
+build() {
+    mkdir -p $PKG/weird
+    export MONO_SHARED_DIR=$PKG/weird
+    cd $name-$version
+    ./configure --prefix=/usr --sysconfdir=/usr/etc 
+    make 
+    make DESTDIR=$PKG install
+    rm -rf $PKG/weird
+}
