@@ -67,6 +67,9 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/bind/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/concept_check.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/config/
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/config/abi_prefix.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/config/abi_suffix.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/config/auto_link.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/config/compiler/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config/compiler/borland.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config/compiler/comeau.hpp
@@ -96,6 +99,7 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/config/platform/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config/platform/solaris.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config/platform/win32.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config/posix_features.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/config/requires_threads.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config/select_compiler_config.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config/select_platform_config.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/config/select_stdlib_config.hpp
@@ -141,10 +145,12 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/detail/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/lwm_win32.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/lwm_win32_cs.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/named_template_params.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/none_t.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/numeric_traits.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/ob_call_traits.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/ob_compressed_pair.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/quick_allocator.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/reference_content.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/select_type.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/shared_array_nmt.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/shared_count.hpp
@@ -152,6 +158,7 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/detail/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/detail/workaround.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/enable_shared_from_this.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/filesystem/
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/filesystem/config.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/filesystem/convenience.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/filesystem/exception.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/filesystem/fstream.hpp
@@ -171,6 +178,8 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/format/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/format/macros_default.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/format/macros_stlport.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/format/msvc_disambiguater.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/format/outsstream.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/format/outsstream_impl.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/format/parsing.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/functional.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/generator_iterator.hpp
@@ -179,6 +188,32 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/format/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/integer_traits.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/intrusive_ptr.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator.hpp
+drwxr-xr-x	root/root	usr/include/k3d/boost/boost/iterator/
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/counting_iterator.hpp
+drwxr-xr-x	root/root	usr/include/k3d/boost/boost/iterator/detail/
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/detail/any_conversion_eater.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/detail/categories.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/detail/config_def.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/detail/config_undef.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/detail/enable_if.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/detail/facade_iterator_category.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/detail/minimum_category.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/filter_iterator.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/indirect_iterator.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/interoperable.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/is_lvalue_iterator.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/is_readable_iterator.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/iterator_adaptor.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/iterator_archetypes.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/iterator_categories.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/iterator_concepts.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/iterator_facade.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/iterator_traits.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/new_iterator_tests.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/permutation_iterator.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/reverse_iterator.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/transform_iterator.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator/zip_iterator.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/iterator_adaptors.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/last_value.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/lexical_cast.hpp
@@ -533,6 +568,7 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/mpl/aux_/range_c/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/aux_/sequence_tag.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/aux_/single_element_iter.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/aux_/size_impl.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/aux_/static_cast.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/aux_/template_arity.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/aux_/template_arity_fwd.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/aux_/traits_lambda_spec.hpp
@@ -785,6 +821,7 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/mpl/vector/aux_/preprocessed/ty
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/vector/vector50_c.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/vector_c.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/void.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/void_fwd.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/mpl/zip_view.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/multi_array.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/multi_array/
@@ -806,9 +843,11 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/multi_array/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/multi_array/types.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/multi_array/view.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/next_prior.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/non_type.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/noncopyable.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/nondet_random.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/operators.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/optional.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/pending/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/pending/bucket_sorter.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/pending/container_traits.hpp
@@ -1113,7 +1152,10 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/random/
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/random/detail/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/random/detail/const_mod.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/random/detail/iterator_mixin.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/random/detail/pass_through_engine.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/random/detail/ptr_helper.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/random/detail/signed_unsigned_compare.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/random/detail/uniform_int_float.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/random/discard_block.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/random/exponential_distribution.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/random/gamma_distribution.hpp
@@ -1183,17 +1225,42 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/basics.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/composite/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/actions.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/alternative.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/composite.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/difference.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/directives.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/epsilon.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/exclusive_or.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/alternative.ipp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/composite.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/difference.ipp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/directives.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/exclusive_or.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/intersection.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/kleene_star.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/list.ipp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/operators.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/optional.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/positive.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/sequence.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/sequential_and.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/impl/sequential_or.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/intersection.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/kleene_star.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/list.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/no_actions.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/operators.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/optional.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/positive.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/sequence.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/sequential_and.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/composite/sequential_or.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/config.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/impl/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/impl/borland.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/impl/match.ipp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/impl/match_attr_traits.ipp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/impl/msvc.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/impl/parser.ipp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/match.hpp
@@ -1206,6 +1273,7 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/meta/impl/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/meta/impl/traverse.ipp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/meta/parser_traits.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/meta/traverse.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/nil.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/non_terminal/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/non_terminal/grammar.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/non_terminal/impl/
@@ -1224,6 +1292,7 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/primitives/impl/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/primitives/impl/primitives.ipp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/primitives/numerics.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/primitives/primitives.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/safe_bool.hpp
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/scanner/
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/core/scanner/impl/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/core/scanner/impl/skipper.ipp
@@ -1314,6 +1383,7 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/spirit/utility/impl/chset/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/utility/refactoring.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/utility/regex.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/utility/scoped_lock.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/spirit/version.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/static_assert.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/throw_exception.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/timer.hpp
@@ -1419,6 +1489,7 @@ drwxr-xr-x	root/root	usr/include/k3d/boost/boost/type_traits/detail/
 drwxr-xr-x	root/root	usr/include/k3d/boost/boost/utility/
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/utility/addressof.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/utility/base_from_member.hpp
+-rw-r--r--	root/root	usr/include/k3d/boost/boost/utility/compare_pointees.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/utility/value_init.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/utility_fwd.hpp
 -rw-r--r--	root/root	usr/include/k3d/boost/boost/version.hpp
@@ -1531,6 +1602,7 @@ drwxr-xr-x	root/root	usr/include/k3d/k3dsdk/Half/
 -rw-r--r--	root/root	usr/include/k3d/k3dsdk/keyboard.h
 -rw-r--r--	root/root	usr/include/k3d/k3dsdk/log.h
 -rw-r--r--	root/root	usr/include/k3d/k3dsdk/logbufs.h
+-rw-r--r--	root/root	usr/include/k3d/k3dsdk/manipulators.h
 -rw-r--r--	root/root	usr/include/k3d/k3dsdk/material.h
 -rw-r--r--	root/root	usr/include/k3d/k3dsdk/material_collection.h
 -rw-r--r--	root/root	usr/include/k3d/k3dsdk/measurement.h
@@ -1839,6 +1911,10 @@ lrwxrwxrwx	root/root	usr/lib/k3d/libk3dyafray.so.0 -> libk3dyafray.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libHapy.so -> libHapy.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libHapy.so.0 -> libHapy.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libHapy.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libcblas.la
+lrwxrwxrwx	root/root	usr/lib/libcblas.so -> libcblas.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libcblas.so.0 -> libcblas.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libcblas.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libk3dembed.la
 lrwxrwxrwx	root/root	usr/lib/libk3dembed.so -> libk3dembed.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libk3dembed.so.0 -> libk3dembed.so.0.0.0
@@ -1867,6 +1943,14 @@ lrwxrwxrwx	root/root	usr/lib/libsdpsl.so.0 -> libsdpsl.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libsdpxml.so -> libsdpxml.so.0.0.0
 lrwxrwxrwx	root/root	usr/lib/libsdpxml.so.0 -> libsdpxml.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libsdpxml.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsuperlu.la
+lrwxrwxrwx	root/root	usr/lib/libsuperlu.so -> libsuperlu.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libsuperlu.so.0 -> libsuperlu.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsuperlu.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsurface_polygonizer_library.la
+lrwxrwxrwx	root/root	usr/lib/libsurface_polygonizer_library.so -> libsurface_polygonizer_library.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libsurface_polygonizer_library.so.0 -> libsurface_polygonizer_library.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libsurface_polygonizer_library.so.0.0.0
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/k3d.1.gz
@@ -2515,6 +2599,7 @@ drwxr-xr-x	root/root	usr/share/k3d/tutorials/it/
 drwxr-xr-x	root/root	usr/share/k3d/tutorials/se/
 -rw-r--r--	root/root	usr/share/k3d/tutorials/se/getting_started
 -rw-r--r--	root/root	usr/share/k3d/tutorials/selection
+-rw-r--r--	root/root	usr/share/k3d/tutorials/stick_figure
 -rw-r--r--	root/root	usr/share/k3d/tutorials/tutorialindex.k3d
 -rw-r--r--	root/root	usr/share/k3d/tutorials/tutorialindex.k3d.fr
 -rw-r--r--	root/root	usr/share/k3d/tutorials/tutorialindex.k3d.it

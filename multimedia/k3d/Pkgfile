@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=k3d
-version=0.4.3.0
+version=0.4.4.0
 release=1
 
 source=(http://mesh.dl.sourceforge.net/sourceforge/$name/$name-$version.tgz)
