@@ -1,15 +1,17 @@
 # Description: 3d mesh generator and fem pre-processor
 # URL: http://www.geuz.org/gmsh/
 # Depends on: x11 gcc-f77 gsl fltk libpng libjpeg zlib
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=gmsh
-version=1.55.0
+version=1.56.0
 release=1
 
-source=(http://www.geuz.org/$name/src/$name-$version-source.tgz)
+source=(http://www.geuz.org/$name/src/$name-$version-source.tgz \
+	http://cm.bell-labs.com/netlib/voronoi/triangle.zip )
 build () {
     cd $name-$version
+    cp ../{triangle.c,triangle.h} Triangle/
     ./configure --prefix=/usr --enable-gsl --enable-gui --enable-triangle \
     --enable-netgen --enable-matheval --enable-jpeg --enable-z \
     --enable-png --disable-nls
