@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:55:59 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/05 19:50:16 slash Exp $
 # Description: virtual filesystem abstraction library for GNOME2
 # URL: http://developer.gnome.org/doc/API/gnome-vfs/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -7,9 +7,9 @@
 
 
 name=gnome-vfs
-version=2.8.0
+version=2.8.3
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/platform/2.8/2.8.0/sources/$name-$version.tar.bz2)
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2)
 
 build() {
     cd $name-$version
