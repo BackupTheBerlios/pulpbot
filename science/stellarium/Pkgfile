@@ -1,10 +1,10 @@
 # Description: photo-realistic sky generator
 # URL: http://stellarium.free.fr
-# Depends on: x11
-# Packager: acrux
+# Depends on: libsdl x11
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=stellarium
-version=0.6.0
+version=0.6.1
 release=1
 source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
 
