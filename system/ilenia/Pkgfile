@@ -5,7 +5,7 @@
 
 name=ilenia
 version=testing
-release=1
+release=2
 source=(ilenia.cvsup \
     crux.cvsup.in \
     crux-it.cvsup.in \
