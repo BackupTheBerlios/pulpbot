@@ -1,7 +1,7 @@
 # Description: cartographic projections library
 # URL: http://proj.maptools.org/
 # Depends on: libtool gcc-f77
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=proj
 version=4.4.8

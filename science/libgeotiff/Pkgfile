@@ -1,7 +1,7 @@
 # Description: reading and writing geotiff library
 # URL: http://www.remotesensing.org/geotiff/geotiff.html
 # Depends on: libtool libtiff
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=libgeotiff
 version=1.2.2

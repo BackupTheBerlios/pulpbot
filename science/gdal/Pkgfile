@@ -1,7 +1,7 @@
 # Description: geospatial data abstraction library
 # URL: http://gdal.org/
 # Depends on: python gcc-f77 libtool zlib libjpeg libtiff libgeotiff libpng proj
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=gdal
 version=1.2.3

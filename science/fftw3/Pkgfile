@@ -1,7 +1,7 @@
 # Description: C subroutine library for computing discrete Fourier transform
 # URL: http://www.fftw.org/
 # Depends on: gcc-f77
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=fftw3
 version=3.0.1

@@ -1,8 +1,8 @@
 # Description: GNU scientific library
 # URL: http://www.gnu.org/software/gsl/
 # Depends on: gawk libtool
-# Packager: acrux
-
+# Maintainer: acrux <acrux@crux-it.org>
+ 
 name=gsl
 version=1.5
 release=1

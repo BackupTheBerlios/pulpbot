@@ -1,7 +1,7 @@
 # Description: Linear Algebra PACKage - F77 routines for Linear Algebra
 # URL: http://www.netlib.org/lapack/
 # Depends on: gcc-f77
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=lapack
 version=3.0

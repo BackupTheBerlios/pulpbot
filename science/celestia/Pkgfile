@@ -1,7 +1,7 @@
 # Description: real-time opengl space simulation
 # URL: http://www.shatters.net/celestia/
 # Depends on: x11 gtk gtkglext libglut libjpeg libpng
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=celestia
 version=1.3.2

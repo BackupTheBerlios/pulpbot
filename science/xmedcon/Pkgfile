@@ -1,7 +1,7 @@
 # Description: Medical Image Conversion
 # URL: http://xmedcon.sourceforge.net/index.html
 # Depends on: gawk gdk-pixbuf gtk1 libpng
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=xmedcon
 version=0.9.7.3

@@ -1,7 +1,7 @@
 # Description: astronomy application for fun and education
 # URL: http://www.lsw.uni-heidelberg.de/users/rwichman/Nightfall.html
 # Depends on: gcc-f77 x11 gtk libjpeg gnuplot gtkglarea
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=nightfall
 version=1.42

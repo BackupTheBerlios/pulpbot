@@ -1,7 +1,7 @@
 # Description: astronomical software ephemeris
 # URL: http://www.clearskyinstitute.com/xephem/index.html
 # Depends on: x11 gcc-f77 openmotif
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=xephem
 version=3.6.1

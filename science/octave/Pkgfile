@@ -1,7 +1,7 @@
 # Description: high-level language for numerical computation
 # URL: http://www.octave.org
 # Depends on: gcc-f77 gnuplot fftw3 atlas lapack
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=octave
 version=2.1.57

@@ -1,7 +1,7 @@
 # Description: open source GIS suite
 # URL: http://grass.itc.it/
 # Depends on: gcc-f77 postgresql perl zlib flex libglut ncurses proj gdal x11 tcl tk libpng fftw libjpeg libtiff openmotif
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=grass
 version=5.7.0

@@ -1,7 +1,7 @@
 # Description: gtk conversion utility 
 # URL: http://unihedron.com/projects/gonvert/gonvert.php
 # Depends on: python gtk pygtk libglade
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=gonvert
 version=0.2.11

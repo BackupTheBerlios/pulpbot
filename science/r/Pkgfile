@@ -1,7 +1,7 @@
 # Description: Language and environment for statistical computing and graphics
 # URL: http://www.r-project.org/
 # Depends on: gcc-f77 x11 zlib fftw tcl tk libpng libjpeg bunzip2 libpcre atlas dillo lapack
-# Packager: jahor acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=r
 version=2.0.0
