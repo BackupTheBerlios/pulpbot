@@ -1,4 +1,12 @@
 drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-r-xr-xr-x	root/root	usr/bin/GET
+-r-xr-xr-x	root/root	usr/bin/HEAD
+-r-xr-xr-x	root/root	usr/bin/POST
+-r-xr-xr-x	root/root	usr/bin/lwp-download
+-r-xr-xr-x	root/root	usr/bin/lwp-mirror
+-r-xr-xr-x	root/root	usr/bin/lwp-request
+-r-xr-xr-x	root/root	usr/bin/lwp-rget
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/perl5/
 drwxr-xr-x	root/root	usr/lib/perl5/5.8.4/
@@ -78,6 +86,14 @@ drwxr-xr-x	root/root	usr/lib/perl5/site_perl/5.8.4/linux/auto/libwww-perl/
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/lwpcook.pod
 -r--r--r--	root/root	usr/lib/perl5/site_perl/5.8.4/lwptut.pod
 drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-r--r--r--	root/root	usr/man/man1/GET.1pm.gz
+-r--r--r--	root/root	usr/man/man1/HEAD.1pm.gz
+-r--r--r--	root/root	usr/man/man1/POST.1pm.gz
+-r--r--r--	root/root	usr/man/man1/lwp-download.1pm.gz
+-r--r--r--	root/root	usr/man/man1/lwp-mirror.1pm.gz
+-r--r--r--	root/root	usr/man/man1/lwp-request.1pm.gz
+-r--r--r--	root/root	usr/man/man1/lwp-rget.1pm.gz
 drwxr-xr-x	root/root	usr/man/man3/
 -r--r--r--	root/root	usr/man/man3/Bundle::LWP.3pm.gz
 -r--r--r--	root/root	usr/man/man3/File::Listing.3pm.gz
