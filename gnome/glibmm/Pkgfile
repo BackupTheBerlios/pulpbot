@@ -5,9 +5,9 @@
 # Depends on: gtk libsigc++ 
 
 name=glibmm
-version=2.5.1
+version=2.4.5
 release=1
-source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/2.5/$name-$version.tar.bz2)
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/2.4/$name-$version.tar.bz2)
 
 build() {
 	cd $name-$version
