@@ -1,15 +1,15 @@
-# $Id: Pkgfile,v 1.1 2004/10/22 15:32:42 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/11/17 13:46:06 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Perl bindings to libgnome
-# Depends on: libgnome perl-gnome2-canvas per-gnome2-vsf
+# Depends on: libgnome perl-gnome2-canvas perl-gnome2-vsf
 # URL: http://gtk2-perl.sourceforge.net
 
 name=perl-gnome2
 version=1.020
 release=1
 
-source=(http://puzzle.dl.sourceforge.net/sourceforge/gtk2-perl/Gnome2-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/gtk2-perl/Gnome2-$version.tar.gz)
 
 build () {
 	cd Gnome2-$version
