@@ -3,9 +3,9 @@ drwxr-xr-x	root/root	usr/lib/
 drwxr-x--x	root/root	usr/lib/j2re1.4.2/
 -rw-r--r--	root/root	usr/lib/j2re1.4.2/ControlPanel.html
 -rw-r--r--	root/root	usr/lib/j2re1.4.2/THIRDPARTYLICENSEREADME.txt
--rw-r--r--	root/root	usr/lib/j2re1.4.2/Welcome.html
 drwxr-xr-x	root/root	usr/lib/j2re1.4.2/bin/
 -rwxr-xr-x	root/root	usr/lib/j2re1.4.2/bin/ControlPanel
+-rwxr-xr-x	root/root	usr/lib/j2re1.4.2/bin/HtmlConverter
 -rwxr-xr-x	root/root	usr/lib/j2re1.4.2/bin/java
 -rwxr-xr-x	root/root	usr/lib/j2re1.4.2/bin/java_vm
 lrwxrwxrwx	root/root	usr/lib/j2re1.4.2/bin/javaws -> ../javaws/javaws
@@ -68,6 +68,7 @@ drwxr-xr-x	root/root	usr/lib/j2re1.4.2/lib/fonts/
 -rw-r--r--	root/root	usr/lib/j2re1.4.2/lib/fonts/LucidaTypewriterOblique.ttf
 -rw-r--r--	root/root	usr/lib/j2re1.4.2/lib/fonts/LucidaTypewriterRegular.ttf
 -rw-r--r--	root/root	usr/lib/j2re1.4.2/lib/fonts/fonts.dir
+-rw-r--r--	root/root	usr/lib/j2re1.4.2/lib/htmlconverter.jar
 drwxr-xr-x	root/root	usr/lib/j2re1.4.2/lib/i386/
 -rwxr-xr-x	root/root	usr/lib/j2re1.4.2/lib/i386/awt_robot
 drwxr-xr-x	root/root	usr/lib/j2re1.4.2/lib/i386/client/
