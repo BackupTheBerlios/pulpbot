@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.2 2004/11/17 12:37:11 yankeegohome Exp $
+# $Id: Pkgfile,v 1.3 2004/12/13 14:48:38 yankeegohome Exp $
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org> 
 # Description: Message bus system
 # URL: http://www.freedesktop.org/Software/dbus
@@ -7,7 +7,7 @@
 name=dbus
 version=0.22
 release=2
-source=(http://freedesktop.org/Software/$name/releases/$name-$version.tar.gz \
+source=(http://www.freedesktop.org/software/$name/releases/$name-$version.tar.gz \
     dbus)
 
 build () {
