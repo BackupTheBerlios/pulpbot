@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:30 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/05 13:41:00 yankeegohome Exp $
 # Description: base MIME and Application database for GNOME
 # URL: http://freshmeat.net/projects/gnome-mime-data/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -7,9 +7,9 @@
 
 
 name=gnome-mime-data
-version=2.4.1
+version=2.4.2
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/platform/2.8/2.8.0/sources/$name-$version.tar.bz2 \
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.4/$name-$version.tar.bz2 \
         $name.patch)
 
 build() {
