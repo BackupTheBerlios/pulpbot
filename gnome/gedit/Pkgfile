@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:00 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/01 19:24:29 slash Exp $
 # Description: small and lightweight UTF-8 text editor
 # URL: http://gedit.sourceforge.net/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,9 +6,9 @@
 # Depends on: aspell,eel,gtksourceview
 
 name=gedit
-version=2.8.0
+version=2.8.1
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2 
         $name.patch)
 
 build() {
