@@ -34,11 +34,7 @@ drwxr-xr-x	root/root	usr/share/pixmaps/
 -rw-r--r--	root/root	usr/share/pixmaps/gnome-terminal.png
 drwxr-xr-x	root/root	usr/var/
 drwxr-xr-x	root/root	usr/var/scrollkeeper/
-drwxr-xr-x	root/root	usr/var/scrollkeeper/C/
--rw-r--r--	root/root	usr/var/scrollkeeper/C/scrollkeeper_cl.xml
--rw-r--r--	root/root	usr/var/scrollkeeper/C/scrollkeeper_extended_cl.xml
 drwxr-xr-x	root/root	usr/var/scrollkeeper/TOC/
 -rw-r--r--	root/root	usr/var/scrollkeeper/TOC/0
 drwxr-xr-x	root/root	usr/var/scrollkeeper/index/
 -rw-r--r--	root/root	usr/var/scrollkeeper/index/0
--rw-r--r--	root/root	usr/var/scrollkeeper/scrollkeeper_docs
