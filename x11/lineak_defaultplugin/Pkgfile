@@ -1,0 +1,17 @@
+# Description: default plugin for lineakd 	
+# URL: http://lineak.sourceforge.net/
+# Depends on:  lineakd
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=lineak_defaultplugin
+version=0.8.1
+release=1
+source=(http://puzzle.dl.sourceforge.net/sourceforge/lineak/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr 
+	make
+	make DESTDIR=$PKG install
+	rm -Rf $PKG/usr/doc
+}

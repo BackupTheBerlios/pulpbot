@@ -1,0 +1,11 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/lineakd/
+drwxr-xr-x	root/root	usr/lib/lineakd/plugins/
+-rwxr-xr-x	root/root	usr/lib/lineakd/plugins/defaultplugin.la
+-rwxr-xr-x	root/root	usr/lib/lineakd/plugins/defaultplugin.so
+-rwxr-xr-x	root/root	usr/lib/lineakd/plugins/mediadetectplugin.la
+-rwxr-xr-x	root/root	usr/lib/lineakd/plugins/mediadetectplugin.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/lineak_defaultplugin.1.gz
