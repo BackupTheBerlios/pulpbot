@@ -1,0 +1,21 @@
+# Description: opengl widget for gtk+ GUI toolkit (outdated)
+# URL: http://www.student.oulu.fi/~jlof/gtkglarea/
+# Depends on: gtk1 libglut
+# Packager: acrux
+
+name=gtkglarea
+version=1.2.3
+##version=1.99.0
+release=1
+source=(http://nl.lunar-linux.org/lunar/mirrors/$name-$version.tar.gz)
+##source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/1.99/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    CC=c89 CFLAGS=-O2 LIBS=-lposix
+    ./configure --prefix=/usr --with-gnu-ld \
+    --with-lib-GL
+#   --with-lib-MesaGL
+    make
+    make DESTDIR=$PKG install
+}
