@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=gtklp
-version=1.0pre3
+version=1.0
 release=1
 source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version.src.tar.gz)
 

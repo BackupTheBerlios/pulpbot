@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=mkvtoolnix
-version=0.9.7
+version=1.0
 release=1
 source=(http://www.bunkus.org/videotools/$name/sources/$name-$version.tar.bz2)
 
