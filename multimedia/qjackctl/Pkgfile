@@ -1,0 +1,24 @@
+# Description: QT interface for jack server
+# Packager: Alberto Venturini <aventurini@gmail.com>
+# Maintainer: Alberto Venturini <aventurini@gmail.com>
+# URL: http://qjackctl.sourceforge.net/
+# Depends on: jack qt3
+
+name=qjackctl
+version=0.2.13
+release=1
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build()
+{
+	export QTDIR=/usr
+	export QMAKESPEC=/usr/share/qt/mkspecs/linux-g++
+	cd $name-$version
+	sed -i "/#include \"qglobal.h\"/s/\"qglobal.h\"/\"qt\/qglobal.h\"/" configure
+	./configure --prefix=/usr
+	echo "QMAKE_CXXFLAGS += -I/usr/include/qt" >> qjackctl.pro
+	make
+	mkdir $PKG/usr
+	install -vD qjackctl $PKG/usr/bin/qjackctl
+	install -vD icons/qjackctl.png $PKG/usr/share/icons/qjackctl.png
+}
