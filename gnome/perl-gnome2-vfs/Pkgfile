@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/10/22 15:25:25 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/10/31 22:45:49 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Perl bindings to gnome-vfs
@@ -6,7 +6,7 @@
 # URL: http://gtk2-perl.sourceforge.net
 
 name=perl-gnome2-vfs
-version=1.003
+version=1.011
 release=1
 source=(http://puzzle.dl.sourceforge.net/sourceforge/gtk2-perl/Gnome2-VFS-$version.tar.gz)
 
