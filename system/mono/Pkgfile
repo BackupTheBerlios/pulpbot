@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/10/31 11:32:02 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/11 14:29:05 slash Exp $
 # Description: An open source development platform based on the .NET
 # URL: http://www.go-mono.org
 # Maintainer: Coviello Giuseppe <slash@crux-it.org>
@@ -6,7 +6,7 @@
 # Depends on: glib,icu
 
 name=mono
-version=1.0.2
+version=1.0.4
 release=1
 source=(http://mono2.ximian.com/archive/$version/$name-$version.tar.gz)
 
