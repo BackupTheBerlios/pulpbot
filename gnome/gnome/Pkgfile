@@ -1,0 +1,22 @@
+# Description: The GNOME Desktop
+# URL: http://www.gnome.org/
+# Packager: Coviello Giuseppe <slash@crux-it.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: orbit2 intltool libbonobo pango atk gtk gconf desktop-file-utils gnome-mime-data gnome-vfs audiofile esound libgnome libart_lgpl libglade libgnomecanvas libbonoboui gnome-icon-theme gnome-keyring libgnomeui startup-notification gtk-engines gnome-themes scrollkeeper gnome-desktop libwnck libsoup evolution-data-server gnome-panel gnome-session vte gnome-terminal libgtop gail libxklavier gnome-applets metacity librsvg eel nautilus control-center gtkhtml yelp bug-buddy libgnomecups libgnomeprint libgnomeprintui gtksourceview gedit eog ggv gconf-editor gnome-utils gnome-system-monitor gstreamer gst-plugins gnome-media nautilus-media gnome-netstatus gcalctool gpdf gucharmap nautilus-cd-burner zenity at-spi libgail-gnome gnome-speech gnome-mag gnopernicus gok epiphany file-roller gnome-system-tools gnome-nettool vino dbus hal gnome-volume-manager gal gnomemeeting
+
+name=gnome
+version=2.8.0
+release=1
+source=()
+
+build() {
+	set +x
+	set +e
+        echo 'This is an empty port'
+	echo 'Build with prt-get depinst gnome --install-scripts'
+	echo 'Alternatively use "prt-get grpinst" to stop on errors'
+	echo 'This will install all ports which belong to the GNOME Desktop'
+	mkdir -p $PKG/tmp
+	echo $version > $PKG/tmp/GNOME
+}
+

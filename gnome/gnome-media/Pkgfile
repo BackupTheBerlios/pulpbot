@@ -1,0 +1,28 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:45 slash Exp $
+# Description: GNOME media tools
+# URL: http://www.prettypeople.org/~iain/gnome-media/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Stefano Esposito <yankeegohome@email.it>
+# Depends on: control-center,gst-plugins
+# Group: gnome
+
+name=gnome-media
+version=2.8.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 \
+	$name.patch)
+
+build() {
+	touch scrollkeeper-config
+	chmod +x scrollkeeper-config
+	export SCROLLKEEPER_CONFIG="$PATH:$PWD"
+	cd $name-$version
+	patch -p1 < ../$name.patch
+	./configure --prefix=/usr \
+	            --libexecdir=/usr/lib/$name \
+	            --disable-schemas-install
+	make
+	for omf in */*/C/*.omf; do test -f $omf.out || cp $omf{,.out}; done
+	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	make DESTDIR=$PKG install
+}

@@ -1,0 +1,24 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:55:48 slash Exp $
+# Description: GNOME Application Libs (GAL)
+# URL: http://cvs.gnome.org/viewcvs/gal/
+# Maintainer: Stefano Esposito <yankeegohome@email.it>
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Depends on: libgnomeprintui,libgnomeui
+# Group: gnome
+
+name=gal
+version=2.2.1
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	sed -i "s/USE_NLS=yes/USE_NLS=no/
+	        s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+	./configure --prefix=/usr \
+	            --disable-gtk-doc
+	make
+	make DESTDIR=$PKG install
+	rm -fr $PKG/usr/share/gtk-doc
+	rm -rf $PKG/usr/share/gal-2.2
+}

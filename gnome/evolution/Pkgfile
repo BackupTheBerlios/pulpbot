@@ -1,0 +1,31 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:57:03 slash Exp $
+# Description: E-mail client and PIM
+# URL: http://www.ximian.com/evolution
+# Packager: Nuno Afonso <nuno.afonso@tagus.ist.utl.pt>
+# Maintainer Stefano Esposito <yankeegohome@crux-it.org>
+# Depends on: db3,gtkhtml,openldap,orbit2
+
+name=evolution
+version=2.0.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 \
+        $name.patch)
+
+build() {
+	cd $name-$version
+	patch -p1 < ../$name.patch
+	./configure --prefix=/usr \
+	            --libexecdir=/usr/lib \
+		    --enable-ipv6=yes \
+	            --enable-openssl=yes \
+	            --enable-gtk-doc=no \
+	            --disable-schemas-install \
+	            --with-db3=/usr/lib/db3
+	make
+	for omf in `find . -path '*/C/*' -name '*.omf'`; do
+		test -f $omf.out || cp $omf $omf.out
+	done
+	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/gnome
+}

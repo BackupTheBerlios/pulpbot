@@ -1,0 +1,17 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:03 slash Exp $
+# Description: Language for Writing Python Extension Modules
+# URL: http://www.cosc.canterbury.ac.nz/~greg/python/Pyrex/
+# Packager: Coviello Giuseppe <slash@crux-it.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: python
+
+name=pyrex
+version=0.9.3
+release=1
+source=(http://www.cosc.canterbury.ac.nz/~greg/python/Pyrex/Pyrex-$version.tar.gz)
+
+build(){
+    cd Pyrex-$version
+    python setup.py build
+    python setup.py install --root $PKG
+}

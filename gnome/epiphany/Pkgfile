@@ -1,0 +1,29 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:49 slash Exp $
+# Description: GNOME web browser based on the mozilla rendering engine
+# URL: http://www.gnome.org/projects/epiphany/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: gnome-desktop,mozilla
+
+name=epiphany
+version=1.4.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    sed -i "s/USE_NLS=yes/USE_NLS=no/
+	        s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+    sed -i 's/ = C .*$/ = C/' help/Makefile.in
+    ./configure --prefix=/usr \
+	--disable-schemas-install \
+	--disable-debug \
+	--enable-cpp-rtti=yes
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' help/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' omf.make
+    make
+    cp help/C/$name-C.omf{,.out}
+    export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+    make DESTDIR=$PKG install
+    rm -fr $PKG/usr/share/gtk-doc
+}

@@ -1,0 +1,30 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:55:49 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@email.it>
+# Maintainer: Stefano Esposito <yankeegohome@email.it>
+# Description: An implementation of a hardware abstraction layer
+# URL: http://freedesktop.org/
+# Depends on: gnome-python, pciutils, dbus
+
+name=hal
+version=0.2.97
+release=2
+source=(http://freedesktop.org/~david/dist/$name-$version.tar.gz \
+    hald)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+	--disable-nls \
+	--disable-doxygen-docs \
+	--disable-docbook-docs \
+	--libexec=/usr/lib/$name \
+	--with-pid-file=/var/run/hald/hald.pid --with-hal-user=haldaemon --with-hal-group=haldaemon
+    make
+    make DESTDIR=$PKG install
+    mkdir -p $PKG/var/run/hald
+    chown -R haldaemon:haldaemon $PKG/var/run/hald
+    mkdir -p $PKG/etc/rc.d
+    cp ../hald $PKG/etc/rc.d
+}

@@ -1,0 +1,135 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gnopernicus
+-rwxr-xr-x	root/root	usr/bin/srcore
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/gconf/
+drwxr-xr-x	root/root	usr/etc/gconf/schemas/
+-rw-r--r--	root/root	usr/etc/gconf/schemas/brlmonitor.schemas
+-rw-r--r--	root/root	usr/etc/gconf/schemas/gnopernicus.schemas
+-rw-r--r--	root/root	usr/etc/gconf/schemas/remote.schemas
+drwxr-xr-x	root/root	usr/etc/gnopernicus-1.0/
+drwxr-xr-x	root/root	usr/etc/gnopernicus-1.0/translation_tables/
+-rw-r--r--	root/root	usr/etc/gnopernicus-1.0/translation_tables/de.a2b
+-rw-r--r--	root/root	usr/etc/gnopernicus-1.0/translation_tables/en_US.a2b
+-rw-r--r--	root/root	usr/etc/gnopernicus-1.0/translation_tables/es.a2b
+-rw-r--r--	root/root	usr/etc/gnopernicus-1.0/translation_tables/sv.a2b
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/
+drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/libbrl/
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libbrl/brlxmlapi.h
+drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/libke/
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libke/libke.h
+drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/libmag/
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libmag/magxmlapi.h
+drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/libsrconf/
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrconf/libsrconf.h
+drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/libsrlow/
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrlow/SRLow.h
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrlow/SRObject.h
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrlow/screen-review.h
+drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/libsrs/
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrs/srs-xml.h
+drwxr-xr-x	root/root	usr/include/gnopernicus-1.0/libsrutil/
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrutil/SREvent.h
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrutil/SRMessages.h
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrutil/srintl.h
+-rw-r--r--	root/root	usr/include/gnopernicus-1.0/libsrutil/util.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libbrl.la
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libbrl.so -> libbrl.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libbrl.so.12 -> libbrl.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libbrl.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libke.la
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libke.so -> libke.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libke.so.12 -> libke.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libke.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libmag.la
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libmag.so -> libmag.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libmag.so.12 -> libmag.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libmag.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrconf.la
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrconf.so -> libsrconf.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrconf.so.12 -> libsrconf.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrconf.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrlow.la
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrlow.so -> libsrlow.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrlow.so.12 -> libsrlow.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrlow.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrs.la
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrs.so -> libsrs.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrs.so.12 -> libsrs.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrs.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrutil.la
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrutil.so -> libsrutil.so.12.0.0
+lrwxrwxrwx	root/root	usr/lib/gnopernicus-1.0/libsrutil.so.12 -> libsrutil.so.12.0.0
+-rwxr-xr-x	root/root	usr/lib/gnopernicus-1.0/libsrutil.so.12.0.0
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/gnopernicus-1.0.pc
+drwxr-xr-x	root/root	usr/libexec/
+-rwxr-xr-x	root/root	usr/libexec/brlmonitor
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/gnopernicus.desktop
+drwxr-xr-x	root/root	usr/share/gnome/
+drwxr-xr-x	root/root	usr/share/gnome/help/
+drwxr-xr-x	root/root	usr/share/gnome/help/brlmonitor/
+drwxr-xr-x	root/root	usr/share/gnome/help/brlmonitor/C/
+-rw-r--r--	root/root	usr/share/gnome/help/brlmonitor/C/brlmonitor.xml
+-rw-r--r--	root/root	usr/share/gnome/help/brlmonitor/C/legal.xml
+drwxr-xr-x	root/root	usr/share/gnome/help/gnopernicus/
+drwxr-xr-x	root/root	usr/share/gnome/help/gnopernicus/C/
+-rw-r--r--	root/root	usr/share/gnome/help/gnopernicus/C/gnopernicus.xml
+-rw-r--r--	root/root	usr/share/gnome/help/gnopernicus/C/legal.xml
+drwxr-xr-x	root/root	usr/share/gnopernicus/
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Monitor_Settings/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Monitor_Settings/braille_monitor_settings.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/attribute_settings.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/braille_device.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/braille_fill_char.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/braille_mapping.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/braille_settings.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/braille_style.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/cursor_settings.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/status_cell.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Braille_Settings/translation_table.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Find/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Find/find.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Find/text_selected_24.png
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/General_Settings/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/General_Settings/general_settings.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Keyboard_Mouse_Settings/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Keyboard_Mouse_Settings/keyboard_mouse_settings.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Language/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Language/language.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Load_Default/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Load_Default/load_default.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Magnifier_Settings/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Magnifier_Settings/magnifier_settings.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Presentation/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Presentation/presentation.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Screen_Review/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Screen_Review/screen_review.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/Speech_Settings/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/Speech_Settings/speech_settings.glade2
+drwxr-xr-x	root/root	usr/share/gnopernicus/glade/gnopi_files/User_Properties/
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/User_Properties/user_properties.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/about.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/braille.xpm
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/gnopi.glade2
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/keyboard.xpm
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/monitor.png
+-rw-r--r--	root/root	usr/share/gnopernicus/glade/gnopi_files/start_up.png
+drwxr-xr-x	root/root	usr/share/gnopernicus/presentation/
+-rw-r--r--	root/root	usr/share/gnopernicus/presentation/default.xml
+-rw-r--r--	root/root	usr/share/gnopernicus/presentation/verbose.xml
+drwxr-xr-x	root/root	usr/share/omf/
+drwxr-xr-x	root/root	usr/share/omf/gnopernicus/
+-rw-r--r--	root/root	usr/share/omf/gnopernicus/brlmonitor-C.omf
+-rw-r--r--	root/root	usr/share/omf/gnopernicus/gnopernicus-C.omf
+drwxr-xr-x	root/root	usr/share/pixmaps/
+-rw-r--r--	root/root	usr/share/pixmaps/gnopernicus.png

@@ -1,0 +1,43 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/charmap -> gucharmap
+lrwxrwxrwx	root/root	usr/bin/gnome-character-map -> gucharmap
+-rwxr-xr-x	root/root	usr/bin/gucharmap
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/gucharmap/
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-block-chapters.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-chapters.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-charmap.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-codepoint-list.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-mini-fontsel.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-script-chapters.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-script-codepoint-list.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-search-dialog.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-table.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-unicode-info.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap-window.h
+-rw-r--r--	root/root	usr/include/gucharmap/gucharmap.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libgucharmap.la
+lrwxrwxrwx	root/root	usr/lib/libgucharmap.so -> libgucharmap.so.4.0.3
+lrwxrwxrwx	root/root	usr/lib/libgucharmap.so.4 -> libgucharmap.so.4.0.3
+-rwxr-xr-x	root/root	usr/lib/libgucharmap.so.4.0.3
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/gucharmap.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/gucharmap.desktop
+drwxr-xr-x	root/root	usr/share/gnome/
+drwxr-xr-x	root/root	usr/share/gnome/help/
+drwxr-xr-x	root/root	usr/share/gnome/help/gucharmap/
+drwxr-xr-x	root/root	usr/share/gnome/help/gucharmap/C/
+drwxr-xr-x	root/root	usr/share/gnome/help/gucharmap/C/figures/
+-rw-r--r--	root/root	usr/share/gnome/help/gucharmap/C/figures/gucharmap_start_window.png
+-rw-r--r--	root/root	usr/share/gnome/help/gucharmap/C/figures/gucharmap_window.png
+-rw-r--r--	root/root	usr/share/gnome/help/gucharmap/C/gucharmap.xml
+-rw-r--r--	root/root	usr/share/gnome/help/gucharmap/C/legal.xml
+drwxr-xr-x	root/root	usr/share/omf/
+drwxr-xr-x	root/root	usr/share/omf/gucharmap/
+-rw-r--r--	root/root	usr/share/omf/gucharmap/gucharmap-C.omf
+drwxr-xr-x	root/root	usr/share/pixmaps/
+-rw-r--r--	root/root	usr/share/pixmaps/gucharmap.png

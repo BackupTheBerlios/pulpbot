@@ -1,0 +1,35 @@
+#!/bin/sh
+
+name=docbook
+version="4.3"
+
+DTD_CAT=/etc/xml/dtd/$name/$version/catalog
+DTD_URLS="http://www.$name.org/xml/$version
+          http://www.oasis-open.org/$name/xml/$version"
+MASTER_CAT=/etc/xml/catalog
+
+for url in $DTD_URLS; do
+	xmlcatalog --noout --add "delegateSystem" \
+	  "$url" "file://$DTD_CAT" $MASTER_CAT
+done
+
+DTD_IDENT=("-//OASIS//DTD DocBook XML V$version//EN"
+           "-//OASIS//DTD DocBook CALS Table Model V$version//EN"
+           "-//OASIS//DTD XML Exchange Table Model 19990315//EN")
+
+i=0
+while test $i -lt 3; do
+	xmlcatalog --noout --add "delegatePublic" \
+	  "${DTD_IDENT[$i]}" "file://$DTD_CAT" $MASTER_CAT
+	i=$(($i + 1))
+done
+
+version=1.45
+MASTER_CAT=/etc/xml/catalog
+XSL_PATH=file:///usr/share/xml/xsl/docbook/$version
+XSL_URL=http://docbook.sourceforge.net/release/xsl/$version
+
+xmlcatalog --noout --add "rewriteURI" \
+  "$XSL_URL" "$XSL_PATH" $MASTER_CAT
+
+# End of file

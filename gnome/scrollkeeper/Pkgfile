@@ -1,0 +1,27 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:15 slash Exp $
+# Description: Open Documentation Cataloging System
+# URL: http://scrollkeeper.sourceforge.net/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: docbook-xml-gnome,intltool
+
+
+name=scrollkeeper
+version=0.3.14
+release=3
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 \
+        $name.patch)
+
+build() {
+    patch -p0 < $name.patch
+    cd $name-$version
+    sed -i "s|for vers in 4.2 4.1.2|for vers in 4.3 4.2 4.1.2|" configure
+    ./configure --prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+	--disable-nls \
+	--with-omfdirs=/usr/share/omf
+    make
+    make DESTDIR=$PKG install
+    rm -fr $PKG/usr/share/doc
+}

@@ -1,0 +1,24 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:16 slash Exp $
+# Description: main GNOME 2 UI library
+# URL: http://freshmeat.net/projects/libgnomeui/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: gnome-icon-theme,gnome-keyring,libbonoboui
+
+name=libgnomeui
+version=2.8.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/platform/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    sed -i "s/USE_NLS=yes/USE_NLS=no/
+                s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+    ./configure --prefix=/usr \
+	--libexecdir=/usr/lib/$name \
+	--disable-debug 
+    make
+    export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+    make DESTDIR=$PKG install
+    rm -fr $PKG/usr/share/gtk-doc
+}

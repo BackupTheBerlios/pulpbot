@@ -1,0 +1,21 @@
+diff -ruN gtkhtml-3.0.10.orig/configure gtkhtml-3.0.10/configure
+--- gtkhtml-3.0.10.orig/configure	2004-03-18 10:23:37.572093880 -0500
++++ gtkhtml-3.0.10/configure	2004-03-18 10:23:38.086015752 -0500
+@@ -8645,7 +8645,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -9572,7 +9572,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi

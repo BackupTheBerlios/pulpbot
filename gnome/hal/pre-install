@@ -1,0 +1,3 @@
+#!/bin/sh
+groupadd haldaemon
+useradd haldaemon -s /bin/false -d /dev/null -g haldaemon

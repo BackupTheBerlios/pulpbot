@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:58:24 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: POE::Component::IRC. An IRC library written in perl, based on POE
+# URL: http://poe.perl.org/?POE_Components_List
+# Depends on: poe
+
+name=poco-irc
+version=2.9
+release=1
+source=(http://www.funkplanet.com/POE/POE-Component-IRC-$version.tar.gz)
+
+build () {
+cd POE-Component-IRC-$version
+perl Makefile.PL --default
+make
+make DESTDIR=$PKG install
+rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}

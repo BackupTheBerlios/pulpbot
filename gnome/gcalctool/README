@@ -1,0 +1,9 @@
+POST-INSTALL:
+
+
+
+    * For this application to work properly default configuration files
+      need to be installed with gconftool-2.  See the post-install
+      command for details.
+
+

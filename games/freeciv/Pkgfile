@@ -1,0 +1,16 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:54:10 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: A strategy game. Clone of Civilizzation II
+# URL: http://www.freeciv.org/
+
+name=freeciv
+version=1.14.2
+release=1
+source=(ftp://ftp.freeciv.org/freeciv/stable/$name-$version.tar.bz2)
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --disable-nls
+	make
+	make DESTDIR=$PKG install
+}

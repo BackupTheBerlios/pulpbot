@@ -1,0 +1,28 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:32 slash Exp $
+# Description: evolution data server for the calendar and addressbook
+# URL: http://cvs.gnome.org/viewcvs/evolution-data-server/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Stefano Esposito <yankeegohome@email.it>
+# Depends on: libgnome,libsoup,openldap
+# Group: gnome
+
+name=evolution-data-server
+version=1.0.0
+release=1
+source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/1.0/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	sed -i "s/USE_NLS=yes/USE_NLS=no/
+	        s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+	./configure --prefix=/usr \
+	            --libexecdir=/usr/lib/$name \
+	            --disable-schemas-install \
+	            --disable-gtk-doc \
+	            --with-openldap=yes \
+	            --with-static-ldap=no
+	make
+	make DESTDIR=$PKG install
+	rm -fr $PKG/usr/share/gtk-doc
+}
+

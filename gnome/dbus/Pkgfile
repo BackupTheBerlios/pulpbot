@@ -1,0 +1,25 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:55:53 slash Exp $
+# Maintainer: Stefano Esposito <yankeegohome@email.it> 
+# Description: Message bus system
+# URL: http://www.freedesktop.org/Software/dbus
+# Depends on: pyrex
+
+name=dbus
+version=0.22
+release=2
+source=(http://freedesktop.org/Software/$name/releases/$name-$version.tar.gz \
+    dbus)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+	--enable-python
+    make
+    make DESTDIR=$PKG install
+    mkdir -p $PKG/var/lib/dbus
+    mkdir -p $PKG/etc/rc.d
+    cp ../dbus $PKG/etc/rc.d
+    chown -R messagebus $PKG/var/{run,lib}/dbus
+}

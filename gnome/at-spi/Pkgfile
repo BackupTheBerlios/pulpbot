@@ -1,0 +1,24 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:28 slash Exp $
+# Description: Assistive Technology Service Provider Interface
+# URL: http://developer.gnome.org/projects/gap/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: gail,libbonobo
+
+name=at-spi
+version=1.6.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/platform/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    export CFLAGS="$CFLAGS -L$PKG/usr/lib"
+    ./configure --prefix=/usr \
+	--libexecdir=/usr/lib/$name \
+	--disable-xevie
+    make -C libspi DESTDIR=$PKG install
+    make
+    make DESTDIR=$PKG install
+    sed -i "s|-L${PKG}/usr/lib||g" $PKG/usr/lib/*.la
+    rm -fr $PKG/usr/share/gtk-doc
+}

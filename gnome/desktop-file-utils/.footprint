@@ -1,0 +1,6 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/desktop-file-install
+-rwxr-xr-x	root/root	usr/bin/desktop-file-validate
+-rwxr-xr-x	root/root	usr/bin/desktop-menu-tool
+-rwxr-xr-x	root/root	usr/bin/update-desktop-database

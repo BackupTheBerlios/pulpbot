@@ -1,0 +1,28 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:32 slash Exp $
+# Description: Early Release of the BAUM Gnopernicus Project
+# URL: http://www.baum.ro/gnopernicus.html
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: at-spi,gnome-mag,gnome-speech,libgnomeui
+
+name=gnopernicus
+version=0.9.12
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    sed -i "s/USE_NLS=yes/USE_NLS=no/
+                s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+    ./configure --prefix=/usr \
+	--disable-brltty \
+	--enable-ipv6 \
+	--with-default-fonts-path=/usr/share/fonts/$name
+    make
+    for omf in help/*/C/*.omf; do test -f $omf.out || cp $omf{,.out}; done
+    export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+    make DESTDIR=$PKG DEFAULT_FONTS_PATH=$PKG/usr/share/fonts/$name install
+    rm -rf $PKG/usr/share/gtk-doc
+    rm -rf $PKG/usr/share/gnome/help/{brlmonitor,gnopernicus}/es
+    rm -rf $PKG/usr/share/omf/gnopernicus/{brlmonitor,gnopernicus}-es.omf
+}

@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gtkmm_hello
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/locale/
+drwxr-xr-x	root/root	usr/share/locale/de/
+drwxr-xr-x	root/root	usr/share/locale/de/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/de/LC_MESSAGES/gtkmm_hello.mo
+drwxr-xr-x	root/root	usr/share/locale/hu/
+drwxr-xr-x	root/root	usr/share/locale/hu/LC_MESSAGES/
+-rw-r--r--	root/root	usr/share/locale/hu/LC_MESSAGES/gtkmm_hello.mo
+drwxr-xr-x	root/root	usr/share/pixmaps/
+-rw-r--r--	root/root	usr/share/pixmaps/gtkmm_hello.png

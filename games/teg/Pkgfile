@@ -1,0 +1,24 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:54:04 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Risk on Linux!
+# URL: http://teg.sourceforge.net
+
+name=teg
+version=0.11.1
+release=3
+source=(http://puzzle.dl.sourceforge.net/sourceforge/teg/$name-$version.tar.gz)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr \
+		    --disable-schemas-install \
+		    --disable-nls
+	make
+	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/gnome/help
+	rm -rf $PKG/usr/share/locale
+	mv $PKG/usr/share/pixmaps/teg_pix/themes/m2/* $PKG/usr/share/pixmaps/teg_pix/themes/
+	rm -rf $PKG/usr/share/pixmaps/teg_pix/themes/m2
+}

@@ -1,0 +1,21 @@
+diff -ruN vte-0.11.11.orig/configure vte-0.11.11/configure
+--- vte-0.11.11.orig/configure	2004-05-14 21:17:06.828586832 -0400
++++ vte-0.11.11/configure	2004-05-14 21:17:07.380502928 -0400
+@@ -20349,7 +20349,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -21406,7 +21406,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi

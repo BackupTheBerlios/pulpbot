@@ -1,0 +1,81 @@
+diff -ruN ggv-2.8.0/src/recent-files/egg-recent-util.c ggv-2.8.0-patch/src/recent-files/egg-recent-util.c
+--- ggv-2.8.0/src/recent-files/egg-recent-util.c	2004-09-04 10:38:29.000000000 +0200
++++ ggv-2.8.0-patch/src/recent-files/egg-recent-util.c	2004-09-17 20:16:34.515603056 +0200
+@@ -107,12 +107,12 @@
+ }
+ 
+ GdkPixbuf *
+-egg_recent_util_get_icon (GnomeIconTheme *theme, const gchar *uri,
++egg_recent_util_get_icon (GtkIconTheme *theme, const gchar *uri,
+ 			  const gchar *mime_type, int size)
+ {
+ 	gchar *icon;
+ 	gchar *filename;
+-	const GnomeIconData *icon_data;
++	//const GnomeIconData *icon_data;
+ 	int base_size;
+ 	GdkPixbuf *pixbuf;
+ 	
+@@ -124,7 +124,7 @@
+ 
+ 	filename = gnome_icon_theme_lookup_icon (theme, icon,
+ 						 size,
+-						 &icon_data,
++						 NULL,
+ 						 &base_size);
+ 	g_free (icon);
+ 
+diff -ruN ggv-2.8.0/src/recent-files/egg-recent-util.h ggv-2.8.0-patch/src/recent-files/egg-recent-util.h
+--- ggv-2.8.0/src/recent-files/egg-recent-util.h	2004-09-04 10:38:29.000000000 +0200
++++ ggv-2.8.0-patch/src/recent-files/egg-recent-util.h	2004-09-17 20:15:53.487840224 +0200
+@@ -12,7 +12,7 @@
+ gchar * egg_recent_util_escape_underlines (const gchar *uri);
+ gchar * egg_recent_util_get_unique_id (void);
+ #ifndef USE_STABLE_LIBGNOMEUI
+-GdkPixbuf * egg_recent_util_get_icon (GnomeIconTheme *theme,
++GdkPixbuf * egg_recent_util_get_icon (GtkIconTheme *theme,
+ 				      const gchar *uri,
+ 				      const gchar *mime_type,
+ 				      int size);
+diff -ruN ggv-2.8.0/src/recent-files/egg-recent-view-bonobo.c ggv-2.8.0-patch/src/recent-files/egg-recent-view-bonobo.c
+--- ggv-2.8.0/src/recent-files/egg-recent-view-bonobo.c	2004-09-04 10:38:29.000000000 +0200
++++ ggv-2.8.0-patch/src/recent-files/egg-recent-view-bonobo.c	2004-09-17 20:15:53.510836728 +0200
+@@ -53,7 +53,7 @@
+ 	gboolean show_icons;
+ 	gboolean show_numbers;
+ #ifndef USE_STABLE_LIBGNOMEUI
+-	GnomeIconTheme *theme;
++	GtkIconTheme *theme;
+ #endif
+ 	EggRecentViewBonoboTooltipFunc tooltip_func;
+ 	gpointer tooltip_func_data;
+@@ -518,7 +518,7 @@
+ 
+ #ifndef USE_STABLE_LIBGNOMEUI
+ static void
+-theme_changed_cb (GnomeIconTheme *theme, EggRecentViewBonobo *view)
++theme_changed_cb (GtkIconTheme *theme, EggRecentViewBonobo *view)
+ {
+ 	if (view->model != NULL)
+ 		egg_recent_model_changed (view->model);
+diff -ruN ggv-2.8.0/src/recent-files/egg-recent-view-gtk.c ggv-2.8.0-patch/src/recent-files/egg-recent-view-gtk.c
+--- ggv-2.8.0/src/recent-files/egg-recent-view-gtk.c	2004-09-04 10:38:30.000000000 +0200
++++ ggv-2.8.0-patch/src/recent-files/egg-recent-view-gtk.c	2004-09-17 20:15:53.539832320 +0200
+@@ -53,7 +53,7 @@
+ 	gboolean show_icons;
+ 	gboolean show_numbers;
+ #ifndef USE_STABLE_LIBGNOMEUI
+-	GnomeIconTheme *theme;
++	GtkIconTheme *theme;
+ #endif
+ 
+ 	GtkTooltips *tooltips;
+@@ -587,7 +587,7 @@
+ 
+ #ifndef USE_STABLE_LIBGNOMEUI
+ static void
+-theme_changed_cb (GnomeIconTheme *theme, EggRecentViewGtk *view)
++theme_changed_cb (GtkIconTheme *theme, EggRecentViewGtk *view)
+ {
+ 	if (view->model != NULL)
+ 		egg_recent_model_changed (view->model);

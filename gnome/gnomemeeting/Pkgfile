@@ -1,0 +1,27 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:30 slash Exp $
+# Description:  H.323 compatible client for GNOME
+# URL: http://www.gnomemeeting.org/
+# Packager: Markus Ackermann <maol@symlink.ch>
+# Maintainer: Stefano Esposito <yabkeegohome@email.it>
+# Depends on: libgnomeui,openh323
+# Group: gnome
+
+name=gnomemeeting
+version=1.0.2
+release=4
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 \
+	$name.patch)
+
+build() {
+	touch scrollkeeper-config
+	chmod +x scrollkeeper-config
+	export SK_CONFIG="$PATH:$PWD"
+	patch -p0 < $name.patch
+	cd $name-$version
+	./configure --prefix=/usr \
+	            --disable-schemas-install
+	make
+	test -f help/C/$name-C.omf.out || cp help/C/$name-C.omf{,.out}
+	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	make DESTDIR=$PKG install
+}

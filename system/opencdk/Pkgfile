@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:58:26 slash Exp $
+# Description: Open Crypto Development Kit 
+# URL: http://www.gnu.org/software/gnutls/
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Packager: Coviello Giuseppe <slash@crux-it.org>
+# Depends on:
+
+name=opencdk
+version=0.5.5
+release=1
+source=(ftp://ftp.gnutls.org/pub/gnutls/opencdk/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr \
+        --disable-nls
+    make
+    make DESTDIR=$PKG install
+}

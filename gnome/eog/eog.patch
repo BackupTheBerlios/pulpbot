@@ -1,0 +1,330 @@
+diff -ruN eog-2.6.1.orig/configure eog-2.6.1/configure
+--- eog-2.6.1.orig/configure	2004-04-28 18:01:24.069577744 -0400
++++ eog-2.6.1/configure	2004-04-28 18:01:24.227553728 -0400
+@@ -3445,7 +3445,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -4502,7 +4502,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -ruN eog-2.6.1.orig/help/C/Makefile.in eog-2.6.1/help/C/Makefile.in
+--- eog-2.6.1.orig/help/C/Makefile.in	2004-04-28 18:01:24.052580328 -0400
++++ eog-2.6.1/help/C/Makefile.in	2004-04-28 18:01:24.307541568 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/Makefile.in eog-2.6.1/help/Makefile.in
+--- eog-2.6.1.orig/help/Makefile.in	2004-04-28 18:01:24.060579112 -0400
++++ eog-2.6.1/help/Makefile.in	2004-04-28 18:01:24.331537920 -0400
+@@ -118,7 +118,7 @@
+ X_LIBS = @X_LIBS@
+ cxxflags_set = @cxxflags_set@
+ 
+-SUBDIRS = C de es eu fr it sv ja ko zh_CN zh_TW
++SUBDIRS = C
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+ CONFIG_HEADER = ../config.h
+ CONFIG_CLEAN_FILES = 
+diff -ruN eog-2.6.1.orig/help/de/Makefile.in eog-2.6.1/help/de/Makefile.in
+--- eog-2.6.1.orig/help/de/Makefile.in	2004-04-28 18:01:24.053580176 -0400
++++ eog-2.6.1/help/de/Makefile.in	2004-04-28 18:01:24.309541264 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/es/Makefile.in eog-2.6.1/help/es/Makefile.in
+--- eog-2.6.1.orig/help/es/Makefile.in	2004-04-28 18:01:24.054580024 -0400
++++ eog-2.6.1/help/es/Makefile.in	2004-04-28 18:01:24.311540960 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/eu/Makefile.in eog-2.6.1/help/eu/Makefile.in
+--- eog-2.6.1.orig/help/eu/Makefile.in	2004-04-28 18:01:24.055579872 -0400
++++ eog-2.6.1/help/eu/Makefile.in	2004-04-28 18:01:24.313540656 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/fr/Makefile.in eog-2.6.1/help/fr/Makefile.in
+--- eog-2.6.1.orig/help/fr/Makefile.in	2004-04-28 18:01:24.055579872 -0400
++++ eog-2.6.1/help/fr/Makefile.in	2004-04-28 18:01:24.316540200 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/it/Makefile.in eog-2.6.1/help/it/Makefile.in
+--- eog-2.6.1.orig/help/it/Makefile.in	2004-04-28 18:01:24.057579568 -0400
++++ eog-2.6.1/help/it/Makefile.in	2004-04-28 18:01:24.320539592 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/ja/Makefile.in eog-2.6.1/help/ja/Makefile.in
+--- eog-2.6.1.orig/help/ja/Makefile.in	2004-04-28 18:01:24.056579720 -0400
++++ eog-2.6.1/help/ja/Makefile.in	2004-04-28 18:01:24.318539896 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/ko/Makefile.in eog-2.6.1/help/ko/Makefile.in
+--- eog-2.6.1.orig/help/ko/Makefile.in	2004-04-28 18:01:24.058579416 -0400
++++ eog-2.6.1/help/ko/Makefile.in	2004-04-28 18:01:24.322539288 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/sv/Makefile.in eog-2.6.1/help/sv/Makefile.in
+--- eog-2.6.1.orig/help/sv/Makefile.in	2004-04-28 18:01:24.058579416 -0400
++++ eog-2.6.1/help/sv/Makefile.in	2004-04-28 18:01:24.324538984 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/zh_CN/Makefile.in eog-2.6.1/help/zh_CN/Makefile.in
+--- eog-2.6.1.orig/help/zh_CN/Makefile.in	2004-04-28 18:01:24.059579264 -0400
++++ eog-2.6.1/help/zh_CN/Makefile.in	2004-04-28 18:01:24.327538528 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN eog-2.6.1.orig/help/zh_TW/Makefile.in eog-2.6.1/help/zh_TW/Makefile.in
+--- eog-2.6.1.orig/help/zh_TW/Makefile.in	2004-04-28 18:01:24.060579112 -0400
++++ eog-2.6.1/help/zh_TW/Makefile.in	2004-04-28 18:01:24.329538224 -0400
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -321,7 +320,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -329,7 +327,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \

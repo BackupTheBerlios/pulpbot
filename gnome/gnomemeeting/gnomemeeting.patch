@@ -1,0 +1,60 @@
+diff -ruN gnomemeeting-1.0.2.orig/configure gnomemeeting-1.0.2/configure
+--- gnomemeeting-1.0.2.orig/configure	2004-03-31 15:55:42.592554360 -0500
++++ gnomemeeting-1.0.2/configure	2004-03-31 15:55:42.823519248 -0500
+@@ -22035,7 +22035,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -23092,7 +23092,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -ruN gnomemeeting-1.0.2.orig/help/C/Makefile.in gnomemeeting-1.0.2/help/C/Makefile.in
+--- gnomemeeting-1.0.2.orig/help/C/Makefile.in	2004-03-31 15:55:42.655544784 -0500
++++ gnomemeeting-1.0.2/help/C/Makefile.in	2004-03-31 15:55:42.846515752 -0500
+@@ -58,7 +58,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -336,7 +335,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -344,7 +342,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN gnomemeeting-1.0.2.orig/help/Makefile.in gnomemeeting-1.0.2/help/Makefile.in
+--- gnomemeeting-1.0.2.orig/help/Makefile.in	2004-03-31 15:55:42.655544784 -0500
++++ gnomemeeting-1.0.2/help/Makefile.in	2004-03-31 15:55:42.845515904 -0500
+@@ -134,7 +134,7 @@
+ gnomeconfdir = @gnomeconfdir@
+ gnomedatadir = @gnomedatadir@
+ 
+-SUBDIRS = C 
++SUBDIRS = C
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+ CONFIG_HEADER = ../config.h
+ CONFIG_CLEAN_FILES = 

@@ -1,0 +1,3 @@
+PRE-INSTALL:
+You have to create the group "haldaemon" and the user "haldaemon".
+Remember to start dbus daemon, before hald daemon.

@@ -1,0 +1,2 @@
+PRE-INSTALL:
+You have to create the user "messagebus".

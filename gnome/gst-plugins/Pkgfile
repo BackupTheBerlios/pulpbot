@@ -1,0 +1,66 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:57:02 slash Exp $
+# Description: GStreamer Streaming-media framework plug-ins
+# URL: http://freedesktop.org/Software/gstreamer
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Stefano Esposito <yankeegohome@email.it>
+# Depends on: gnome-vfs,gstreamer,lame,libid3tag,libmad,libsdl
+# Group: gnome
+
+name=gst-plugins
+version=0.8.4
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr \
+	            --disable-nls \
+	            --disable-dxr3 \
+	            --disable-xvideo \
+	            --disable-a52dec \
+	            --disable-aalib \
+	            --disable-aalibtest \
+	            --disable-arts \
+	            --disable-artstest \
+	            --disable-artsc \
+	            --disable-divx \
+	            --disable-dvdread \
+	            --disable-dvdnav \
+	            --disable-faac \
+	            --disable-faad \
+	            --disable-gsm \
+	            --disable-ivorbis \
+	            --disable-jack \
+	            --disable-kio \
+	            --disable-ladspa \
+	            --disable-lcs \
+	            --disable-libdv \
+	            --disable-libcaca \
+	            --disable-libfame \
+	            --disable-libfametest \
+	            --disable-librfb \
+	            --disable-mikmod \
+	            --disable-libmikmodtest \
+	            --disable-mpeg2dec \
+	            --disable-mpeg2enc \
+	            --disable-mplex \
+	            --disable-musicbrainz \
+	            --disable-nas \
+	            --disable-raw1394 \
+	            --disable-shout \
+	            --disable-shout2 \
+	            --disable-shout2test \
+	            --disable-sidplay \
+	            --disable-speex \
+	            --disable-sndfile \
+	            --disable-swfdec \
+	            --disable-tarkin \
+	            --disable-theora \
+	            --disable-xvid \
+	            --disable-tests \
+	            --disable-examples \
+	            --disable-freetypetest
+	make
+	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	make DESTDIR=$PKG install
+}

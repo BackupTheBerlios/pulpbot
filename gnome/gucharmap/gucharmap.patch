@@ -1,0 +1,303 @@
+diff -ruN gucharmap-1.4.1.orig/configure gucharmap-1.4.1/configure
+--- gucharmap-1.4.1.orig/configure	2004-03-31 15:54:34.060972744 -0500
++++ gucharmap-1.4.1/configure	2004-03-31 15:54:34.232946600 -0500
+@@ -18766,7 +18766,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -19693,7 +19693,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -ruN gucharmap-1.4.1.orig/help/C/Makefile.in gucharmap-1.4.1/help/C/Makefile.in
+--- gucharmap-1.4.1.orig/help/C/Makefile.in	2004-03-31 15:54:34.083969248 -0500
++++ gucharmap-1.4.1/help/C/Makefile.in	2004-03-31 15:54:34.259942496 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -429,7 +428,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -437,7 +435,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/Makefile.in gucharmap-1.4.1/help/Makefile.in
+--- gucharmap-1.4.1.orig/help/Makefile.in	2004-03-31 15:54:34.083969248 -0500
++++ gucharmap-1.4.1/help/Makefile.in	2004-03-31 15:54:34.258942648 -0500
+@@ -179,7 +179,7 @@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-SUBDIRS = C de es fr it ja ko sv zh_CN zh_TW
++SUBDIRS = C
+ subdir = help
+ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+diff -ruN gucharmap-1.4.1.orig/help/de/Makefile.in gucharmap-1.4.1/help/de/Makefile.in
+--- gucharmap-1.4.1.orig/help/de/Makefile.in	2004-03-31 15:54:34.084969096 -0500
++++ gucharmap-1.4.1/help/de/Makefile.in	2004-03-31 15:54:34.260942344 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/es/Makefile.in gucharmap-1.4.1/help/es/Makefile.in
+--- gucharmap-1.4.1.orig/help/es/Makefile.in	2004-03-31 15:54:34.084969096 -0500
++++ gucharmap-1.4.1/help/es/Makefile.in	2004-03-31 15:54:34.262942040 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/fr/Makefile.in gucharmap-1.4.1/help/fr/Makefile.in
+--- gucharmap-1.4.1.orig/help/fr/Makefile.in	2004-03-31 15:54:34.085968944 -0500
++++ gucharmap-1.4.1/help/fr/Makefile.in	2004-03-31 15:54:34.263941888 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/it/Makefile.in gucharmap-1.4.1/help/it/Makefile.in
+--- gucharmap-1.4.1.orig/help/it/Makefile.in	2004-03-31 15:54:34.085968944 -0500
++++ gucharmap-1.4.1/help/it/Makefile.in	2004-03-31 15:54:34.264941736 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/ja/Makefile.in gucharmap-1.4.1/help/ja/Makefile.in
+--- gucharmap-1.4.1.orig/help/ja/Makefile.in	2004-03-31 15:54:34.086968792 -0500
++++ gucharmap-1.4.1/help/ja/Makefile.in	2004-03-31 15:54:34.265941584 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/ko/Makefile.in gucharmap-1.4.1/help/ko/Makefile.in
+--- gucharmap-1.4.1.orig/help/ko/Makefile.in	2004-03-31 15:54:34.086968792 -0500
++++ gucharmap-1.4.1/help/ko/Makefile.in	2004-03-31 15:54:34.266941432 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/sv/Makefile.in gucharmap-1.4.1/help/sv/Makefile.in
+--- gucharmap-1.4.1.orig/help/sv/Makefile.in	2004-03-31 15:54:34.087968640 -0500
++++ gucharmap-1.4.1/help/sv/Makefile.in	2004-03-31 15:54:34.267941280 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/zh_CN/Makefile.in gucharmap-1.4.1/help/zh_CN/Makefile.in
+--- gucharmap-1.4.1.orig/help/zh_CN/Makefile.in	2004-03-31 15:54:34.087968640 -0500
++++ gucharmap-1.4.1/help/zh_CN/Makefile.in	2004-03-31 15:54:34.268941128 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gucharmap-1.4.1.orig/help/zh_TW/Makefile.in gucharmap-1.4.1/help/zh_TW/Makefile.in
+--- gucharmap-1.4.1.orig/help/zh_TW/Makefile.in	2004-03-31 15:54:34.088968488 -0500
++++ gucharmap-1.4.1/help/zh_TW/Makefile.in	2004-03-31 15:54:34.270940824 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -430,7 +429,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -438,7 +436,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 

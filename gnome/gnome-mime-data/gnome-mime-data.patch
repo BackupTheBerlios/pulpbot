@@ -1,0 +1,21 @@
+diff -ruN gnome-mime-data-2.4.1.orig/configure gnome-mime-data-2.4.1/configure
+--- gnome-mime-data-2.4.1.orig/configure	2003-12-22 14:08:47.000000000 -0500
++++ gnome-mime-data-2.4.1/configure	2004-03-03 05:40:05.864137648 -0500
+@@ -3251,7 +3251,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -4178,7 +4178,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi

@@ -1,0 +1,34 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libgnomeprintmm-2.6/
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm.h
+drwxr-xr-x	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/config.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/context.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/enums.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/font.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/init.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/job.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/private.h
+drwxr-xr-x	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/private/
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/private/config_p.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/private/context_p.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/private/enums_p.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/private/font_p.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/private/job_p.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/types.h
+-rw-r--r--	root/root	usr/include/libgnomeprintmm-2.6/libgnomeprintmm/wrap_init.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libgnomeprintmm-2.5.la
+lrwxrwxrwx	root/root	usr/lib/libgnomeprintmm-2.5.so -> libgnomeprintmm-2.5.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libgnomeprintmm-2.5.so.2 -> libgnomeprintmm-2.5.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libgnomeprintmm-2.5.so.2.0.0
+drwxr-xr-x	root/root	usr/lib/libgnomeprintmm-2.6/
+drwxr-xr-x	root/root	usr/lib/libgnomeprintmm-2.6/include/
+-rw-r--r--	root/root	usr/lib/libgnomeprintmm-2.6/include/libgnomeprintmmconfig.h
+drwxr-xr-x	root/root	usr/lib/libgnomeprintmm-2.6/proc/
+drwxr-xr-x	root/root	usr/lib/libgnomeprintmm-2.6/proc/m4/
+-rw-r--r--	root/root	usr/lib/libgnomeprintmm-2.6/proc/m4/convert.m4
+-rw-r--r--	root/root	usr/lib/libgnomeprintmm-2.6/proc/m4/convert_libgnomeprintmm.m4
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libgnomeprintmm-2.6.pc

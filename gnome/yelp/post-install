@@ -1,0 +1,27 @@
+#!/bin/sh
+
+if [ ! -x /usr/bin/scrollkeeper-update ] || [ ! -d /usr/share/omf ]; then
+	echo " -- install scrollkeeper -- "
+	exit 1
+fi
+
+for omf in `find /usr/share/omf -name '*-C.omf'`; do
+	DIR=`dirname $omf`
+	HELP=`basename $omf .omf | sed 's/-C$/.xml/'`
+	OMF=`basename $omf`
+	cd $DIR
+
+	if [ -f ../$OMF.orig ]; then
+		cp ../$OMF.orig $OMF
+	else
+		cp $OMF ../$OMF.orig
+	fi
+
+	scrollkeeper-preinstall \
+	  `find /usr/share/{gnome/help,scrollkeeper} -name $HELP` \
+	  ./$OMF $OMF.out \
+	  && mv $OMF.out $OMF
+	scrollkeeper-update -p /var/lib/scrollkeeper -o $DIR
+done
+
+# End of file

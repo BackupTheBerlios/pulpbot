@@ -1,0 +1,21 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:39 slash Exp $
+# Description: engine for structured graphics
+# URL: http://developer.gnome.org/doc/API/2.0/libgnomecanvas/index.html
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: libart_lgpl,libglade
+
+name=libgnomecanvas
+version=2.8.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/platform/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    sed -i "s|USE_NLS=yes|USE_NLS=no|
+                s|ENABLE_NLS 1|ENABLE_NLS 0|" configure
+    ./configure --prefix=/usr 
+    make
+    make DESTDIR=$PKG install
+    rm -fr $PKG/usr/share
+}

@@ -1,0 +1,16 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	etc/ports/
+-rw-r--r--	root/root	etc/ports/clc.cvsup
+-rw-r--r--	root/root	etc/ports/crux-it.cvsup
+-rw-r--r--	root/root	etc/ports/crux.cvsup
+-rw-r--r--	root/root	etc/ports/favoriterepo
+-rw-r--r--	root/root	etc/ports/favoriteversion
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/ilenia
+lrwxrwxrwx	root/root	usr/bin/ports -> ilenia
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man8/
+-rw-r--r--	root/root	usr/man/man8/ilenia.8.gz
+lrwxrwxrwx	root/root	usr/man/man8/ports.8.gz -> ilenia.8.gz
+drwxr-xr-x	root/root	usr/ports/

@@ -1,0 +1,18 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:16 slash Exp $
+# Description: Default GTK+ theme engines
+# URL: http://gtk.themes.org/
+# Packager: Robert McMeekin <viper@mcmeekin.info>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: gtk
+
+name=gtk-engines
+version=2.2.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+   cd $name-$version
+   ./configure --prefix=/usr
+   make
+   make DESTDIR=$PKG install
+}

@@ -1,0 +1,48 @@
+diff -ruN gnome-system-monitor-2.6.0.orig/configure gnome-system-monitor-2.6.0/configure
+--- gnome-system-monitor-2.6.0.orig/configure	2004-03-22 19:16:03.556788152 -0500
++++ gnome-system-monitor-2.6.0/configure	2004-03-22 19:16:03.726762312 -0500
+@@ -4604,7 +4604,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -5661,7 +5661,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -ruN gnome-system-monitor-2.6.0.orig/help/C/Makefile.in gnome-system-monitor-2.6.0/help/C/Makefile.in
+--- gnome-system-monitor-2.6.0.orig/help/C/Makefile.in	2004-03-22 19:16:03.569786176 -0500
++++ gnome-system-monitor-2.6.0/help/C/Makefile.in	2004-03-22 19:16:03.753758208 -0500
+@@ -57,7 +57,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -306,7 +305,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -314,7 +312,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \

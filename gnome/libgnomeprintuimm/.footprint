@@ -1,0 +1,31 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libgnomeprintuimm-2.6/
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm.h
+drwxr-xr-x	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/configdialog.h
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/enums.h
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/fontdialog.h
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/init.h
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/private.h
+drwxr-xr-x	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/private/
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/private/configdialog_p.h
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/private/enums_p.h
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/private/fontdialog_p.h
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/types.h
+-rw-r--r--	root/root	usr/include/libgnomeprintuimm-2.6/libgnomeprintuimm/wrap_init.h
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/libgnomeprintuimm-2.0/
+drwxr-xr-x	root/root	usr/lib/libgnomeprintuimm-2.0/proc/
+drwxr-xr-x	root/root	usr/lib/libgnomeprintuimm-2.0/proc/m4/
+-rw-r--r--	root/root	usr/lib/libgnomeprintuimm-2.0/proc/m4/convert.m4
+-rw-r--r--	root/root	usr/lib/libgnomeprintuimm-2.0/proc/m4/convert_libgnomeprintuimm.m4
+-rwxr-xr-x	root/root	usr/lib/libgnomeprintuimm-2.5.la
+lrwxrwxrwx	root/root	usr/lib/libgnomeprintuimm-2.5.so -> libgnomeprintuimm-2.5.so.2.0.0
+lrwxrwxrwx	root/root	usr/lib/libgnomeprintuimm-2.5.so.2 -> libgnomeprintuimm-2.5.so.2.0.0
+-rwxr-xr-x	root/root	usr/lib/libgnomeprintuimm-2.5.so.2.0.0
+drwxr-xr-x	root/root	usr/lib/libgnomeprintuimm-2.6/
+drwxr-xr-x	root/root	usr/lib/libgnomeprintuimm-2.6/include/
+-rw-r--r--	root/root	usr/lib/libgnomeprintuimm-2.6/include/libgnomeprintuimmconfig.h
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libgnomeprintuimm-2.6.pc

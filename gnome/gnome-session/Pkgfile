@@ -1,0 +1,27 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:55:58 slash Exp $
+# Description: GNOME session manager, configuration program, and proxy
+# URL: http://www.gnome.org/softwaremap/projects/gnome-session/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: esound,libgnomeui,openssh
+
+name=gnome-session
+version=2.8.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    sed -i 's/USE_NLS=yes/USE_NLS=no/
+	        s/ENABLE_NLS 1/ENABLE_NLS 0/' configure
+    ./configure --prefix=/usr \
+	--disable-schemas-install \
+	--enable-ipv6 \
+	--with-window-manager=metacity \
+	--with-reboot-command=/sbin/reboot \
+	--with-halt-command=/sbin/halt \
+	--with-rsh-command=/usr/bin/ssh
+    make
+    export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+    make DESTDIR=$PKG install
+}

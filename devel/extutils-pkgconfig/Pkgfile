@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:53:15 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Perl lib needed by Gtk2-Perl
+# URL: http://gtk2-perl.sourceforge.net/
+# Depends on: extutils-depends
+
+name=extutils-pkgconfig
+version=1.05
+release=1
+source=(http://puzzle.dl.sourceforge.net/sourceforge/gtk2-perl/ExtUtils-PkgConfig-$version.tar.gz)
+
+build () {
+	cd ExtUtils-PkgConfig-$version
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}

@@ -1,0 +1,82 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:36 slash Exp $
+# Description: applets for use with the GNOME panel
+# URL: http://freshmeat.net/projects/gnome-applets/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: gail,gnome-panel,gstreamer,libgtop,libxklavier
+
+
+name=gnome-applets
+version=2.8.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    export SCROLLKEEPER_CONFIG="$PATH:."
+    touch scrollkeeper-config
+    chmod +x scrollkeeper-config
+    sed -i "s/USE_NLS=yes/USE_NLS=no/
+	        s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+    sed -i 's/ = C .*$/ = C/' gtik/help/Makefile.in
+    sed -i 's/ = C .*$/ = C/' accessx-status/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' geyes/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' mixer/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' charpick/help/Makefile.in
+    sed -i 's/ = C .*$/ = C/' modemlights/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' mini-commander/help/Makefile.in
+    sed -i 's/ = C .*$/ = C/' multiload/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' stickynotes/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' gkb-new/help/Makefile.in
+    sed -i 's/ = C .*$/ = C/' wireless/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' drivemount/help/Makefile.in
+    sed -i 's/ = C .*$/ = C/' mailcheck/help/Makefile.in
+    sed -i 's/ = C .*$/ = C/' gweather/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' cdplayer/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' battstat/docs/Makefile.in
+    sed -i 's/ = C .*$/ = C/' gswitchit/help/Makefile.in
+    ./configure --prefix=/usr \
+	--libexecdir=/usr/lib/$name \
+	--disable-schemas-install \
+	--enable-flags=yes \
+	--enable-gstreamer=yes \
+	--enable-ipv6=yes
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' accessx-status/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' battstat/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' cdplayer/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' charpick/help/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' drivemount/help/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' geyes/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' gkb-new/help/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' gtik/help/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' gweather/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' mailcheck/help/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' mini-commander/help/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' mixer/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' modemlights/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' multiload/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' omf.make
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' stickynotes/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' wireless/docs/C/Makefile
+    sed -i 's/scrollkeeper-[up][a-z]*/echo/g' gswitchit/help/C/Makefile
+    make
+    cp gtik/help/C/gtik2_applet2-C.omf{,.out}
+    cp accessx-status/docs/C/accessx-status-C.omf{,.out}
+    cp geyes/docs/C/geyes-C.omf{,.out}
+    cp mixer/docs/C/mixer_applet2-C.omf{,.out}
+    cp charpick/help/C/char-palette-C.omf{,.out}
+    cp modemlights/docs/C/modemlights-C.omf{,.out}
+    cp mini-commander/help/C/command-line-C.omf{,.out}
+    cp multiload/docs/C/multiload-C.omf{,.out}
+    cp stickynotes/docs/C/stickynotes_applet-C.omf{,.out}
+    cp gkb-new/help/C/gkb-C.omf{,.out}
+    cp wireless/docs/C/wireless-C.omf{,.out}
+    cp drivemount/help/C/drivemount-C.omf{,.out}
+    cp mailcheck/help/C/mailcheck-C.omf{,.out}
+    cp gweather/docs/C/gweather-C.omf{,.out}
+    cp cdplayer/docs/C/cdplayer-C.omf{,.out}
+    cp battstat/docs/C/battstat-C.omf{,.out}
+    cp gswitchit/help/C/gswitchit-C.omf{,.out}
+    export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+    make DESTDIR=$PKG install
+}

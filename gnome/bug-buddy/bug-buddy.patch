@@ -1,0 +1,60 @@
+diff -ruN bug-buddy-2.8.0/configure bug-buddy-2.8.0-patch/configure
+--- bug-buddy-2.8.0/configure	2004-09-12 23:53:33.000000000 +0200
++++ bug-buddy-2.8.0-patch/configure	2004-09-17 20:35:35.926082288 +0200
+@@ -3949,7 +3949,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -5006,7 +5006,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -ruN bug-buddy-2.8.0/docs/C/Makefile.in bug-buddy-2.8.0-patch/docs/C/Makefile.in
+--- bug-buddy-2.8.0/docs/C/Makefile.in	2004-09-12 23:58:22.000000000 +0200
++++ bug-buddy-2.8.0-patch/docs/C/Makefile.in	2004-09-17 20:34:36.515114128 +0200
+@@ -314,7 +314,7 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
++	
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -322,7 +322,7 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
++	
+ 
+ all: omf
+ 
+diff -ruN bug-buddy-2.8.0/omf.make bug-buddy-2.8.0-patch/omf.make
+--- bug-buddy-2.8.0/omf.make	2002-05-27 07:04:06.000000000 +0200
++++ bug-buddy-2.8.0-patch/omf.make	2004-09-17 20:34:25.910726240 +0200
+@@ -42,7 +42,7 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
++	
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -50,4 +50,4 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
++	

@@ -1,0 +1,114 @@
+diff -ruN gpdf-0.131.orig/configure gpdf-0.131/configure
+--- gpdf-0.131.orig/configure	2004-03-31 15:55:29.709512880 -0500
++++ gpdf-0.131/configure	2004-03-31 15:55:29.923480352 -0500
+@@ -20732,7 +20732,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -21779,7 +21779,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -ruN gpdf-0.131.orig/help/C/Makefile.in gpdf-0.131/help/C/Makefile.in
+--- gpdf-0.131.orig/help/C/Makefile.in	2004-03-31 15:55:29.733509232 -0500
++++ gpdf-0.131/help/C/Makefile.in	2004-03-31 15:55:29.965473968 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -454,7 +453,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -462,7 +460,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gpdf-0.131.orig/help/Makefile.in gpdf-0.131/help/Makefile.in
+--- gpdf-0.131.orig/help/Makefile.in	2004-03-31 15:55:29.733509232 -0500
++++ gpdf-0.131/help/Makefile.in	2004-03-31 15:55:29.964474120 -0500
+@@ -201,7 +201,7 @@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-SUBDIRS = C de es
++SUBDIRS = C
+ subdir = help
+ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+diff -ruN gpdf-0.131.orig/help/de/Makefile.in gpdf-0.131/help/de/Makefile.in
+--- gpdf-0.131.orig/help/de/Makefile.in	2004-03-31 15:55:29.733509232 -0500
++++ gpdf-0.131/help/de/Makefile.in	2004-03-31 15:55:29.967473664 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -454,7 +453,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -462,7 +460,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gpdf-0.131.orig/help/es/Makefile.in gpdf-0.131/help/es/Makefile.in
+--- gpdf-0.131.orig/help/es/Makefile.in	2004-03-31 15:55:29.734509080 -0500
++++ gpdf-0.131/help/es/Makefile.in	2004-03-31 15:55:29.968473512 -0500
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -454,7 +453,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -462,7 +460,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 

@@ -1,0 +1,357 @@
+diff -Nru gedit-2.8.0/configure gedit-2.8.0-patch/configure
+--- gedit-2.8.0/configure	2004-09-12 21:06:09.000000000 +0200
++++ gedit-2.8.0-patch/configure	2004-09-17 13:39:28.943337488 +0200
+@@ -20541,7 +20541,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -21598,7 +21598,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -Nru gedit-2.8.0/help/C/Makefile.in gedit-2.8.0-patch/help/C/Makefile.in
+--- gedit-2.8.0/help/C/Makefile.in	2004-09-12 21:07:13.000000000 +0200
++++ gedit-2.8.0-patch/help/C/Makefile.in	2004-09-17 13:35:22.564792720 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/de/Makefile.in gedit-2.8.0-patch/help/de/Makefile.in
+--- gedit-2.8.0/help/de/Makefile.in	2004-09-12 21:07:16.000000000 +0200
++++ gedit-2.8.0-patch/help/de/Makefile.in	2004-09-17 13:35:22.574791200 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/es/Makefile.in gedit-2.8.0-patch/help/es/Makefile.in
+--- gedit-2.8.0/help/es/Makefile.in	2004-09-12 21:07:17.000000000 +0200
++++ gedit-2.8.0-patch/help/es/Makefile.in	2004-09-17 13:35:22.582789984 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/fr/Makefile.in gedit-2.8.0-patch/help/fr/Makefile.in
+--- gedit-2.8.0/help/fr/Makefile.in	2004-09-12 21:07:20.000000000 +0200
++++ gedit-2.8.0-patch/help/fr/Makefile.in	2004-09-17 13:35:22.602786944 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/it/Makefile.in gedit-2.8.0-patch/help/it/Makefile.in
+--- gedit-2.8.0/help/it/Makefile.in	2004-09-12 21:07:21.000000000 +0200
++++ gedit-2.8.0-patch/help/it/Makefile.in	2004-09-17 13:35:22.616784816 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/ja/Makefile.in gedit-2.8.0-patch/help/ja/Makefile.in
+--- gedit-2.8.0/help/ja/Makefile.in	2004-09-12 21:07:24.000000000 +0200
++++ gedit-2.8.0-patch/help/ja/Makefile.in	2004-09-17 13:35:22.608786032 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/ko/Makefile.in gedit-2.8.0-patch/help/ko/Makefile.in
+--- gedit-2.8.0/help/ko/Makefile.in	2004-09-12 21:07:26.000000000 +0200
++++ gedit-2.8.0-patch/help/ko/Makefile.in	2004-09-17 13:35:22.623783752 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/Makefile.in gedit-2.8.0-patch/help/Makefile.in
+--- gedit-2.8.0/help/Makefile.in	2004-09-12 21:07:11.000000000 +0200
++++ gedit-2.8.0-patch/help/Makefile.in	2004-09-17 13:35:52.578229984 +0200
+@@ -189,7 +189,7 @@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+ 
+-SUBDIRS = C ro de es eu fr it sv ja ko zh_CN zh_HK zh_TW
++SUBDIRS = C 
+ subdir = help
+ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+diff -Nru gedit-2.8.0/help/ro/Makefile.in gedit-2.8.0-patch/help/ro/Makefile.in
+--- gedit-2.8.0/help/ro/Makefile.in	2004-09-12 21:07:14.000000000 +0200
++++ gedit-2.8.0-patch/help/ro/Makefile.in	2004-09-17 13:35:22.627783144 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/sv/Makefile.in gedit-2.8.0-patch/help/sv/Makefile.in
+--- gedit-2.8.0/help/sv/Makefile.in	2004-09-12 21:07:23.000000000 +0200
++++ gedit-2.8.0-patch/help/sv/Makefile.in	2004-09-17 13:35:22.636781776 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/zh_CN/Makefile.in gedit-2.8.0-patch/help/zh_CN/Makefile.in
+--- gedit-2.8.0/help/zh_CN/Makefile.in	2004-09-12 21:07:27.000000000 +0200
++++ gedit-2.8.0-patch/help/zh_CN/Makefile.in	2004-09-17 13:35:22.643780712 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/zh_HK/Makefile.in gedit-2.8.0-patch/help/zh_HK/Makefile.in
+--- gedit-2.8.0/help/zh_HK/Makefile.in	2004-09-12 21:07:29.000000000 +0200
++++ gedit-2.8.0-patch/help/zh_HK/Makefile.in	2004-09-17 13:35:22.651779496 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -Nru gedit-2.8.0/help/zh_TW/Makefile.in gedit-2.8.0-patch/help/zh_TW/Makefile.in
+--- gedit-2.8.0/help/zh_TW/Makefile.in	2004-09-12 21:07:30.000000000 +0200
++++ gedit-2.8.0-patch/help/zh_TW/Makefile.in	2004-09-17 13:35:22.657778584 +0200
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -440,7 +439,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -448,7 +446,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \

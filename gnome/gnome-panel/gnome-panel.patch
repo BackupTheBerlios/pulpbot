@@ -1,0 +1,1124 @@
+diff -ruN gnome-panel-2.6.2.orig/Makefile.in gnome-panel-2.6.2/Makefile.in
+--- gnome-panel-2.6.2.orig/Makefile.in	2004-06-18 15:58:00.627166800 -0400
++++ gnome-panel-2.6.2/Makefile.in	2004-06-18 15:58:01.774992304 -0400
+@@ -670,7 +670,6 @@
+ 
+ #
+ # FIXME:
+-#  currently scrollkeeper-update does not seem to
+ #  remove its database when there is no useful
+ #  information contained there. Therefore, with
+ #  "make uninstall" you're left with loads of
+diff -ruN gnome-panel-2.6.2.orig/configure gnome-panel-2.6.2/configure
+--- gnome-panel-2.6.2.orig/configure	2004-06-18 15:58:00.625167104 -0400
++++ gnome-panel-2.6.2/configure	2004-06-18 15:58:01.140088824 -0400
+@@ -23433,7 +23433,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -24490,7 +24490,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -ruN gnome-panel-2.6.2.orig/help/C/clock/Makefile.in gnome-panel-2.6.2/help/C/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/C/clock/Makefile.in	2004-06-18 15:58:00.571175312 -0400
++++ gnome-panel-2.6.2/help/C/clock/Makefile.in	2004-06-18 15:58:01.396049912 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/C/fish/Makefile.in gnome-panel-2.6.2/help/C/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/C/fish/Makefile.in	2004-06-18 15:58:00.570175464 -0400
++++ gnome-panel-2.6.2/help/C/fish/Makefile.in	2004-06-18 15:58:01.392050520 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/C/window-list/Makefile.in gnome-panel-2.6.2/help/C/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/C/window-list/Makefile.in	2004-06-18 15:58:00.572175160 -0400
++++ gnome-panel-2.6.2/help/C/window-list/Makefile.in	2004-06-18 15:58:01.402049000 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/C/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/C/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/C/workspace-switcher/Makefile.in	2004-06-18 15:58:00.573175008 -0400
++++ gnome-panel-2.6.2/help/C/workspace-switcher/Makefile.in	2004-06-18 15:58:01.405048544 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/Makefile.in gnome-panel-2.6.2/help/Makefile.in
+--- gnome-panel-2.6.2.orig/help/Makefile.in	2004-06-18 15:58:00.613168928 -0400
++++ gnome-panel-2.6.2/help/Makefile.in	2004-06-18 15:58:01.768993216 -0400
+@@ -228,7 +228,7 @@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-SUBDIRS = C ja de es fr it sv ko zh_CN zh_TW
++SUBDIRS = C
+ subdir = help
+ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+diff -ruN gnome-panel-2.6.2.orig/help/de/clock/Makefile.in gnome-panel-2.6.2/help/de/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/de/clock/Makefile.in	2004-06-18 15:58:00.575174704 -0400
++++ gnome-panel-2.6.2/help/de/clock/Makefile.in	2004-06-18 15:58:01.411047632 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/de/fish/Makefile.in gnome-panel-2.6.2/help/de/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/de/fish/Makefile.in	2004-06-18 15:58:00.574174856 -0400
++++ gnome-panel-2.6.2/help/de/fish/Makefile.in	2004-06-18 15:58:01.408048088 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/de/window-list/Makefile.in gnome-panel-2.6.2/help/de/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/de/window-list/Makefile.in	2004-06-18 15:58:00.576174552 -0400
++++ gnome-panel-2.6.2/help/de/window-list/Makefile.in	2004-06-18 15:58:01.424045656 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/de/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/de/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/de/workspace-switcher/Makefile.in	2004-06-18 15:58:00.577174400 -0400
++++ gnome-panel-2.6.2/help/de/workspace-switcher/Makefile.in	2004-06-18 15:58:01.427045200 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/es/clock/Makefile.in gnome-panel-2.6.2/help/es/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/es/clock/Makefile.in	2004-06-18 15:58:00.579174096 -0400
++++ gnome-panel-2.6.2/help/es/clock/Makefile.in	2004-06-18 15:58:01.434044136 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/es/fish/Makefile.in gnome-panel-2.6.2/help/es/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/es/fish/Makefile.in	2004-06-18 15:58:00.578174248 -0400
++++ gnome-panel-2.6.2/help/es/fish/Makefile.in	2004-06-18 15:58:01.431044592 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/es/window-list/Makefile.in gnome-panel-2.6.2/help/es/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/es/window-list/Makefile.in	2004-06-18 15:58:00.582173640 -0400
++++ gnome-panel-2.6.2/help/es/window-list/Makefile.in	2004-06-18 15:58:01.440043224 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/es/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/es/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/es/workspace-switcher/Makefile.in	2004-06-18 15:58:00.583173488 -0400
++++ gnome-panel-2.6.2/help/es/workspace-switcher/Makefile.in	2004-06-18 15:58:01.443042768 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/fr/clock/Makefile.in gnome-panel-2.6.2/help/fr/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/fr/clock/Makefile.in	2004-06-18 15:58:00.585173184 -0400
++++ gnome-panel-2.6.2/help/fr/clock/Makefile.in	2004-06-18 15:58:01.450041704 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/fr/fish/Makefile.in gnome-panel-2.6.2/help/fr/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/fr/fish/Makefile.in	2004-06-18 15:58:00.584173336 -0400
++++ gnome-panel-2.6.2/help/fr/fish/Makefile.in	2004-06-18 15:58:01.447042160 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/fr/window-list/Makefile.in gnome-panel-2.6.2/help/fr/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/fr/window-list/Makefile.in	2004-06-18 15:58:00.586173032 -0400
++++ gnome-panel-2.6.2/help/fr/window-list/Makefile.in	2004-06-18 15:58:01.456040792 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/fr/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/fr/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/fr/workspace-switcher/Makefile.in	2004-06-18 15:58:00.587172880 -0400
++++ gnome-panel-2.6.2/help/fr/workspace-switcher/Makefile.in	2004-06-18 15:58:01.459040336 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/it/clock/Makefile.in gnome-panel-2.6.2/help/it/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/it/clock/Makefile.in	2004-06-18 15:58:00.593171968 -0400
++++ gnome-panel-2.6.2/help/it/clock/Makefile.in	2004-06-18 15:58:01.481036992 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/it/fish/Makefile.in gnome-panel-2.6.2/help/it/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/it/fish/Makefile.in	2004-06-18 15:58:00.592172120 -0400
++++ gnome-panel-2.6.2/help/it/fish/Makefile.in	2004-06-18 15:58:01.478037448 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/it/window-list/Makefile.in gnome-panel-2.6.2/help/it/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/it/window-list/Makefile.in	2004-06-18 15:58:00.594171816 -0400
++++ gnome-panel-2.6.2/help/it/window-list/Makefile.in	2004-06-18 15:58:01.488035928 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/it/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/it/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/it/workspace-switcher/Makefile.in	2004-06-18 15:58:00.595171664 -0400
++++ gnome-panel-2.6.2/help/it/workspace-switcher/Makefile.in	2004-06-18 15:58:01.491035472 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/ja/clock/Makefile.in gnome-panel-2.6.2/help/ja/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/ja/clock/Makefile.in	2004-06-18 15:58:00.589172576 -0400
++++ gnome-panel-2.6.2/help/ja/clock/Makefile.in	2004-06-18 15:58:01.466039272 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/ja/fish/Makefile.in gnome-panel-2.6.2/help/ja/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/ja/fish/Makefile.in	2004-06-18 15:58:00.588172728 -0400
++++ gnome-panel-2.6.2/help/ja/fish/Makefile.in	2004-06-18 15:58:01.462039880 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/ja/window-list/Makefile.in gnome-panel-2.6.2/help/ja/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/ja/window-list/Makefile.in	2004-06-18 15:58:00.590172424 -0400
++++ gnome-panel-2.6.2/help/ja/window-list/Makefile.in	2004-06-18 15:58:01.472038360 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/ja/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/ja/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/ja/workspace-switcher/Makefile.in	2004-06-18 15:58:00.591172272 -0400
++++ gnome-panel-2.6.2/help/ja/workspace-switcher/Makefile.in	2004-06-18 15:58:01.475037904 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/ko/clock/Makefile.in gnome-panel-2.6.2/help/ko/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/ko/clock/Makefile.in	2004-06-18 15:58:00.597171360 -0400
++++ gnome-panel-2.6.2/help/ko/clock/Makefile.in	2004-06-18 15:58:01.497034560 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/ko/fish/Makefile.in gnome-panel-2.6.2/help/ko/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/ko/fish/Makefile.in	2004-06-18 15:58:00.596171512 -0400
++++ gnome-panel-2.6.2/help/ko/fish/Makefile.in	2004-06-18 15:58:01.494035016 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/ko/window-list/Makefile.in gnome-panel-2.6.2/help/ko/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/ko/window-list/Makefile.in	2004-06-18 15:58:00.598171208 -0400
++++ gnome-panel-2.6.2/help/ko/window-list/Makefile.in	2004-06-18 15:58:01.503033648 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/ko/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/ko/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/ko/workspace-switcher/Makefile.in	2004-06-18 15:58:00.599171056 -0400
++++ gnome-panel-2.6.2/help/ko/workspace-switcher/Makefile.in	2004-06-18 15:58:01.506033192 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/sv/clock/Makefile.in gnome-panel-2.6.2/help/sv/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/sv/clock/Makefile.in	2004-06-18 15:58:00.601170752 -0400
++++ gnome-panel-2.6.2/help/sv/clock/Makefile.in	2004-06-18 15:58:01.513032128 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/sv/fish/Makefile.in gnome-panel-2.6.2/help/sv/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/sv/fish/Makefile.in	2004-06-18 15:58:00.600170904 -0400
++++ gnome-panel-2.6.2/help/sv/fish/Makefile.in	2004-06-18 15:58:01.509032736 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/sv/window-list/Makefile.in gnome-panel-2.6.2/help/sv/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/sv/window-list/Makefile.in	2004-06-18 15:58:00.602170600 -0400
++++ gnome-panel-2.6.2/help/sv/window-list/Makefile.in	2004-06-18 15:58:01.519031216 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/sv/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/sv/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/sv/workspace-switcher/Makefile.in	2004-06-18 15:58:00.603170448 -0400
++++ gnome-panel-2.6.2/help/sv/workspace-switcher/Makefile.in	2004-06-18 15:58:01.522030760 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/zh_CN/clock/Makefile.in gnome-panel-2.6.2/help/zh_CN/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/zh_CN/clock/Makefile.in	2004-06-18 15:58:00.605170144 -0400
++++ gnome-panel-2.6.2/help/zh_CN/clock/Makefile.in	2004-06-18 15:58:01.530029544 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/zh_CN/fish/Makefile.in gnome-panel-2.6.2/help/zh_CN/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/zh_CN/fish/Makefile.in	2004-06-18 15:58:00.604170296 -0400
++++ gnome-panel-2.6.2/help/zh_CN/fish/Makefile.in	2004-06-18 15:58:01.526030152 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/zh_CN/window-list/Makefile.in gnome-panel-2.6.2/help/zh_CN/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/zh_CN/window-list/Makefile.in	2004-06-18 15:58:00.606169992 -0400
++++ gnome-panel-2.6.2/help/zh_CN/window-list/Makefile.in	2004-06-18 15:58:01.746996560 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/zh_CN/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/zh_CN/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/zh_CN/workspace-switcher/Makefile.in	2004-06-18 15:58:00.608169688 -0400
++++ gnome-panel-2.6.2/help/zh_CN/workspace-switcher/Makefile.in	2004-06-18 15:58:01.749996104 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/zh_TW/clock/Makefile.in gnome-panel-2.6.2/help/zh_TW/clock/Makefile.in
+--- gnome-panel-2.6.2.orig/help/zh_TW/clock/Makefile.in	2004-06-18 15:58:00.610169384 -0400
++++ gnome-panel-2.6.2/help/zh_TW/clock/Makefile.in	2004-06-18 15:58:01.755995192 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/zh_TW/fish/Makefile.in gnome-panel-2.6.2/help/zh_TW/fish/Makefile.in
+--- gnome-panel-2.6.2.orig/help/zh_TW/fish/Makefile.in	2004-06-18 15:58:00.609169536 -0400
++++ gnome-panel-2.6.2/help/zh_TW/fish/Makefile.in	2004-06-18 15:58:01.752995648 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/zh_TW/window-list/Makefile.in gnome-panel-2.6.2/help/zh_TW/window-list/Makefile.in
+--- gnome-panel-2.6.2.orig/help/zh_TW/window-list/Makefile.in	2004-06-18 15:58:00.612169080 -0400
++++ gnome-panel-2.6.2/help/zh_TW/window-list/Makefile.in	2004-06-18 15:58:01.761994280 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \
+diff -ruN gnome-panel-2.6.2.orig/help/zh_TW/workspace-switcher/Makefile.in gnome-panel-2.6.2/help/zh_TW/workspace-switcher/Makefile.in
+--- gnome-panel-2.6.2.orig/help/zh_TW/workspace-switcher/Makefile.in	2004-06-18 15:58:00.613168928 -0400
++++ gnome-panel-2.6.2/help/zh_TW/workspace-switcher/Makefile.in	2004-06-18 15:58:01.764993824 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var, then
+@@ -480,7 +479,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -488,7 +486,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ clean-local-omf:
+ 	-for file in $(omffile); do \

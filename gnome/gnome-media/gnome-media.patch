@@ -1,0 +1,648 @@
+diff -ruN gnome-media-2.6.2.orig/configure gnome-media-2.6.2/configure
+--- gnome-media-2.6.2.orig/configure	2004-05-17 00:32:38.815460752 -0400
++++ gnome-media-2.6.2/configure	2004-05-17 00:32:39.285389312 -0400
+@@ -21624,7 +21624,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -22551,7 +22551,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+@@ -23338,7 +23338,7 @@
+ *Linux*)
+ 	CDROM_HOST=linux
+ 	CDROM_HOST_LINUX=true
+-	default_cd_device="/dev/cdrom"
++	default_cd_device="/dev/cdroms/cdrom0"
+ 	;;
+ *SunOS*)
+ 	CDROM_HOST=solaris
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/C/Makefile.in gnome-media-2.6.2/gnome-cd/doc/C/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/C/Makefile.in	2004-05-17 00:32:38.843456496 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/C/Makefile.in	2004-05-17 00:32:39.504356024 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/Makefile.in gnome-media-2.6.2/gnome-cd/doc/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/Makefile.in	2004-05-17 00:32:38.865453152 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/Makefile.in	2004-05-17 00:32:39.532351768 -0400
+@@ -220,7 +220,7 @@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-SUBDIRS = C de es fr it sv ja ko zh_CN zh_TW
++SUBDIRS = C
+ subdir = gnome-cd/doc
+ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/de/Makefile.in gnome-media-2.6.2/gnome-cd/doc/de/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/de/Makefile.in	2004-05-17 00:32:38.846456040 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/de/Makefile.in	2004-05-17 00:32:39.507355568 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/es/Makefile.in gnome-media-2.6.2/gnome-cd/doc/es/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/es/Makefile.in	2004-05-17 00:32:38.848455736 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/es/Makefile.in	2004-05-17 00:32:39.509355264 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/fr/Makefile.in gnome-media-2.6.2/gnome-cd/doc/fr/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/fr/Makefile.in	2004-05-17 00:32:38.851455280 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/fr/Makefile.in	2004-05-17 00:32:39.512354808 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/it/Makefile.in gnome-media-2.6.2/gnome-cd/doc/it/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/it/Makefile.in	2004-05-17 00:32:38.856454520 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/it/Makefile.in	2004-05-17 00:32:39.518353896 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/ja/Makefile.in gnome-media-2.6.2/gnome-cd/doc/ja/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/ja/Makefile.in	2004-05-17 00:32:38.853454976 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/ja/Makefile.in	2004-05-17 00:32:39.515354352 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/ko/Makefile.in gnome-media-2.6.2/gnome-cd/doc/ko/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/ko/Makefile.in	2004-05-17 00:32:38.858454216 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/ko/Makefile.in	2004-05-17 00:32:39.521353440 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/sv/Makefile.in gnome-media-2.6.2/gnome-cd/doc/sv/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/sv/Makefile.in	2004-05-17 00:32:38.860453912 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/sv/Makefile.in	2004-05-17 00:32:39.524352984 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/zh_CN/Makefile.in gnome-media-2.6.2/gnome-cd/doc/zh_CN/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/zh_CN/Makefile.in	2004-05-17 00:32:38.862453608 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/zh_CN/Makefile.in	2004-05-17 00:32:39.526352680 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gnome-cd/doc/zh_TW/Makefile.in gnome-media-2.6.2/gnome-cd/doc/zh_TW/Makefile.in
+--- gnome-media-2.6.2.orig/gnome-cd/doc/zh_TW/Makefile.in	2004-05-17 00:32:38.864453304 -0400
++++ gnome-media-2.6.2/gnome-cd/doc/zh_TW/Makefile.in	2004-05-17 00:32:39.529352224 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/C/Makefile.in gnome-media-2.6.2/grecord/doc/C/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/C/Makefile.in	2004-05-17 00:32:38.825459232 -0400
++++ gnome-media-2.6.2/grecord/doc/C/Makefile.in	2004-05-17 00:32:39.464362104 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/Makefile.in gnome-media-2.6.2/grecord/doc/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/Makefile.in	2004-05-17 00:32:38.839457104 -0400
++++ gnome-media-2.6.2/grecord/doc/Makefile.in	2004-05-17 00:32:39.494357544 -0400
+@@ -220,7 +220,7 @@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-SUBDIRS = C de es fr it sv ja ko zh_CN zh_TW
++SUBDIRS = C
+ subdir = grecord/doc
+ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/de/Makefile.in gnome-media-2.6.2/grecord/doc/de/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/de/Makefile.in	2004-05-17 00:32:38.826459080 -0400
++++ gnome-media-2.6.2/grecord/doc/de/Makefile.in	2004-05-17 00:32:39.467361648 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/es/Makefile.in gnome-media-2.6.2/grecord/doc/es/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/es/Makefile.in	2004-05-17 00:32:38.828458776 -0400
++++ gnome-media-2.6.2/grecord/doc/es/Makefile.in	2004-05-17 00:32:39.470361192 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/fr/Makefile.in gnome-media-2.6.2/grecord/doc/fr/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/fr/Makefile.in	2004-05-17 00:32:38.829458624 -0400
++++ gnome-media-2.6.2/grecord/doc/fr/Makefile.in	2004-05-17 00:32:39.473360736 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/it/Makefile.in gnome-media-2.6.2/grecord/doc/it/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/it/Makefile.in	2004-05-17 00:32:38.832458168 -0400
++++ gnome-media-2.6.2/grecord/doc/it/Makefile.in	2004-05-17 00:32:39.479359824 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/ja/Makefile.in gnome-media-2.6.2/grecord/doc/ja/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/ja/Makefile.in	2004-05-17 00:32:38.831458320 -0400
++++ gnome-media-2.6.2/grecord/doc/ja/Makefile.in	2004-05-17 00:32:39.476360280 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/ko/Makefile.in gnome-media-2.6.2/grecord/doc/ko/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/ko/Makefile.in	2004-05-17 00:32:38.834457864 -0400
++++ gnome-media-2.6.2/grecord/doc/ko/Makefile.in	2004-05-17 00:32:39.482359368 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/sv/Makefile.in gnome-media-2.6.2/grecord/doc/sv/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/sv/Makefile.in	2004-05-17 00:32:38.836457560 -0400
++++ gnome-media-2.6.2/grecord/doc/sv/Makefile.in	2004-05-17 00:32:39.485358912 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/zh_CN/Makefile.in gnome-media-2.6.2/grecord/doc/zh_CN/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/zh_CN/Makefile.in	2004-05-17 00:32:38.837457408 -0400
++++ gnome-media-2.6.2/grecord/doc/zh_CN/Makefile.in	2004-05-17 00:32:39.488358456 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/grecord/doc/zh_TW/Makefile.in gnome-media-2.6.2/grecord/doc/zh_TW/Makefile.in
+--- gnome-media-2.6.2.orig/grecord/doc/zh_TW/Makefile.in	2004-05-17 00:32:38.838457256 -0400
++++ gnome-media-2.6.2/grecord/doc/zh_TW/Makefile.in	2004-05-17 00:32:39.491358000 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gst-mixer/doc/C/Makefile.in gnome-media-2.6.2/gst-mixer/doc/C/Makefile.in
+--- gnome-media-2.6.2.orig/gst-mixer/doc/C/Makefile.in	2004-05-17 00:32:38.806462120 -0400
++++ gnome-media-2.6.2/gst-mixer/doc/C/Makefile.in	2004-05-17 00:32:39.431367120 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 
+diff -ruN gnome-media-2.6.2.orig/gstreamer-properties/help/C/Makefile.in gnome-media-2.6.2/gstreamer-properties/help/C/Makefile.in
+--- gnome-media-2.6.2.orig/gstreamer-properties/help/C/Makefile.in	2004-05-17 00:32:38.822459688 -0400
++++ gnome-media-2.6.2/gstreamer-properties/help/C/Makefile.in	2004-05-17 00:32:39.451364080 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -470,7 +469,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -478,7 +476,6 @@
+ 		rm -f $(DESTDIR)$(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(DESTDIR)$(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ # If the following file is in a subdir (like help/) you need to add that to the path
+ 

@@ -1,0 +1,21 @@
+diff -ruN nautilus-media-0.8.0.orig/configure nautilus-media-0.8.0/configure
+--- nautilus-media-0.8.0.orig/configure	2004-03-31 15:55:58.137191216 -0500
++++ nautilus-media-0.8.0/configure	2004-03-31 15:55:58.295167200 -0500
+@@ -19869,7 +19869,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -20926,7 +20926,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi

@@ -1,0 +1,20 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:53:15 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer_ Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Class of objects to recognize markup and separate it from plain text in HTML documents
+# URL: http://search.cpan.org/~gaas/HTML-Parser-3.36/Parser.pm
+# Depends on: perl perl-uri perl-html-tagset
+
+name=perl-html-parser
+version=3.36
+release=1
+source=(http://cpan.uwinnipeg.ca/cpan/authors/id/G/GA/GAAS/HTML-Parser-$version.tar.gz perl-html-parser.patch)
+
+build() {
+	cd HTML-Parser-$version
+	patch -p0 < ../perl-html-parser.patch
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}

@@ -1,0 +1,17 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:54:05 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Mainteiner: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: A free and innovative strategy game
+# URL: http://www.ysagoon.com/glob2/
+# Depends on:
+
+name=glob2
+version=0.8.8
+release=1
+source=(http://www.ysagoon.com/glob2/data/$name-$version.tar.gz)
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --disable-nls
+	make
+	make DESTDIR=$PKG install
+}

@@ -1,0 +1,24 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:04 slash Exp $
+# Description: HTTP library implementation in C
+# URL: http://cvs.gnome.org/viewcvs/libsoup/
+# Packager: Nuno Afonso <nuno.afonso@tagus.ist.utl.pt>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: glib,openssl,gnutls
+
+name=libsoup
+version=2.2.0
+release=2
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 \
+    gnutls.patch)
+
+build() {
+    cd $name-$version
+    patch -p1 < ../gnutls.patch
+    ./configure --prefix=/usr \
+	--libexecdir=/usr/lib/$name \
+	--enable-ssl \
+	--with-ssl-proxy-name=$name-ssl-proxy
+    make
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share
+}

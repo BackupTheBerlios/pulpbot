@@ -1,0 +1,13 @@
+POST-INSTALL:
+
+
+
+    * For this application to work properly default configuration files
+      need to be installed with gconftool-2.  See the post-install
+      command for details.
+
+
+    * You may get funny footprint mismatches showing additional plugins.
+      Good for you.  Be sure to run gst-register to make sure they all
+      get recognized.
+

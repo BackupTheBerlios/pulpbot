@@ -1,0 +1,26 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:55:49 slash Exp $
+# Description: GNOME On-Screen Keyboard
+# URL: http://www.gok.ca/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Giuseppe Coviello <slash@crux-it.org>
+# Depends on: at-spi,libgnomeui,libwnck
+
+name=gok
+version=0.11.8
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 
+        $name.patch)
+
+build() {
+    touch scrollkeeper-config
+    chmod +x scrollkeeper-config
+    export SCROLLKEEPER_CONFIG="$PATH:$PWD"
+    cd $name-$version
+    patch -p1 < ../$name.patch
+    ./configure --prefix=/usr \
+	--disable-schemas-install 
+    make
+    test -f help/$name/C/$name-C.omf.out || cp help/$name/C/$name-C.omf{,.out}
+    export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+GCONF=`pgrep gconfd-2`
+
+GCONF_CONFIG_SOURCE=`gconftool-2 --get-default-source` \
+    gconftool-2 --makefile-install-rule \
+    /usr/etc/gconf/schemas/gnomemeeting.schemas
+
+chmod -R 4755 /usr/etc/gconf/gconf.xml.defaults/
+
+if [ "$GCONF" ]; then
+	kill -HUP $GCONF
+fi
+
+# End of file

@@ -1,0 +1,27 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/gcalctool
+lrwxrwxrwx	root/root	usr/bin/gnome-calculator -> gcalctool
+drwxr-xr-x	root/root	usr/etc/
+drwxr-xr-x	root/root	usr/etc/gconf/
+drwxr-xr-x	root/root	usr/etc/gconf/schemas/
+-rw-r--r--	root/root	usr/etc/gconf/schemas/gcalctool.schemas
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/gcalctool.1.gz
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+-rw-r--r--	root/root	usr/share/applications/gcalctool.desktop
+drwxr-xr-x	root/root	usr/share/omf/
+drwxr-xr-x	root/root	usr/share/omf/gcalctool/
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-C.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-de.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-es.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-fr.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-it.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-ja.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-ko.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-sv.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-zh_CN.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-zh_HK.omf
+-rw-r--r--	root/root	usr/share/omf/gcalctool/gcalctool-zh_TW.omf

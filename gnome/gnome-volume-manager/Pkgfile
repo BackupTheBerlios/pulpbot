@@ -1,0 +1,20 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:32 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@email.it>
+# Maintainer: Stefano Esposito <yankeegohome@email.it>
+# Description: Gnome volume manager
+# URL: http://www.gnome.org/
+# Depends on: hal dbus
+
+name=gnome-volume-manager
+version=1.0.2
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr --disable-schemas-install
+	make
+	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/locale
+}

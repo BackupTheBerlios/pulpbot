@@ -1,0 +1,31 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:43 slash Exp $
+# Description: GTK+ dialog tool
+# URL: http://freshmeat.net/projects/zenity/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: gconf,libgnomecanvas
+
+name=zenity
+version=2.8.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 \
+    help-C.patch)
+
+build() {
+    cd $name-$version
+    patch help/Makefile.in ../help-C.patch
+
+    touch scrollkeeper-config
+    chmod +x scrollkeeper-config
+    export SCROLLKEEPER_CONFIG="$PATH:$PWD"
+
+    sed -i "s/USE_NLS=yes/USE_NLS=no/
+	        s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+    sed -i "/scrollkeeper-update/d"       help/C/Makefile.in omf.make
+    
+    ./configure --prefix=/usr
+
+    make
+    test -f help/C/$name-C.omf.out || cp help/C/$name-C.omf{,.out}
+    make DESTDIR=$PKG install
+}

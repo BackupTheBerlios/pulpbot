@@ -1,0 +1,21 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:55:59 slash Exp $
+# Description: gnome-mag magnification service definition
+# URL: http://developer.gnome.org/projects/gap/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: at-spi
+
+name=gnome-mag
+version=0.11.5
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    sed -i "s/USE_NLS=yes/USE_NLS=no/
+	        s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+    ./configure --prefix=/usr \
+	--enable-debug=no
+    make
+    make DESTDIR=$PKG install
+}

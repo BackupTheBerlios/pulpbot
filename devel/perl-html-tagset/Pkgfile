@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:53:15 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: A module containing several data tables useful in various kinds of HTML parsing operations
+# URL: http://search.cpan.org/~sburke/HTML-Tagset-3.03/Tagset.pm
+# Depends on: perl
+
+name=perl-html-tagset
+version=3.03
+release=1
+source=(http://cpan.org/modules/by-authors/id/S/SB/SBURKE/HTML-Tagset-$version.tar.gz)
+
+build () {
+	cd HTML-Tagset-$version
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}

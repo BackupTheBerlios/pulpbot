@@ -1,0 +1,26 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:29 slash Exp $
+# Description: Standard GNOME terminal application
+# URL: http://www.gnome.org/softwaremap/projects/gnome-terminal/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# Depends on: libgnomeui,startup-notification,vte
+
+name=gnome-terminal
+version=2.7.3
+release=2
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+    #patch -p1 < ../$name.patch
+    sed -i "s/USE_NLS=yes/USE_NLS=no/
+                s/ENABLE_NLS 1/ENABLE_NLS 0/" configure
+    ./configure --prefix=/usr \
+	--disable-schemas-install
+    make
+    cp help/C/$name-C.omf{,.out}
+    export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+    make DESTDIR=$PKG install
+    rm -rf $PKG/usr/share/gnome/help/gnome-terminal/{de,es,fr,it,ja,ko,ro,sv,zh_CN,zh_TW}
+    rm -rf $PKG/usr/share/omf/gnome-terminal/gnome-terminal-{de,es,fr,it,ja,ko,ro,sv,zh_CN,zh_TW}.omf
+}

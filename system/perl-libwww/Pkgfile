@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:58:26 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Perl lib for http protocol implemantation
+# URL: http://search.cpan.org/dist/libwww-perl/
+# Depends on: perl perl-uri perl-html-parser
+
+name=perl-libwww
+version=5.800
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/libwww-perl-$version.tar.gz)
+
+build () {
+	cd libwww-perl-$version
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}

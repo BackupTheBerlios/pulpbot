@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# /etc/rc.d/hald: start/stop hald daemon
+#
+
+case $1 in
+start)
+	/usr/sbin/hald
+	;;
+stop)
+	killall -q /usr/sbin/hald
+	;;
+restart)
+	$0 stop
+	$0 start
+	;;
+*)
+	echo "usage: $0 [start|stop|restart]"
+	;;
+esac
+
+# End of file

@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:58:24 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: A POE component that make ping tests
+# URL: http://poe.perl.org
+# Depends on: poe
+
+name=poco-ping
+version=1.04
+release=1
+source=(ftp://ftp.cpan.org/pub/CPAN/authors/id/R/RC/RCAPUTO/POE-Component-Client-Ping-$version.tar.gz)
+
+build() {
+	cd POE-Component-Client-Ping-$version
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl5/5.8.4/linux/perllocal.pod
+}

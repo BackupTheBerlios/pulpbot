@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:56:17 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@email.it>
+# Maintainer: Stefano Esposito <yankeegohome@email.it>
+# Descriptio: Gnome net utilities
+# URL: http://www.gnome.org/
+# Depends on:
+
+name=gnome-nettool
+version=0.99.3
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+
+build () {
+	cd $name-$version
+	./configure --prefix=/usr --disable-nls
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/locale
+}

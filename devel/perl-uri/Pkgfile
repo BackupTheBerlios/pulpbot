@@ -1,0 +1,19 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:53:15 slash Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Perl implementation of URI classes specified in RFC 2396
+# URL: http://search.cpan.org/~gaas/URI-1.33/URI.pm
+# Depends on: perl
+
+name=perl-uri
+version=1.33
+release=1
+source=(http://cpan.org/modules/by-authors/id/G/GA/GAAS/URI-$version.tar.gz)
+
+build() {
+	cd URI-$version
+	perl Makefile.PL -n
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/lib/perl/5.8.4/linux/perllocal.pod
+}

@@ -1,0 +1,18 @@
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer:
+# Description: glib for gtkmm, gtk libraries for the C++ language
+# URL: http://gtkmm.sourceforge.net/
+# Depends on: gtk libsigc++ 
+
+name=glibmm
+version=2.4.4
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.4/$name-$version.tar.bz2)
+
+build() {
+	cd $name-$version
+	./configure --prefix=/usr --disable-nls
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/doc
+}

@@ -1,0 +1,30 @@
+# $Id: Pkgfile,v 1.1 2004/09/27 20:55:56 slash Exp $
+# Description: GNOME PDF Viewer based on Xpdf
+# URL: http://www.foolabs.com/xpdf/
+# Packager: Robert McMeekin <rrm3@rrm3.org>
+# Maintainer: Stefano Esposito <yankeegohome@email.it>
+# Depends on: libgnomeprintui,libgnomeui
+# Group: gnome
+
+name=gpdf
+version=2.8.0
+release=1
+source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 
+        $name.patch)
+
+build() {
+	cd $name-$version
+	patch -p1 < ../$name.patch
+	./configure --prefix=/usr \
+	            --libexecdir=/usr/lib/$name \
+	            --enable-a4-paper \
+	            --enable-opi \
+	            --disable-schemas-install \
+	            --enable-annotations-view
+	make
+	for omf in `find . -path '*/C/*' -name '*.omf'`; do
+		test -f $omf.out || cp $omf $omf.out
+	done
+	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
+	make DESTDIR=$PKG install
+}

@@ -1,0 +1,28 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/include/libpanelappletmm-2.6/
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm.h
+drwxr-xr-x	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/applet.h
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/enums.h
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/factory.h
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/init.h
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/private.h
+drwxr-xr-x	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/private/
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/private/applet_p.h
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/private/enums_p.h
+-rw-r--r--	root/root	usr/include/libpanelappletmm-2.6/libpanelappletmm/wrap_init.h
+drwxr-xr-x	root/root	usr/lib/
+-rwxr-xr-x	root/root	usr/lib/libpanelappletmm-2.6.la
+lrwxrwxrwx	root/root	usr/lib/libpanelappletmm-2.6.so -> libpanelappletmm-2.6.so.1.0.0
+lrwxrwxrwx	root/root	usr/lib/libpanelappletmm-2.6.so.1 -> libpanelappletmm-2.6.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libpanelappletmm-2.6.so.1.0.0
+drwxr-xr-x	root/root	usr/lib/libpanelappletmm-2.6/
+drwxr-xr-x	root/root	usr/lib/libpanelappletmm-2.6/include/
+-rw-r--r--	root/root	usr/lib/libpanelappletmm-2.6/include/libpanelappletmmconfig.h
+drwxr-xr-x	root/root	usr/lib/libpanelappletmm-2.6/proc/
+drwxr-xr-x	root/root	usr/lib/libpanelappletmm-2.6/proc/m4/
+-rw-r--r--	root/root	usr/lib/libpanelappletmm-2.6/proc/m4/convert.m4
+-rw-r--r--	root/root	usr/lib/libpanelappletmm-2.6/proc/m4/convert_libpanelappletmm.m4
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libpanelappletmm-2.6.pc
