@@ -1,3 +1,10 @@
+# $Id: Pkgfile,v 1.2 2004/11/13 15:24:18 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Perl interface to the MegaHAL conversation simulator
+# URL: http://search.cpan.org/~cspencer/AI-MegaHAL-0.04/lib/AI/MegaHAL.pm
+# Depends on: perl
+
 name=perl-ai-megahal
 version=0.04
 release=1
