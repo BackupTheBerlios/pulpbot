@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:36 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/04 23:55:37 yankeegohome Exp $
 # Description: applets for use with the GNOME panel
 # URL: http://freshmeat.net/projects/gnome-applets/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -7,9 +7,9 @@
 
 
 name=gnome-applets
-version=2.8.0
+version=2.8.1.1
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2)
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2)
 
 build() {
     cd $name-$version
