@@ -5,7 +5,7 @@
 
 name=ilenia
 version=1.0
-release=3
+release=4
 source=(http://www.crux-it.org/evolution/src/$name-$version.tar.gz \
     crux.cvsup.in \
     crux-it.cvsup.in \
@@ -19,11 +19,11 @@ build () {
     make
     make DESTDIR=$PKG install
     mkdir $PKG/usr/ports
-    CRUX_VERSION=`crux|head -n 1|sed "s|CRUX version ||"|sed "s|\.|\_|"`
-    cat ../crux.cvsup.in|sed "s|#VERSION#|$CRUX_VERSION|" > $PKG/etc/ports/crux.cvsup
-    cat ../crux-it.cvsup.in|sed "s|#VERSION#|$CRUX_VERSION|" > $PKG/etc/ports/crux-it.cvsup
-    cat ../clc.cvsup.in|sed "s|#VERSION#|$CRUX_VERSION|" > $PKG/etc/ports/clc.cvsup
     if [ "`crux | tail -n 1 | grep Evolution`" != "" ]; then
+	CRUX_VERSION=`crux|head -n 1|sed "s|CRUX version ||"|sed "s|\.|\_|"`
+	cat ../crux.cvsup.in|sed "s|#VERSION#|$CRUX_VERSION|" > $PKG/etc/ports/crux.cvsup
+	cat ../crux-it.cvsup.in|sed "s|#VERSION#|$CRUX_VERSION|" > $PKG/etc/ports/crux-it.cvsup
+	cat ../clc.cvsup.in|sed "s|#VERSION#|$CRUX_VERSION|" > $PKG/etc/ports/clc.cvsup
 	mv $SRC/.footprint.evolution $SRC/../../.footprint
 	cd $PKG/usr/bin
 	ln -s ilenia ports
