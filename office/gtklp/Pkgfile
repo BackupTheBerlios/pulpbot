@@ -1,0 +1,17 @@
+# Description: gtk GUI for printer process
+# URL: http://gtklp.sourceforge.net/
+# Depends on: gtk glib cups
+# Packager: [slash] acrux
+
+name=gtklp
+version=1.0pre3
+release=1
+source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version.src.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld --enable-ssl
+    make
+    make DESTDIR=$PKG install
+    rm -Rf $PKG/usr/share
+}
