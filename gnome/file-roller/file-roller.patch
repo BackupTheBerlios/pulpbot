@@ -1,0 +1,384 @@
+diff -ruN file-roller-2.6.2.orig/configure file-roller-2.6.2/configure
+--- file-roller-2.6.2.orig/configure	2004-06-29 03:16:33.562894904 -0400
++++ file-roller-2.6.2/configure	2004-06-29 03:16:33.921840336 -0400
+@@ -18851,7 +18851,7 @@
+ 
+     fi
+   fi
+-     USE_NLS=yes
++     USE_NLS=no
+ 
+ 
+     gt_cv_have_gettext=no
+@@ -19778,7 +19778,7 @@
+     if test "$gt_cv_have_gettext" = "yes" ; then
+ 
+ cat >>confdefs.h <<\_ACEOF
+-#define ENABLE_NLS 1
++#define ENABLE_NLS 0
+ _ACEOF
+ 
+     fi
+diff -ruN file-roller-2.6.2.orig/help/C/Makefile.in file-roller-2.6.2/help/C/Makefile.in
+--- file-roller-2.6.2.orig/help/C/Makefile.in	2004-06-29 03:16:33.163955552 -0400
++++ file-roller-2.6.2/help/C/Makefile.in	2004-06-29 03:16:33.999828480 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/Makefile.in file-roller-2.6.2/help/Makefile.in
+--- file-roller-2.6.2.orig/help/Makefile.in	2004-06-29 03:16:33.554896120 -0400
++++ file-roller-2.6.2/help/Makefile.in	2004-06-29 03:16:34.036822856 -0400
+@@ -187,7 +187,7 @@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-SUBDIRS = C de es fr it ja ko ru sv uk zh_CN zh_HK zh_TW
++SUBDIRS = C
+ subdir = help
+ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+diff -ruN file-roller-2.6.2.orig/help/de/Makefile.in file-roller-2.6.2/help/de/Makefile.in
+--- file-roller-2.6.2.orig/help/de/Makefile.in	2004-06-29 03:16:33.227945824 -0400
++++ file-roller-2.6.2/help/de/Makefile.in	2004-06-29 03:16:34.002828024 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/es/Makefile.in file-roller-2.6.2/help/es/Makefile.in
+--- file-roller-2.6.2.orig/help/es/Makefile.in	2004-06-29 03:16:33.254941720 -0400
++++ file-roller-2.6.2/help/es/Makefile.in	2004-06-29 03:16:34.005827568 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/fr/Makefile.in file-roller-2.6.2/help/fr/Makefile.in
+--- file-roller-2.6.2.orig/help/fr/Makefile.in	2004-06-29 03:16:33.304934120 -0400
++++ file-roller-2.6.2/help/fr/Makefile.in	2004-06-29 03:16:34.008827112 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/it/Makefile.in file-roller-2.6.2/help/it/Makefile.in
+--- file-roller-2.6.2.orig/help/it/Makefile.in	2004-06-29 03:16:33.383922112 -0400
++++ file-roller-2.6.2/help/it/Makefile.in	2004-06-29 03:16:34.013826352 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/ja/Makefile.in file-roller-2.6.2/help/ja/Makefile.in
+--- file-roller-2.6.2.orig/help/ja/Makefile.in	2004-06-29 03:16:33.345927888 -0400
++++ file-roller-2.6.2/help/ja/Makefile.in	2004-06-29 03:16:34.010826808 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/ko/Makefile.in file-roller-2.6.2/help/ko/Makefile.in
+--- file-roller-2.6.2.orig/help/ko/Makefile.in	2004-06-29 03:16:33.444912840 -0400
++++ file-roller-2.6.2/help/ko/Makefile.in	2004-06-29 03:16:34.016825896 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/ru/Makefile.in file-roller-2.6.2/help/ru/Makefile.in
+--- file-roller-2.6.2.orig/help/ru/Makefile.in	2004-06-29 03:16:33.500904328 -0400
++++ file-roller-2.6.2/help/ru/Makefile.in	2004-06-29 03:16:34.019825440 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/sv/Makefile.in file-roller-2.6.2/help/sv/Makefile.in
+--- file-roller-2.6.2.orig/help/sv/Makefile.in	2004-06-29 03:16:33.548897032 -0400
++++ file-roller-2.6.2/help/sv/Makefile.in	2004-06-29 03:16:34.022824984 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/uk/Makefile.in file-roller-2.6.2/help/uk/Makefile.in
+--- file-roller-2.6.2.orig/help/uk/Makefile.in	2004-06-29 03:16:33.550896728 -0400
++++ file-roller-2.6.2/help/uk/Makefile.in	2004-06-29 03:16:34.025824528 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/zh_CN/Makefile.in file-roller-2.6.2/help/zh_CN/Makefile.in
+--- file-roller-2.6.2.orig/help/zh_CN/Makefile.in	2004-06-29 03:16:33.551896576 -0400
++++ file-roller-2.6.2/help/zh_CN/Makefile.in	2004-06-29 03:16:34.028824072 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/zh_HK/Makefile.in file-roller-2.6.2/help/zh_HK/Makefile.in
+--- file-roller-2.6.2.orig/help/zh_HK/Makefile.in	2004-06-29 03:16:33.552896424 -0400
++++ file-roller-2.6.2/help/zh_HK/Makefile.in	2004-06-29 03:16:34.031823616 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
+diff -ruN file-roller-2.6.2.orig/help/zh_TW/Makefile.in file-roller-2.6.2/help/zh_TW/Makefile.in
+--- file-roller-2.6.2.orig/help/zh_TW/Makefile.in	2004-06-29 03:16:33.553896272 -0400
++++ file-roller-2.6.2/help/zh_TW/Makefile.in	2004-06-29 03:16:34.033823312 -0400
+@@ -55,7 +55,6 @@
+ # generally called from the makefiles for particular formats of documentation.
+ #
+ # Note that you must configure your package with --localstatedir=/var/lib
+-# so that the scrollkeeper-update command below will update the database
+ # in the standard scrollkeeper directory.
+ #
+ # If it is impossible to configure with --localstatedir=/var/lib, then
+@@ -437,7 +436,6 @@
+ 	for file in $(omffile); do \
+ 		$(INSTALL_DATA) $$file.out $(DESTDIR)$(omf_dest_dir)/$$file; \
+ 	done
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir) -o $(DESTDIR)$(omf_dest_dir)
+ 
+ uninstall-local-omf:
+ 	-for file in $(srcdir)/*.omf; do \
+@@ -445,7 +443,6 @@
+ 		rm -f $(omf_dest_dir)/$$basefile; \
+ 	done
+ 	-rmdir $(omf_dest_dir)
+-	-scrollkeeper-update -p $(scrollkeeper_localstate_dir)
+ 
+ all: omf
+ 
