@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/11/01 15:37:06 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/11/16 21:48:48 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Free Colonizzation
@@ -9,7 +9,7 @@ name=freecol
 version=0.3.0
 release=1
 
-source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/$name-$version-src.tar.gz \
+source=(http://dl.sourceforge.net/sourceforge/$name/$name-$version-src.tar.gz \
 	Freecol)
 
 build () {
