@@ -1,6 +1,6 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:53:15 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/02 00:08:47 yankeegohome Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
-# Maintainer_ Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Class of objects to recognize markup and separate it from plain text in HTML documents
 # URL: http://search.cpan.org/~gaas/HTML-Parser-3.36/Parser.pm
 # Depends on: perl perl-uri perl-html-tagset
