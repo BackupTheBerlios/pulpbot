@@ -5,15 +5,17 @@
 
 name=gdal
 version=1.2.3
-release=1
+release=2
 
 source=(http://gdal.org/dl/$name-$version.tar.gz)
 build () {
     cd $name-$version
     ./configure --prefix=$PKG/usr --exec-prefix=$PKG/usr \
     --with-pymoddir=$PKG/usr/lib/python/site-packages \
-    --disable-nls --with-grass=no --without-ogdi --without-pg
+    --disable-nls --without-grass --without-ogdi --without-pg
+    
     make
     mkdir -p $PKG/usr/lib/python/site-packages
     make DESTDIR=$PKG install
+    sed -i "s|$PKG/usr|/usr|g" $PKG/usr/bin/gdal-config
 }
