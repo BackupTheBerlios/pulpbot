@@ -1,0 +1,40 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/f77 -> g77
+-rwxr-xr-x	root/root	usr/bin/g77
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/gcc-lib/
+drwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/
+drwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/
+-rwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/f771
+drwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/include/
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/include/g2c.h
+drwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/
+-rwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/fixinc.sh
+-rwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/fixincl
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/gsyslimits.h
+drwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/README
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/emmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/float.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/iso646.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/limits.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/mmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/pmmintrin.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/stdarg.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/stdbool.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/stddef.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/unwind.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/varargs.h
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/include/xmmintrin.h
+-rwxr-xr-x	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/mkheaders
+-rw-r--r--	root/root	usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/install-tools/mkheaders.conf
+-rw-r--r--	root/root	usr/lib/libfrtbegin.a
+-rw-r--r--	root/root	usr/lib/libg2c.a
+-rwxr-xr-x	root/root	usr/lib/libg2c.la
+lrwxrwxrwx	root/root	usr/lib/libg2c.so -> libg2c.so.0.0.0
+lrwxrwxrwx	root/root	usr/lib/libg2c.so.0 -> libg2c.so.0.0.0
+-rwxr-xr-x	root/root	usr/lib/libg2c.so.0.0.0
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/g77.1.gz

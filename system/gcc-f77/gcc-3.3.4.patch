@@ -1,0 +1,23 @@
+diff -ru gcc-3.3.4/gcc/Makefile.in gcc-3.3.4-new/gcc/Makefile.in
+--- gcc-3.3.4/gcc/Makefile.in	2004-04-01 18:55:23.000000000 +0200
++++ gcc-3.3.4-new/gcc/Makefile.in	2004-06-30 23:13:26.348166720 +0200
+@@ -2386,7 +2386,6 @@
+ 	(TARGET_MACHINE='$(target)'; srcdir=`cd $(srcdir); ${PWD_COMMAND}`; \
+ 	SHELL='$(SHELL)' ;\
+ 	export TARGET_MACHINE srcdir SHELL ; \
+-	$(SHELL) ./fixinc.sh `${PWD_COMMAND}`/include $(SYSTEM_HEADER_DIR) $(OTHER_FIXINCLUDES_DIRS); \
+ 	rm -f include/syslimits.h; \
+ 	if [ -f include/limits.h ]; then \
+ 	  mv include/limits.h include/syslimits.h; \
+diff -ru gcc-3.3.4/gcc/version.c gcc-3.3.4-new/gcc/version.c
+--- gcc-3.3.4/gcc/version.c	2004-06-01 00:37:19.000000000 +0200
++++ gcc-3.3.4-new/gcc/version.c	2004-06-30 23:13:26.349166568 +0200
+@@ -6,7 +6,7 @@
+    please modify this string to indicate that, e.g. by putting your
+    organization's name in parentheses at the end of the string.  */
+ 
+-const char version_string[] = "3.3.4";
++const char version_string[] = "3.3.4 (CRUX)";
+ 
+ /* This is the location of the online document giving instructions for
+    reporting bugs.  If you distribute a modified version of GCC,

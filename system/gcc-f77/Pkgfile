@@ -1,0 +1,47 @@
+# $Id#
+# Maintainer: Coviello Giuseppe <slash@crux-it.org>
+# URL: http://www.gnu.org/gcc
+# Description: Fortran add-on for GNU GCC compiler
+# Depends on: gcc
+
+name=gcc-f77
+version=3.3.4
+release=1
+source=(ftp://sources.redhat.com/pub/gcc/releases/gcc-$version/gcc-$version.tar.bz2 \
+    gcc-$version.patch )
+
+build() {
+    patch -d gcc-$version -p1 < gcc-$version.patch
+    cd gcc-$version
+    mkdir build
+    cd build
+    ../configure --prefix=/usr \
+	--enable-languages=f77 \
+	--enable-threads=posix \
+	--enable-__cxa_atexit \
+	--enable-clocale=gnu \
+	--enable-shared \
+	--disable-nls
+    make bootstrap
+    make check
+    make DESTDIR=$PKG install
+
+    ( cd $PKG/usr/bin
+	ln -s g77 f77
+    )
+
+    ( cd $PKG
+	for file in \
+	    usr/bin/{cpp,gcc,gccbug,gcov,i686-pc-linux-gnu-gcc*} \
+	    usr/info \
+	    usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/{cc1,collect2,crtbegin.o,crtbeginS.o,crtbeginT.o,crtend.o,crtendS.o,libgcc.a,libgcc_eh.a,specs} \
+	    usr/lib/gcc-lib/i686-pc-linux-gnu/3.3.4/include/{float.h,iso646.h,limits.h,mmintrin.h,stdarg.h,stdbool.h,stddef.h,syslimits.h,unwind.h,varargs.h,xmmintrin.h,emmintrin.h,pmmintrin.h,README} \
+	    usr/lib/{libgcc_s.so,libgcc_s.so.1,libiberty.a} \
+	    usr/man/man1/{cpp.1,gcc.1,gcov.1} \
+	    usr/man/man7 \
+	    usr/include ; do
+	  rm -rf $file
+	done
+    )
+    gzip $PKG/usr/man/man*/*
+}
