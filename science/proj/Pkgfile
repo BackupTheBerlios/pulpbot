@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=proj
-version=4.4.8
+version=4.4.9
 release=1
 
 source=(http://dl.maptools.org/dl/$name/$name-$version.tar.gz)

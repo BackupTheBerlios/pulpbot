@@ -9,14 +9,15 @@ lrwxrwxrwx	root/root	usr/bin/invproj -> proj
 -rwxr-xr-x	root/root	usr/bin/proj
 drwxr-xr-x	root/root	usr/include/
 -rw-r--r--	root/root	usr/include/nad_list.h
+-rw-r--r--	root/root	usr/include/org_proj4_Projections.h
 -rw-r--r--	root/root	usr/include/proj_api.h
 -rw-r--r--	root/root	usr/include/projects.h
 drwxr-xr-x	root/root	usr/lib/
 -rw-r--r--	root/root	usr/lib/libproj.a
 -rwxr-xr-x	root/root	usr/lib/libproj.la
-lrwxrwxrwx	root/root	usr/lib/libproj.so -> libproj.so.0.4.2
-lrwxrwxrwx	root/root	usr/lib/libproj.so.0 -> libproj.so.0.4.2
--rwxr-xr-x	root/root	usr/lib/libproj.so.0.4.2
+lrwxrwxrwx	root/root	usr/lib/libproj.so -> libproj.so.0.5.0
+lrwxrwxrwx	root/root	usr/lib/libproj.so.0 -> libproj.so.0.5.0
+-rwxr-xr-x	root/root	usr/lib/libproj.so.0.5.0
 drwxr-xr-x	root/root	usr/man/
 drwxr-xr-x	root/root	usr/man/man1/
 -rw-r--r--	root/root	usr/man/man1/cs2cs.1.gz
