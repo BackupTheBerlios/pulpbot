@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/10/22 15:15:42 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/11/21 01:15:23 yankeegohome Exp $
 # Packager: Stefano Epsosito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux.it.org>
 # Description: Perl bindings to libgnomecanvas
@@ -9,7 +9,7 @@ name=perl-gnome2-canvas
 version=1.002
 release=1
 
-source=(http://puzzle.dl.sourceforge.net/sourceforge/gtk2-perl/Gnome2-Canvas-$version.tar.gz)
+source=(http://dl.sourceforge.net/sourceforge/gtk2-perl/Gnome2-Canvas-$version.tar.gz)
 
 build () {
 	cd Gnome2-Canvas-$version
