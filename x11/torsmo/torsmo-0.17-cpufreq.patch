@@ -1,0 +1,108 @@
+diff -Naur torsmo-0.17-orig/README torsmo-0.17/README
+--- torsmo-0.17-orig/README	2004-05-25 06:07:10.000000000 -0500
++++ torsmo-0.17/README	2004-11-20 18:43:53.954612264 -0500
+@@ -113,6 +113,7 @@
+    cpu                               CPU usage in percents                    
+    cpubar            (height)        Bar that shows CPU usage, height is      
+                                      bar's height in pixels                   
++   cpufreq                           CPU frequency in MHz
+    downspeed         net             Download speed in kilobytes              
+    downspeedf        net             Download speed in kilobytes with one     
+                                      decimal                                  
+diff -Naur torsmo-0.17-orig/linux.c torsmo-0.17/linux.c
+--- torsmo-0.17-orig/linux.c	2004-05-25 03:57:19.000000000 -0500
++++ torsmo-0.17/linux.c	2004-11-20 18:43:53.955612112 -0500
+@@ -591,3 +591,37 @@
+ 
+   snprintf(buf, n, "%s", last_battery_str);
+ }
++
++
++
++static double cpufreq;
++
++static FILE *cpuinfo_fp;
++
++static void update_cpufreq() {
++  static int rep;
++  char buf[256];
++
++  if (cpuinfo_fp == NULL)
++    cpuinfo_fp = open_file("/proc/cpuinfo", &rep);
++  else
++    fseek(cpuinfo_fp, 0, SEEK_SET);
++  if (cpuinfo_fp == NULL) return;
++
++  while (!feof(cpuinfo_fp)) {
++    if (fgets(buf, 255, cpuinfo_fp) == NULL)
++      break;
++
++    if (strncmp(buf, "cpu MHz", 7) == 0) {
++      sscanf(buf, "cpu MHz         : %lf", &cpufreq);
++    }
++  }
++
++  /* fclose(fp); */
++}
++
++double get_cpufreq() {
++  update_cpufreq();
++  return cpufreq;
++}
++
+diff -Naur torsmo-0.17-orig/readme.html torsmo-0.17/readme.html
+--- torsmo-0.17-orig/readme.html	2004-05-25 05:28:50.000000000 -0500
++++ torsmo-0.17/readme.html	2004-11-20 18:43:53.956611960 -0500
+@@ -148,6 +148,10 @@
+     <TD valign="top">Bar that shows CPU usage, <I>height</I> is bar's height
+         in pixels
+ 
++<TR><TD valign="top">cpufreq
++    <TD valign="top">
++    <TD valign="top">CPU frequency in MHz
++
+ <TR><TD valign="top">downspeed
+     <TD valign="top"><I>net</I>
+     <TD valign="top">Download speed in kilobytes
+diff -Naur torsmo-0.17-orig/torsmo.c torsmo-0.17/torsmo.c
+--- torsmo-0.17-orig/torsmo.c	2004-05-25 05:58:51.000000000 -0500
++++ torsmo-0.17/torsmo.c	2004-11-20 18:43:53.957611808 -0500
+@@ -427,6 +427,7 @@
+   OBJ_color,
+   OBJ_cpu,
+   OBJ_cpubar,
++  OBJ_cpufreq,
+   OBJ_downspeed,
+   OBJ_downspeedf,
+   OBJ_exec,
+@@ -594,6 +595,8 @@
+     need_cpu_usage = 1;
+     obj->data.i = arg ? atoi(arg) : 4;
+   END
++  OBJ(cpufreq)
++  END
+   OBJ(color)
+     obj->data.l = arg ? get_color(arg) : default_fg_color;
+   END
+@@ -1021,6 +1024,9 @@
+     OBJ(cpubar) {
+       new_bar(p, obj->data.i, (int) (cpu_usage*255.0));
+     }
++    OBJ(cpufreq) {
++      snprintf(p, n, "%.2f", get_cpufreq());
++    }
+     OBJ(color) {
+       new_fg(p, obj->data.l);
+     }
+diff -Naur torsmo-0.17-orig/torsmo.h torsmo-0.17/torsmo.h
+--- torsmo-0.17-orig/torsmo.h	2004-05-25 03:57:36.000000000 -0500
++++ torsmo-0.17/torsmo.h	2004-11-20 18:43:53.958611656 -0500
+@@ -46,6 +46,8 @@
+ char* get_acpi_fan(void);
+ void get_battery_stuff(char *buf, unsigned int n, int b);
+ 
++double get_cpufreq(void);
++
+ /* fs-stuff is possibly system dependant (fs.c) */
+ 
+ void update_fs_stats(void);
