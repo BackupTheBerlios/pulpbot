@@ -1,12 +1,10 @@
-# $Id: Pkgfile,v 1.2 2004/10/12 22:21:16 acrux Exp $
-# Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Mainteiner: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: A free and innovative strategy game
 # URL: http://www.ysagoon.com/glob2/
 # Depends on: libsdl libsdl-ttf sdl_net sdl_image libglut freetype libvorbis
 
 name=glob2
-version=0.8.8
+version=0.8.9
 release=1
 source=(http://www.ysagoon.com/glob2/data/$name-$version.tar.gz)
 build() {
