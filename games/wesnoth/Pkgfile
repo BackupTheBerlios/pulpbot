@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=wesnoth
-version=0.8.7
+version=0.8.8
 release=1
 
 source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
