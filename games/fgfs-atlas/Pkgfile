@@ -1,0 +1,21 @@
+# Description: Atlas produce and display map for FlightGear Users
+# URL: http://atlas.sourceforge.net/
+# Depends On: fgfs-base
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=fgfs-atlas
+version=0.2.2
+release=1
+source=(http://heanet.dl.sourceforge.net/sourceforge/atlas/Atlas-$version.tar.gz)
+
+build() {
+    cd Atlas-$version
+    ./configure --prefix=/usr --with-plib=/usr/lib --with-simgear=/usr/lib \
+    --with-fgbase=/opt/FlightGear/data --disable-nls
+    make
+    make install DESTDIR=$PKG
+    mkdir -p $PKG/opt/FlightGear/data/Atlas
+    chmod 777 $PKG/opt/FlightGear/data/Atlas
+    cp $SRC/Atlas-$version/src/AtlasPalette $PKG/opt/FlightGear/data/AtlasPalette   
+    cd $PKG/opt/FlightGear ; ln -s data/Atlas Atlas
+}

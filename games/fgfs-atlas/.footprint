@@ -1,0 +1,12 @@
+drwxr-xr-x	root/root	opt/
+drwxr-xr-x	root/root	opt/FlightGear/
+lrwxrwxrwx	root/root	opt/FlightGear/Atlas -> data/Atlas
+drwxr-xr-x	root/root	opt/FlightGear/data/
+drwxrwxrwx	root/root	opt/FlightGear/data/Atlas/
+-rw-r--r--	root/root	opt/FlightGear/data/AtlasPalette
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/Atlas
+-rwxr-xr-x	root/root	usr/bin/Map
+-rwxr-xr-x	root/root	usr/bin/MapPS
+-rwxr-xr-x	root/root	usr/bin/buildmaps.sh

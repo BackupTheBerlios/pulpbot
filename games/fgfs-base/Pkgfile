@@ -1,0 +1,14 @@
+# Description: Flight Simulator Base Textures
+# URL: http://www.flightgear.org/
+# Depends on: flightgear
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=fgfs-base
+version=0.9.6
+release=1
+
+source=(ftp://ftp.de.flightgear.org/pub/fgfs/Shared/$name-$version.tar.bz2)
+build () {
+    mkdir -p $PKG/opt/FlightGear
+    mv $SRC/data $PKG/opt/FlightGear
+}

@@ -1,0 +1,16 @@
+# Description: Simulator Construction Tools
+# URL: http://www.simgear.org/
+# Depends on: libglut zlib plib openal
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=simgear
+version=0.3.7
+release=1
+
+source=(ftp://ftp.simgear.org/pub/$name/Source/SimGear-$version.tar.gz)
+build () {
+    cd SimGear-$version
+    ./configure --prefix=/usr --disable-nls --with-jpeg-factory    
+    make
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,3 @@
+to produce map images:
+
+Map --atlas=/opt/FlightGear/data/Atlas --size=1024

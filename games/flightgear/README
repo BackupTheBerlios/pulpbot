@@ -1,0 +1,14 @@
+FlightGear Flight Simulator 0.9.6
+
+you need to install in this order:
+
+plib-1.8.3
+openal-0.0.7 (formerly from cvs)
+simgear-0.3.7
+flightgear-0.9.6
+fgfs-base-0.9.6
+
+plz, read carefully every ports Pkgfile
+____
+Acrux @ Progetto Crux Italia
+----------------
