@@ -11,4 +11,5 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/ripperX_plugin-lame
 -rwxr-xr-x	root/root	usr/bin/ripperX_plugin-mp3enc
 -rwxr-xr-x	root/root	usr/bin/ripperX_plugin-oggenc
+-rwxr-xr-x	root/root	usr/bin/ripperX_plugin-toolame
 -rwxr-xr-x	root/root	usr/bin/ripperX_plugin-xingmp3enc
