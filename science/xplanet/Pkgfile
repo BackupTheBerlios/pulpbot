@@ -1,4 +1,4 @@
-Description: xearth based background for the X root window
+# Description: xearth based background for the X root window
 # URL: http://xplanet.sourceforge.net/
 # Depends on: x11 libtiff libpng libjpeg pango xscreensaver freetype
 # Packager: acrux
