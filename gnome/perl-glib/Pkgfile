@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/10/22 14:57:13 yankeegohome Exp $
+# $Id: Pkgfile,v 1.2 2004/11/12 02:02:40 acrux Exp $
 # Packager: Stefano Esposito <yankeegohome@crux-it.org>
 # Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: Glib bindings for perl. Needed by Gtk2-Perl
@@ -6,7 +6,7 @@
 # Depends on: glib extutils-pkgconfig
 
 name=perl-glib
-version=1.061
+version=1.070
 release=1
 source=(http://puzzle.dl.sourceforge.net/sourceforge/gtk2-perl/Glib-$version.tar.gz)
 
