@@ -1,20 +1,23 @@
-# Description: simple system monitor (with SETI@home patch by aon)
+# Description: simple system monitor (with SETI@home and cpufreq)
 # URL: http://torsmo.sourceforge.net/
 # Depends on: x11
 # Maintainer: acrux <acrux@crux-it.org>
 
 # Thnx to Antti for the SETI@home patch
-# http://ecx.no-ip.org/dev/torsmo-setiathome/  
+# 	http://ecx.no-ip.org/dev/torsmo-setiathome/
+# Thnx to Forlorn for the cpufreq patch
+# 	http://sourceforge.net/users/forlorn/
 
 name=torsmo
 version=0.17
-release=2
+release=3
 source=(http://heanet.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz \
-	torsmo-setiathome.patch)
+	torsmo-0.17-setiathome.patch torsmo-0.17-cpufreq.patch )
 
 build() {
     cd $name-$version
-    patch -p0 < ../torsmo-setiathome.patch
+    patch -p0 < ../torsmo-0.17-setiathome.patch
+    patch -p1 < ../torsmo-0.17-cpufreq.patch
     ./configure --prefix=/usr --enable-own-window \
     --enable-proc-uptime --disable-nls
     make
