@@ -448,21 +448,21 @@ drwxr-xr-x	root/root	usr/lib/gtkmm-2.4/proc/m4/
 -rw-r--r--	root/root	usr/lib/gtkmm-2.4/proc/m4/convert_gtkmm.m4
 -rw-r--r--	root/root	usr/lib/gtkmm-2.4/proc/m4/convert_pango.m4
 -rwxr-xr-x	root/root	usr/lib/libatkmm-1.6.la
-lrwxrwxrwx	root/root	usr/lib/libatkmm-1.6.so -> libatkmm-1.6.so.1.0.7
-lrwxrwxrwx	root/root	usr/lib/libatkmm-1.6.so.1 -> libatkmm-1.6.so.1.0.7
--rwxr-xr-x	root/root	usr/lib/libatkmm-1.6.so.1.0.7
+lrwxrwxrwx	root/root	usr/lib/libatkmm-1.6.so -> libatkmm-1.6.so.1.0.8
+lrwxrwxrwx	root/root	usr/lib/libatkmm-1.6.so.1 -> libatkmm-1.6.so.1.0.8
+-rwxr-xr-x	root/root	usr/lib/libatkmm-1.6.so.1.0.8
 -rwxr-xr-x	root/root	usr/lib/libgdkmm-2.4.la
-lrwxrwxrwx	root/root	usr/lib/libgdkmm-2.4.so -> libgdkmm-2.4.so.1.0.7
-lrwxrwxrwx	root/root	usr/lib/libgdkmm-2.4.so.1 -> libgdkmm-2.4.so.1.0.7
--rwxr-xr-x	root/root	usr/lib/libgdkmm-2.4.so.1.0.7
+lrwxrwxrwx	root/root	usr/lib/libgdkmm-2.4.so -> libgdkmm-2.4.so.1.0.8
+lrwxrwxrwx	root/root	usr/lib/libgdkmm-2.4.so.1 -> libgdkmm-2.4.so.1.0.8
+-rwxr-xr-x	root/root	usr/lib/libgdkmm-2.4.so.1.0.8
 -rwxr-xr-x	root/root	usr/lib/libgtkmm-2.4.la
-lrwxrwxrwx	root/root	usr/lib/libgtkmm-2.4.so -> libgtkmm-2.4.so.1.0.7
-lrwxrwxrwx	root/root	usr/lib/libgtkmm-2.4.so.1 -> libgtkmm-2.4.so.1.0.7
--rwxr-xr-x	root/root	usr/lib/libgtkmm-2.4.so.1.0.7
+lrwxrwxrwx	root/root	usr/lib/libgtkmm-2.4.so -> libgtkmm-2.4.so.1.0.8
+lrwxrwxrwx	root/root	usr/lib/libgtkmm-2.4.so.1 -> libgtkmm-2.4.so.1.0.8
+-rwxr-xr-x	root/root	usr/lib/libgtkmm-2.4.so.1.0.8
 -rwxr-xr-x	root/root	usr/lib/libpangomm-1.4.la
-lrwxrwxrwx	root/root	usr/lib/libpangomm-1.4.so -> libpangomm-1.4.so.1.0.7
-lrwxrwxrwx	root/root	usr/lib/libpangomm-1.4.so.1 -> libpangomm-1.4.so.1.0.7
--rwxr-xr-x	root/root	usr/lib/libpangomm-1.4.so.1.0.7
+lrwxrwxrwx	root/root	usr/lib/libpangomm-1.4.so -> libpangomm-1.4.so.1.0.8
+lrwxrwxrwx	root/root	usr/lib/libpangomm-1.4.so.1 -> libpangomm-1.4.so.1.0.8
+-rwxr-xr-x	root/root	usr/lib/libpangomm-1.4.so.1.0.8
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/atkmm-1.6.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gdkmm-2.4.pc

@@ -1,11 +1,11 @@
-# Packager: Stefano Esposito <yankeegohome.homelinux.org>
-# Maintainer:
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
 # Description: C++ interface for gtk
 # URL: http://gtkmm.sourceforge.net
 # Depends on: libsigc++ gtk glibmm
 
 name=gtkmm
-version=2.4.7
+version=2.4.8
 release=1
 source=(http://ftp.gnome.org/pub/GNOME/sources/$name/2.4/$name-$version.tar.bz2)
 
