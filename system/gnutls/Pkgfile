@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:58:26 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/15 09:42:57 slash Exp $
 # Description: API to access secure communication protocols
 # URL: http://www.gnu.org/software/gnutls/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,7 +6,7 @@
 # Depends on: libtasn1,opencdk
 
 name=gnutls
-version=1.0.20
+version=1.0.23
 release=1
 source=(ftp://ftp.gnutls.org/pub/gnutls/$name-$version.tar.gz)
 
