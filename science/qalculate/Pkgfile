@@ -1,0 +1,16 @@
+# Description: powerfull scientific desktop (gnome) calculator
+# URL: http://qalculate.sourceforge.net/
+# Depends on: glib linxml2 gtk cln gnuplot wget libglade libgnome scrollkeeper
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=qalculate
+version=0.7.0
+release=1
+source=(http://puzzle.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr --with-gnu-ld
+    make
+    make DESTDIR=$PKG install
+}
