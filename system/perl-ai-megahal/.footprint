@@ -1,0 +1,18 @@
+drwxr-xr-x	ragnarok/users	usr/
+drwxr-xr-x	ragnarok/users	usr/lib/
+drwxr-xr-x	ragnarok/users	usr/lib/perl5/
+drwxr-xr-x	ragnarok/users	usr/lib/perl5/site_perl/
+drwxr-xr-x	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/
+drwxr-xr-x	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/
+drwxr-xr-x	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/AI/
+-r--r--r--	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/AI/MegaHAL.pm
+drwxr-xr-x	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/
+drwxr-xr-x	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/AI/
+drwxr-xr-x	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/AI/MegaHAL/
+-rw-r--r--	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/AI/MegaHAL/.packlist
+-r--r--r--	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/AI/MegaHAL/MegaHAL.bs (EMPTY)
+-r-xr-xr-x	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/AI/MegaHAL/MegaHAL.so
+-r--r--r--	ragnarok/users	usr/lib/perl5/site_perl/5.8.4/linux/auto/AI/MegaHAL/autosplit.ix
+drwxr-xr-x	ragnarok/users	usr/man/
+drwxr-xr-x	ragnarok/users	usr/man/man3/
+-r--r--r--	ragnarok/users	usr/man/man3/AI::MegaHAL.3pm.gz

@@ -1,0 +1,12 @@
+name=perl-ai-megahal
+version=0.04
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/C/CS/CSPENCER/AI-MegaHAL-$version.tar.gz)
+
+build() {
+	cd AI-MegaHAL-$version
+	perl Makefile.PL
+	make PREFIX=/usr
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/lib/perl5/5.8.4
+}
