@@ -75,10 +75,6 @@ drwxr-xr-x	root/root	usr/lib/mono/gac/gtk-sharp/
 drwxr-xr-x	root/root	usr/lib/mono/gac/gtk-sharp/1.0.0.0__35e10195dab3c99f/
 -rwxr-xr-x	root/root	usr/lib/mono/gac/gtk-sharp/1.0.0.0__35e10195dab3c99f/gtk-sharp.dll
 -rw-r--r--	root/root	usr/lib/mono/gac/gtk-sharp/1.0.0.0__35e10195dab3c99f/gtk-sharp.dll.config
-drwxr-xr-x	root/root	usr/lib/mono/gac/gtkhtml-sharp/
-drwxr-xr-x	root/root	usr/lib/mono/gac/gtkhtml-sharp/1.0.0.0__35e10195dab3c99f/
--rwxr-xr-x	root/root	usr/lib/mono/gac/gtkhtml-sharp/1.0.0.0__35e10195dab3c99f/gtkhtml-sharp.dll
--rw-r--r--	root/root	usr/lib/mono/gac/gtkhtml-sharp/1.0.0.0__35e10195dab3c99f/gtkhtml-sharp.dll.config
 drwxr-xr-x	root/root	usr/lib/mono/gac/pango-sharp/
 drwxr-xr-x	root/root	usr/lib/mono/gac/pango-sharp/1.0.0.0__35e10195dab3c99f/
 -rwxr-xr-x	root/root	usr/lib/mono/gac/pango-sharp/1.0.0.0__35e10195dab3c99f/pango-sharp.dll
@@ -103,7 +99,6 @@ drwxr-xr-x	root/root	usr/lib/mono/gtk-sharp/
 -rwxr-xr-x	root/root	usr/lib/mono/gtk-sharp/gnome-sharp.dll
 -rwxr-xr-x	root/root	usr/lib/mono/gtk-sharp/gnomedb-sharp.dll
 -rwxr-xr-x	root/root	usr/lib/mono/gtk-sharp/gtk-sharp.dll
--rwxr-xr-x	root/root	usr/lib/mono/gtk-sharp/gtkhtml-sharp.dll
 -rwxr-xr-x	root/root	usr/lib/mono/gtk-sharp/pango-sharp.dll
 -rwxr-xr-x	root/root	usr/lib/mono/gtk-sharp/rsvg-sharp.dll
 -rwxr-xr-x	root/root	usr/lib/mono/gtk-sharp/vte-sharp.dll
@@ -116,7 +111,6 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gnome-sharp.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gnomedb-sharp.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/gtk-sharp.pc
--rw-r--r--	root/root	usr/lib/pkgconfig/gtkhtml-sharp.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/rsvg-sharp.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/vte-sharp.pc
 drwxr-xr-x	root/root	usr/share/
@@ -132,7 +126,6 @@ drwxr-xr-x	root/root	usr/share/gapi/
 -rw-r--r--	root/root	usr/share/gapi/gnomedb-api.xml
 -rw-r--r--	root/root	usr/share/gapi/gtk-api.xml
 -rw-r--r--	root/root	usr/share/gapi/gtk-symbols.xml
--rw-r--r--	root/root	usr/share/gapi/gtkhtml-api.xml
 -rw-r--r--	root/root	usr/share/gapi/pango-api.xml
 -rw-r--r--	root/root	usr/share/gapi/rsvg-api.xml
 -rw-r--r--	root/root	usr/share/gapi/vte-api.xml

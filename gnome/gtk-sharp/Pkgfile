@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/10/31 11:35:45 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/11 15:13:29 slash Exp $
 # Description: .Net language binding for the gtk+ toolkit
 # URL: http://gtk-sharp.sourceforge.net/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,14 +6,14 @@
 # Depends on: gtkhtml,mono,libglade,libgnomedb,librsvg
 
 name=gtk-sharp
-version=1.0.2
+version=1.0.4
 release=1
 source=(http://go-mono.org/archive/$version/$name-$version.tar.gz \
     assemblies.patch)
 
 build() {
     cd $name-$version
-    patch -p1 <  ../assemblies.patch
+    #patch -p1 <  ../assemblies.patch
     ./configure --prefix=/usr
     make
     make prefix=$PKG/usr install
