@@ -1,0 +1,20 @@
+# Description: SDL Graphic Primitives
+# URL: http://www.ferzkopp.net/~aschiffler/Software/SDL_gfx-2.0/index.html
+# Depends on: libsdl
+# Packager: acrux
+
+name=sdl_gfx
+version=2.0.12
+release=2
+source=(http://www.ferzkopp.net/~aschiffler/Software/SDL_gfx-2.0/SDL_gfx-$version.tar.gz)
+
+build() {
+    cd SDL_gfx-$version
+    
+	export CFLAGS="-O2 -march=i686 -pipe"
+	export CXXFLAGS="-O2 -march=i686 -pipe"
+    
+    ./configure --prefix=/usr --with-gnu-ld --disable-nls
+    make
+    make DESTDIR=$PKG install
+}
