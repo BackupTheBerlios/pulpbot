@@ -1,0 +1,21 @@
+# Description: PlanetPenguin Racer is an OpenGL racing (GPL version of TuxRacer)
+# URL: http://racer.planetpenguin.de/index.php
+# Depends on: x11 libsdl sdl_mixer libglut tcl libpng 
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=ppracer
+version=0.2.1
+release=1
+
+source=( http://download.berlios.de/$name/$name-$version-2.tar.bz2 \
+	 http://download.berlios.de/$name/$name-data-$version.tar.bz2 )
+build () {
+    cd $name-$version
+    ./configure --prefix=/usr 
+    make
+    
+    mkdir -p $PKG/usr/share/ppracer
+    cp -R $SRC/$name-data-$version/* $PKG/usr/share/ppracer
+    
+    make DESTDIR=$PKG install
+}
