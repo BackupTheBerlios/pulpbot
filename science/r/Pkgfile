@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=r
-version=2.0.0
+version=2.0.1
 release=1
 source=(http://cran.r-project.org/src/base/R-2/R-$version.tar.gz)
 
@@ -15,9 +15,13 @@ build()
         ./configure --prefix=/usr --with-gnu-ld \
 	--with-blas --with-lapack --with-tcltk \
 	--with-zlib --with-bzlib --with-pcre
-        make
+        
+	make
         mkdir -p $PKG/usr
         make prefix=$PKG/usr install
         sed -i -e "s|^R_HOME_DIR=.*|R_HOME_DIR=/usr/lib/R|" $PKG/usr/bin/R
+	
+	cd $PKG
+	rm  usr/lib/R/{AUTHORS,COPY*,FAQ,*NEWS,RESOURCES,THANKS}
 }
 
