@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=xephem
-version=3.6.1
+version=3.6.2
 release=1
 
 source=(http://www.clearskyinstitute.com/$name/$name-$version.tar.gz)
