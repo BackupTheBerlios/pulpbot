@@ -1,20 +1,22 @@
 # Description: The Blackdown version of the Java 2 runtime environment
 # URL:         http://www.blackdown.org/java-linux/java2-status/
 # Depends on:
-# Packager: acrux
+# Maintainer: acrux <acrux@crux-it.org>
 
 name=j2re
 version=1.4.2-rc1
-release=1
+release=2
 source=(ftp://ftp.informatik.hu-berlin.de/pub/Java/Linux/JDK-1.4.2/i386/rc1/$name-$version-linux-i586-gcc3.2.bin)
 
 build() {
     mkdir -p $PKG/usr/lib
     cd $PKG/usr/lib
     (sh $SRC/$name-$version-linux-i586-gcc3.2.bin)
-    rm -r $PKG/usr/lib/j2re1.4.2/man/ja*
-    rm -r $PKG/usr/lib/j2re1.4.2/lib/locale
-    rm $PKG/usr/lib/j2re1.4.2/{CHANGES,COPYRIGHT,INSTALL,LICENSE,README}
+
+    rm -r {$PKG/usr/lib/j2re1.4.2/javaws/readme_*,$PKG/usr/lib/j2re1.4.2/javaws/resources/messages_*}
+    rm -r {$PKG/usr/lib/j2re1.4.2/man/ja*,$PKG/usr/lib/j2re1.4.2/lib/font.properties.*,$PKG/usr/lib/j2re1.4.2/lib/locale}
+    rm j2re1.4.2/{CHANGES,COPYRIGHT,INSTALL,LICENSE,README}
+    
     ln -s j2re1.4.2 java
     chown -R root:root $PKG
     chmod 751 $PKG/usr/lib/java
