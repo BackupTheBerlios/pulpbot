@@ -1,0 +1,18 @@
+# $Id: Pkgfile,v 1.1 2004/10/02 23:24:06 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: Takes frame buffer screenshots
+# URL: http://www.sfires.net/fbshot/
+# Depends on:
+
+name=fbshot
+version=0.3
+release=1
+source=(http://www.sfires.net/stuff/fbshot/$name-$version.tar.gz)
+
+build() {
+  cd $name-$version
+  make
+  mkdir -p $PKG/usr/bin 
+  cp fbshot $PKG/usr/bin
+}
