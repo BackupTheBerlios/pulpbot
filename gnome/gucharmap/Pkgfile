@@ -1,4 +1,4 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:56:35 slash Exp $
+# $Id: Pkgfile,v 1.2 2004/11/05 14:32:58 slash Exp $
 # Description: featureful unicode character map
 # URL: http://gucharmap.sourceforge.net/
 # Packager: Robert McMeekin <rrm3@rrm3.org>
@@ -6,14 +6,14 @@
 # Depends on: libgnomeui
 
 name=gucharmap
-version=1.4.1
+version=1.4.2
 release=1
-source=(http://ftp.gnome.org/pub/GNOME/desktop/2.8/2.8.0/sources/$name-$version.tar.bz2 
+source=(http://ftp.gnome.org/pub/GNOME/sources/$name/1.4/$name-$version.tar.bz2 
         $name.patch)
 
 build() {
-    patch -p0 < $name.patch
     cd $name-$version  
+    patch -p1 < ../$name.patch
     export CFLAGS="$CFLAGS -L$PKG/usr/lib"
     ./configure --prefix=/usr \
 	--enable-gnome
