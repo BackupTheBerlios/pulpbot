@@ -1,0 +1,17 @@
+# Description: 3D modeling program designed to let scupt models in real-time 
+# URL: http://sharp3d.sourceforge.net/
+# Depends on: x11 libglut glew fltk gts
+# Maintainer: acrux <acrux@crux-it.org>
+
+name=sharpconstruct
+version=0.05
+release=1
+source=(http://heanet.dl.sourceforge.net/sourceforge/sharp3d/$name-$version.tar.bz2)
+
+build() {
+    cd SharpConstruct-$version
+    ./configure --prefix=/usr --with-gnu-ld --disable-nls
+    make
+    make DESTDIR=$PKG install
+    rm -R $PKG/usr/{doc,share}
+}
