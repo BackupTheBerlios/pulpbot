@@ -1,5 +1,5 @@
-# $Id: Pkgfile,v 1.1 2004/09/27 20:55:53 slash Exp $
-# Maintainer: Stefano Esposito <yankeegohome@email.it> 
+# $Id: Pkgfile,v 1.2 2004/11/17 12:37:11 yankeegohome Exp $
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org> 
 # Description: Message bus system
 # URL: http://www.freedesktop.org/Software/dbus
 # Depends on: pyrex
