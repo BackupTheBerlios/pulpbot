@@ -5,7 +5,7 @@
 # Depends on: gnome-vfsmm gconf
 
 name=gconfmm
-version=2.8.0
+version=2.8.1
 release=1
 source=(ftp://ftp.gnome.org/pub/GNOME/sources/$name/2.8/$name-$version.tar.bz2)
 
