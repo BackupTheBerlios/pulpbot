@@ -1,0 +1,20 @@
+# $Id: Pkgfile,v 1.1 2004/10/24 17:41:07 yankeegohome Exp $
+# Packager: Stefano Esposito <yankeegohome@crux-it.org>
+# Maintainer: Stefano Esposito <yankeegohome@crux-it.org>
+# Description: classes used to create a pseudo-tty 
+# URL: http://search.cpan.org/~rgiersig/IO-Tty-1.02/
+# Depends on: perl
+
+name=perl-io-tty
+version=1.02
+release=1
+
+source=(http://search.cpan.org/CPAN/authors/id/R/RG/RGIERSIG/IO-Tty-$version.tar.gz)
+
+build () {
+	cd IO-Tty-$version
+	perl Makefile.PL prefix=/usr
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/lib/perl5/5.8.4/
+}
