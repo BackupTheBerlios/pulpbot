@@ -1,0 +1,16 @@
+# Description: open source implementation of ARJ archiver 
+# URL: http://arj.sourceforge.net/
+# Depends on:
+# Packager: acrux
+
+name=arj
+version=3.10.21
+release=1
+
+source=(http://ovh.dl.sourceforge.net/sourceforge/$name/$name-$version.tar.gz)
+build () {
+    cd $name-$version/gnu
+    autoconf ; ./configure --prefix=/usr
+    cd ../ ; make
+    make DESTDIR=$PKG install
+}

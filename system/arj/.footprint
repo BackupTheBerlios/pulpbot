@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/arj
+-rwxr-xr-x	root/root	usr/bin/arj-register
+-rwxr-xr-x	root/root	usr/bin/arjdisp
+-rwxr-xr-x	root/root	usr/bin/rearj
+drwxr-xr-x	root/root	usr/lib/
+drwxr-xr-x	root/root	usr/lib/arj/
+-rwxr-xr-x	root/root	usr/lib/arj/arjcrypt.so
+drwxr-xr-x	root/root	usr/man/
+drwxr-xr-x	root/root	usr/man/man1/
+-rw-r--r--	root/root	usr/man/man1/arj-register.1.gz
+-rw-r--r--	root/root	usr/man/man1/arj.1.gz
+-rw-r--r--	root/root	usr/man/man1/arjdisp.1.gz
+-rw-r--r--	root/root	usr/man/man1/rearj.1.gz
