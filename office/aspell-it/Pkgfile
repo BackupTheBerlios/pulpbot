@@ -1,0 +1,15 @@
+# Description: Italian dictionary for aspell
+# URL:         http://aspell.net
+# Depends on:  aspell
+# Packager: acrux
+
+name=aspell-it
+version=0.53-0
+release=1
+source=(ftp://ftp.gnu.org/gnu/aspell/dict/it/$name-$version.tar.bz2)
+build () {
+    cd $name-$version
+    ./configure
+    make
+    make DESTDIR=$PKG install
+}
