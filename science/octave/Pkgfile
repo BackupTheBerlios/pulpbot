@@ -4,7 +4,7 @@
 # Maintainer: acrux <acrux@crux-it.org>
 
 name=octave
-version=2.1.63
+version=2.1.64
 release=1
 
 source=(ftp://ftp.octave.org/pub/$name/bleeding-edge/$name-$version.tar.bz2)
